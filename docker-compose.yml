@@ -1,0 +1,385 @@
+# ============================================================
+#  Smart City Data Platform — Docker Compose Stack
+#  Run: docker compose up -d
+#
+#  Services & ports:
+#    Kafka UI      → http://localhost:8080
+#    Spark UI      → http://localhost:8081
+#    Airflow       → http://localhost:8082   (admin / admin)
+#    Prometheus    → http://localhost:9090
+#    Grafana       → http://localhost:3000   (admin / smartcity123)
+#
+#  Total RAM needed: ~8 GB minimum, 16 GB recommended
+#  Start order: ZooKeeper → Kafka → kafka-init → Spark → Airflow → Monitoring → Simulator
+# ============================================================
+
+
+# ── Shared network ───────────────────────────────────────────
+networks:
+  smartcity_net:
+    driver: bridge
+
+# ── Named volumes ─────────────────────────────────────────────
+volumes:
+  postgres_data:
+  airflow_logs:
+  grafana_data:
+  prometheus_data:
+  zookeeper_data:
+  kafka_data:
+
+# ============================================================
+services:
+
+  # ────────────────────────────────────────────────────────────
+  # 1. ZOOKEEPER
+  # ────────────────────────────────────────────────────────────
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: sc_zookeeper
+    restart: unless-stopped
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_MAX_CLIENT_CNXNS: 60
+    ports:
+      - "2181:2181"
+    volumes:
+      - zookeeper_data:/var/lib/zookeeper/data
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    mem_limit: 256m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 2. KAFKA BROKER
+  # ────────────────────────────────────────────────────────────
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: sc_kafka
+    restart: unless-stopped
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    ports:
+      - "9092:9092"       # external (host machine / simulator)
+      - "9101:9101"       # JMX metrics (Prometheus)
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+      # Two listeners:
+      #   PLAINTEXT     → localhost:9092  (host machine access)
+      #   INTERNAL      → kafka:29092     (Docker internal services)
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,INTERNAL://kafka:29092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,INTERNAL://0.0.0.0:29092
+
+      # Broker settings
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"   # we create topics explicitly
+
+      # Retention — keep costs low on disk
+      KAFKA_LOG_RETENTION_HOURS: 24
+      KAFKA_LOG_RETENTION_BYTES: 1073741824      # 1 GB max per topic
+
+      # JMX for Prometheus scraping
+      KAFKA_JMX_PORT: 9101
+      KAFKA_JMX_HOSTNAME: localhost
+
+      KAFKA_HEAP_OPTS: "-Xmx512M -Xms256M"
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server", "localhost:9092"]
+      interval: 15s
+      timeout: 10s
+      retries: 8
+      start_period: 30s
+    mem_limit: 768m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 3. KAFKA TOPIC INITIALISER (runs once then exits)
+  # ────────────────────────────────────────────────────────────
+  kafka-init:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: sc_kafka_init
+    depends_on:
+      kafka:
+        condition: service_healthy
+    restart: "no"
+    command: >
+      bash -c "
+        echo 'Creating Smart City Kafka topics...'
+
+        kafka-topics --create --if-not-exists \
+          --bootstrap-server kafka:29092 \
+          --partitions 3 --replication-factor 1 \
+          --config retention.ms=86400000 \
+          --topic vehicle-telemetry
+
+        kafka-topics --create --if-not-exists \
+          --bootstrap-server kafka:29092 \
+          --partitions 1 --replication-factor 1 \
+          --config retention.ms=86400000 \
+          --topic weather-data
+
+        kafka-topics --create --if-not-exists \
+          --bootstrap-server kafka:29092 \
+          --partitions 2 --replication-factor 1 \
+          --config retention.ms=86400000 \
+          --topic traffic-events
+
+        kafka-topics --create --if-not-exists \
+          --bootstrap-server kafka:29092 \
+          --partitions 1 --replication-factor 1 \
+          --config retention.ms=172800000 \
+          --topic road-events
+
+        kafka-topics --create --if-not-exists \
+          --bootstrap-server kafka:29092 \
+          --partitions 1 --replication-factor 1 \
+          --config retention.ms=604800000 \
+          --topic alerts
+
+        echo 'Topics created:'
+        kafka-topics --list --bootstrap-server kafka:29092
+      "
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 4. KAFKA UI  →  http://localhost:8080
+  # ────────────────────────────────────────────────────────────
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: sc_kafka_ui
+    restart: unless-stopped
+    depends_on:
+      kafka:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: smartcity
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+      KAFKA_CLUSTERS_0_METRICS_PORT: 9101
+    mem_limit: 256m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 5. SPARK MASTER  →  http://localhost:8081
+  # ────────────────────────────────────────────────────────────
+  spark-master:
+    image: apache/spark:3.5.3
+    container_name: sc_spark_master
+    restart: unless-stopped
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.master.Master"]
+    environment:
+      SPARK_MASTER_WEBUI_PORT: 8081
+      # S3 / AWS credentials passed through
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+    ports:
+      - "7077:7077"    # Spark master port
+      - "8081:8081"    # Spark master UI
+    volumes:
+      - ./spark/jars:/opt/spark/jars/extra   # drop extra JARs here
+      - ./spark_jobs:/opt/spark_jobs          # mount Spark jobs
+    mem_limit: 768m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 6. SPARK WORKER 1
+  # ────────────────────────────────────────────────────────────
+  spark-worker-1:
+    image: apache/spark:3.5.3
+    container_name: sc_spark_worker_1
+    restart: unless-stopped
+    depends_on: [spark-master]
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
+    environment:
+      SPARK_WORKER_MEMORY: 1500M
+      SPARK_WORKER_CORES: 2
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+    volumes:
+      - ./spark/jars:/opt/spark/jars/extra
+      - ./spark_jobs:/opt/spark_jobs
+    mem_limit: 1800m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 7. SPARK WORKER 2
+  # ────────────────────────────────────────────────────────────
+  spark-worker-2:
+    image: apache/spark:3.5.3
+    container_name: sc_spark_worker_2
+    restart: unless-stopped
+    depends_on: [spark-master]
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 1500M
+      SPARK_WORKER_CORES: 2
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+    volumes:
+      - ./spark/jars:/opt/spark/jars/extra
+      - ./spark_jobs:/opt/spark_jobs
+    mem_limit: 1800m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 8. POSTGRESQL  (Airflow metadata DB)
+  # ────────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:15-alpine
+    container_name: sc_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    mem_limit: 256m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 9. AIRFLOW  →  http://localhost:8082   admin/admin
+  # ────────────────────────────────────────────────────────────
+  airflow:
+    image: apache/airflow:2.8.1-python3.11
+    container_name: sc_airflow
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    ports:
+      - "8082:8080"
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+      AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW__CORE__FERNET_KEY}
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
+      AIRFLOW__LOGGING__LOGGING_LEVEL: WARNING
+      # Pass AWS + Snowflake creds to DAGs
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+      SNOWFLAKE_ACCOUNT: ${SNOWFLAKE_ACCOUNT}
+      SNOWFLAKE_USER: ${SNOWFLAKE_USER}
+      SNOWFLAKE_PASSWORD: ${SNOWFLAKE_PASSWORD}
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/plugins:/opt/airflow/plugins
+      - airflow_logs:/opt/airflow/logs
+      - ./spark_jobs:/opt/spark_jobs           # DAGs can trigger spark-submit
+    command: >
+      bash -c "
+        pip install apache-airflow-providers-amazon apache-airflow-providers-snowflake --quiet &&
+        airflow db init &&
+        airflow users create
+          --username admin --password admin
+          --firstname Smart --lastname City
+          --role Admin --email admin@smartcity.local 2>/dev/null || true &&
+        airflow scheduler &
+        airflow webserver --port 8080
+      "
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    mem_limit: 1536m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 10. PROMETHEUS  →  http://localhost:9090
+  # ────────────────────────────────────────────────────────────
+  prometheus:
+    image: prom/prometheus:v2.48.0
+    container_name: sc_prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--storage.tsdb.retention.time=7d"
+      - "--web.console.libraries=/etc/prometheus/console_libraries"
+      - "--web.console.templates=/etc/prometheus/consoles"
+      - "--web.enable-lifecycle"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    mem_limit: 512m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 11. GRAFANA  →  http://localhost:3000   admin/smartcity123
+  # ────────────────────────────────────────────────────────────
+  grafana:
+    image: grafana/grafana:10.2.2
+    container_name: sc_grafana
+    restart: unless-stopped
+    depends_on: [prometheus]
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-smartcity123}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-worldmap-panel,grafana-piechart-panel
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /var/lib/grafana/dashboards/overview.json
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    mem_limit: 256m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 12. VEHICLE SIMULATOR
+  # ────────────────────────────────────────────────────────────
+  simulator:
+    build:
+      context: ./simulator
+      dockerfile: Dockerfile
+    container_name: sc_simulator
+    restart: unless-stopped
+    depends_on:
+      kafka:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092   # internal Docker address
+    volumes:
+      - ./simulator:/app                     # hot-reload: edit code without rebuild
+    mem_limit: 256m
+    networks: [smartcity_net]

@@ -1,3 +1,20 @@
-.env
+# Virtual environment
 venv/
+
+# Generated data files (too large for GitHub)
+data/
+
+# Spark checkpoints
+spark_jobs/checkpoints/
+
+# Python cache
 __pycache__/
+*.pyc
+*.pyo
+
+# Environment variables (secrets!)
+.env
+
+# Logs
+*.log
+airflow_logs/

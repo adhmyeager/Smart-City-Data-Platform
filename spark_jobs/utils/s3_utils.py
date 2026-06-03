@@ -109,13 +109,6 @@ def configure_spark_s3(spark_builder):
         .config("spark.hadoop.fs.s3a.threads.max",           "20")
 
         # Committer — avoids rename issues on S3
-        .config("spark.sql.sources.commitProtocolClass",
-                "org.apache.spark.internal.io.cloud.PathOutputCommitProtocol")
-        .config("spark.sql.parquet.output.committer.class",
-                "org.apache.hadoop.mapreduce.lib.output.BindingPathOutputCommitter")
-        .config("spark.hadoop.mapreduce.outputcommitter.factory.scheme.s3a",
-                "org.apache.hadoop.fs.s3a.commit.S3ACommitterFactory")
-        .config("spark.hadoop.fs.s3a.committer.name", "directory")
     )
 
 

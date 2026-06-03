@@ -73,12 +73,14 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
 
       # Two listeners:
+      #   INTERNAL      → kafka:29092     (Docker internal services) ← listed FIRST
       #   PLAINTEXT     → localhost:9092  (host machine access)
-      #   INTERNAL      → kafka:29092     (Docker internal services)
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,INTERNAL:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,INTERNAL://kafka:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:29092,PLAINTEXT://localhost:9092
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,INTERNAL://0.0.0.0:29092
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:29092,PLAINTEXT://0.0.0.0:9092
+      KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: 1
+      KAFKA_ADVERTISED_HOST_NAME: kafka
 
       # Broker settings
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -117,43 +119,7 @@ services:
       kafka:
         condition: service_healthy
     restart: "no"
-    command: >
-      bash -c "
-        echo 'Creating Smart City Kafka topics...'
-
-        kafka-topics --create --if-not-exists \
-          --bootstrap-server kafka:29092 \
-          --partitions 3 --replication-factor 1 \
-          --config retention.ms=86400000 \
-          --topic vehicle-telemetry
-
-        kafka-topics --create --if-not-exists \
-          --bootstrap-server kafka:29092 \
-          --partitions 1 --replication-factor 1 \
-          --config retention.ms=86400000 \
-          --topic weather-data
-
-        kafka-topics --create --if-not-exists \
-          --bootstrap-server kafka:29092 \
-          --partitions 2 --replication-factor 1 \
-          --config retention.ms=86400000 \
-          --topic traffic-events
-
-        kafka-topics --create --if-not-exists \
-          --bootstrap-server kafka:29092 \
-          --partitions 1 --replication-factor 1 \
-          --config retention.ms=172800000 \
-          --topic road-events
-
-        kafka-topics --create --if-not-exists \
-          --bootstrap-server kafka:29092 \
-          --partitions 1 --replication-factor 1 \
-          --config retention.ms=604800000 \
-          --topic alerts
-
-        echo 'Topics created:'
-        kafka-topics --list --bootstrap-server kafka:29092
-      "
+    command: ["bash", "-c", "sleep 15 && echo 'Creating topics...' && kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --partitions 3 --replication-factor 1 --config retention.ms=86400000 --topic vehicle-telemetry && kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 --config retention.ms=86400000 --topic weather-data && kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --partitions 2 --replication-factor 1 --config retention.ms=86400000 --topic traffic-events && kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 --config retention.ms=172800000 --topic road-events && kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 --config retention.ms=604800000 --topic alerts && echo 'All topics created:' && kafka-topics --list --bootstrap-server kafka:29092"]
     networks: [smartcity_net]
 
   # ────────────────────────────────────────────────────────────
@@ -185,16 +151,17 @@ services:
     command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.master.Master"]
     environment:
       SPARK_MASTER_WEBUI_PORT: 8081
-      # S3 / AWS credentials passed through
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_REGION: ${AWS_REGION:-us-east-1}
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
     ports:
-      - "7077:7077"    # Spark master port
-      - "8081:8081"    # Spark master UI
+      - "7077:7077"    
+      - "8081:8081"    
     volumes:
-      - ./spark/jars:/opt/spark/jars/extra   # drop extra JARs here
-      - ./spark_jobs:/opt/spark_jobs          # mount Spark jobs
+      - ./spark/jars:/opt/spark/jars/extra   
+      - ./spark_jobs:/opt/spark_jobs          
+      - ./spark/conf/metrics.properties:/opt/spark/conf/metrics.properties:ro
     mem_limit: 768m
     networks: [smartcity_net]
 
@@ -208,15 +175,17 @@ services:
     depends_on: [spark-master]
     command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
     environment:
-      SPARK_WORKER_MEMORY: 1500M
+      SPARK_WORKER_MEMORY: 2000M
       SPARK_WORKER_CORES: 2
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_REGION: ${AWS_REGION:-us-east-1}
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
     volumes:
       - ./spark/jars:/opt/spark/jars/extra
       - ./spark_jobs:/opt/spark_jobs
-    mem_limit: 1800m
+      - ./spark/conf/metrics.properties:/opt/spark/conf/metrics.properties:ro
+    mem_limit: 2200m
     networks: [smartcity_net]
 
   # ────────────────────────────────────────────────────────────
@@ -231,15 +200,40 @@ services:
     environment:
       SPARK_MODE: worker
       SPARK_MASTER_URL: spark://spark-master:7077
-      SPARK_WORKER_MEMORY: 1500M
+      SPARK_WORKER_MEMORY: 2000M
       SPARK_WORKER_CORES: 2
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_REGION: ${AWS_REGION:-us-east-1}
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
     volumes:
       - ./spark/jars:/opt/spark/jars/extra
       - ./spark_jobs:/opt/spark_jobs
-    mem_limit: 1800m
+      - ./spark/conf/metrics.properties:/opt/spark/conf/metrics.properties:ro
+    mem_limit: 2200m
+    networks: [smartcity_net]
+
+  # ────────────────────────────────────────────────────────────
+  # 7.5. SPARK WORKER 3
+  # ────────────────────────────────────────────────────────────
+  spark-worker-3:
+    image: apache/spark:3.5.3
+    container_name: sc_spark_worker_3
+    restart: unless-stopped
+    depends_on: [spark-master]
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
+    environment:
+      SPARK_WORKER_MEMORY: 2000M
+      SPARK_WORKER_CORES: 2
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+    volumes:
+      - ./spark/jars:/opt/spark/jars/extra
+      - ./spark_jobs:/opt/spark_jobs
+      - ./spark/conf/metrics.properties:/opt/spark/conf/metrics.properties:ro
+    mem_limit: 2200m
     networks: [smartcity_net]
 
   # ────────────────────────────────────────────────────────────
@@ -298,15 +292,12 @@ services:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/plugins:/opt/airflow/plugins
       - airflow_logs:/opt/airflow/logs
-      - ./spark_jobs:/opt/spark_jobs           # DAGs can trigger spark-submit
+      - ./spark_jobs:/opt/spark_jobs           
     command: >
       bash -c "
         pip install apache-airflow-providers-amazon apache-airflow-providers-snowflake --quiet &&
         airflow db init &&
-        airflow users create
-          --username admin --password admin
-          --firstname Smart --lastname City
-          --role Admin --email admin@smartcity.local 2>/dev/null || true &&
+        airflow users create --username admin --password admin --firstname Smart --lastname City --role Admin --email admin@smartcity.local 2>/dev/null || true &&
         airflow scheduler &
         airflow webserver --port 8080
       "
@@ -376,10 +367,12 @@ services:
     depends_on:
       kafka:
         condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
     env_file: .env
     environment:
-      KAFKA_BOOTSTRAP_SERVERS: kafka:29092   # internal Docker address
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
     volumes:
-      - ./simulator:/app                     # hot-reload: edit code without rebuild
+      - ./simulator:/app
     mem_limit: 256m
     networks: [smartcity_net]

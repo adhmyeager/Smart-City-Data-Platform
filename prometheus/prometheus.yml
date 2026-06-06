@@ -1,59 +1,28 @@
-# Smart City — Prometheus scrape configuration
-# Scrapes metrics from Kafka JMX, Spark, Airflow, and the host node
-
 global:
-  scrape_interval:     15s   # How often to scrape targets
-  evaluation_interval: 15s   # How often to evaluate alerting rules
+  scrape_interval:     15s
+  evaluation_interval: 15s
   scrape_timeout:      10s
 
-# ── Alerting rules (future: load from /etc/prometheus/rules/*.yml) ──
-# alerting:
-#   alertmanagers:
-#     - static_configs:
-#       - targets: ['alertmanager:9093']
-
-# ── Scrape targets ─────────────────────────────────────────────────
 scrape_configs:
-
-  # Prometheus itself
   - job_name: "prometheus"
     static_configs:
       - targets: ["localhost:9090"]
 
-  # Kafka JMX metrics via JMX exporter sidecar
-  # NOTE: Kafka JMX is exposed on port 9101.
-  # For full JMX metrics, you would add a jmx_exporter container.
-  # For now we scrape Kafka UI's built-in metrics endpoint.
-  - job_name: "kafka"
-    static_configs:
-      - targets: ["kafka:9101"]
-    metrics_path: /metrics
-    scrape_interval: 30s
-
-  # Spark master metrics
   - job_name: "spark-master"
     static_configs:
       - targets: ["spark-master:8081"]
     metrics_path: /metrics/prometheus
     scrape_interval: 30s
 
-  # Spark worker metrics
   - job_name: "spark-workers"
     static_configs:
       - targets:
           - "spark-worker-1:8081"
           - "spark-worker-2:8081"
+          - "spark-worker-3:8081"
     metrics_path: /metrics/prometheus
     scrape_interval: 30s
 
-  # Airflow metrics (built-in StatsD → Prometheus bridge)
-  - job_name: "airflow"
-    static_configs:
-      - targets: ["airflow:8080"]
-    metrics_path: /metrics
-    scrape_interval: 30s
-
-  # Grafana internal metrics
   - job_name: "grafana"
     static_configs:
       - targets: ["grafana:3000"]

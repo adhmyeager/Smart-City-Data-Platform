@@ -1,0 +1,352 @@
+version: 2
+
+# ══════════════════════════════════════════════════════════════
+# STAGING MODELS
+# ══════════════════════════════════════════════════════════════
+
+models:
+  - name: stg_vehicle_5min
+    description: >
+      Staging view on RAW.vehicle_5min external table.
+      Type-cast Gold Parquet data with derived speed_band, fuel_band,
+      engine_health, and had_anomaly columns.
+    columns:
+      - name: vehicle_id
+        description: Unique vehicle identifier (CAR-1001 through CAR-1005)
+        data_tests:
+          - not_null
+      - name: vehicle_type
+        description: Vehicle class from simulator VEHICLE_PROFILES
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['sedan', 'suv', 'microbus', 'bus']
+      - name: window_start
+        description: Start of the 5-minute aggregation window (UTC)
+        data_tests:
+          - not_null
+      - name: avg_speed_kmh
+        description: Average speed during window in km/h
+        data_tests:
+          - not_null
+      - name: speed_band
+        description: Categorical speed label derived from avg_speed_kmh
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['stopped', 'slow', 'medium', 'fast', 'overspeed']
+      - name: fuel_band
+        description: Categorical fuel level label
+        data_tests:
+          - accepted_values:
+              values: ['critical', 'low', 'ok', 'full']
+      - name: engine_health
+        description: Engine temperature category
+        data_tests:
+          - accepted_values:
+              values: ['cold', 'normal', 'warm', 'overheating']
+
+  - name: stg_route_hourly
+    description: >
+      Staging view on RAW.route_hourly.
+      Hourly route aggregations with derived congestion_level
+      and pct_slow_or_stopped.
+    columns:
+      - name: route_name
+        description: One of 4 real Cairo OSM routes
+        data_tests:
+          - not_null
+          - accepted_values:
+              values:
+                - 'tahrir_to_new_capital'
+                - 'maadi_to_nasr_city'
+                - 'giza_to_heliopolis'
+                - 'sixth_october_to_maadi'
+      - name: road_type
+        description: Primary road type for this route segment
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['highway', 'arterial', 'urban']
+      - name: congestion_level
+        description: Derived congestion severity based on speed vs road type limits
+        data_tests:
+          - accepted_values:
+              values: ['light', 'moderate', 'heavy']
+
+  - name: stg_fuel_daily
+    description: >
+      Staging view on RAW.fuel_daily.
+      Daily fuel aggregations by vehicle_type with cost and CO2 estimates.
+    columns:
+      - name: vehicle_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['sedan', 'suv', 'microbus', 'bus']
+      - name: efficiency_rating
+        description: Fuel efficiency rating vs industry benchmark
+        data_tests:
+          - accepted_values:
+              values: ['excellent', 'good', 'average', 'poor']
+
+  - name: stg_road_event_summary
+    description: >
+      Staging view on RAW.road_event_summary.
+      15-minute road event counts from telemetry road_event column.
+    columns:
+      - name: road_event
+        description: Type of road event detected
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['ACCIDENT', 'ROADWORK', 'BREAKDOWN', 'CONGESTION_INCIDENT']
+      - name: severity_score
+        description: Numeric severity 1-4 (1=low, 4=critical)
+        data_tests:
+          - not_null
+
+  - name: stg_weather_hourly
+    description: >
+      Staging view on RAW.weather_hourly.
+      Hourly Cairo weather with speed impact and heat analysis.
+    columns:
+      - name: condition
+        description: OpenWeatherMap weather condition label
+        data_tests:
+          - not_null
+      - name: weather_severity
+        description: Severity classification
+        data_tests:
+          - accepted_values:
+              values: ['low', 'moderate', 'high', 'severe']
+      - name: heat_category
+        description: Cairo heat level for A/C load analysis
+        data_tests:
+          - accepted_values:
+              values: ['mild', 'warm', 'hot', 'very_hot', 'extreme_heat']
+
+  - name: stg_traffic_30min
+    description: >
+      Staging view on RAW.traffic_30min.
+      30-minute traffic congestion per GPS grid bucket (~1.1km resolution).
+    columns:
+      - name: congestion_band
+        description: Qualitative congestion level from TomTom/simulation
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['free_flow', 'light', 'moderate', 'heavy', 'gridlock']
+
+  - name: stg_incident_summary
+    description: >
+      Staging view on RAW.incident_summary.
+      Hourly incident summary from dedicated road-events Kafka topic.
+      Richer than road_event_summary — includes GPS and severity scores.
+    columns:
+      - name: event_type
+        description: Type of road incident
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['ACCIDENT', 'ROADWORK', 'BREAKDOWN', 'CONGESTION_INCIDENT']
+      - name: severity_label
+        description: Human-readable severity
+        data_tests:
+          - accepted_values:
+              values: ['critical', 'high', 'medium', 'low', 'unknown']
+
+# ══════════════════════════════════════════════════════════════
+# DIMENSION MODELS
+# ══════════════════════════════════════════════════════════════
+
+  - name: dim_vehicle
+    description: >
+      SCD Type 1 vehicle dimension.
+      One row per vehicle_id (5 vehicles in simulation).
+      Built from DISTINCT values in stg_vehicle_5min.
+      Vehicle specs (tank_size, fuel_base) come from vehicle_simulator.py
+      VEHICLE_PROFILES dictionary — hardcoded to match exactly.
+    columns:
+      - name: vehicle_id
+        description: Primary key — unique vehicle identifier
+        data_tests:
+          - not_null
+          - unique
+      - name: vehicle_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['sedan', 'suv', 'microbus', 'bus']
+      - name: tank_size_l
+        description: Fuel tank capacity in litres (from VEHICLE_PROFILES)
+        data_tests:
+          - not_null
+      - name: fuel_base_l100km
+        description: Manufacturer baseline fuel rate (before traffic/weather effects)
+        data_tests:
+          - not_null
+
+  - name: dim_route
+    description: >
+      Static route dimension — 4 real Cairo routes from cairo_routes.py.
+      GPS coordinates are real OpenStreetMap waypoints.
+      This table never changes during the project — routes are fixed.
+    columns:
+      - name: route_name
+        description: Primary key — unique route identifier
+        data_tests:
+          - not_null
+          - unique
+      - name: distance_km
+        description: Approximate route distance in km
+        data_tests:
+          - not_null
+      - name: city
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['Cairo, Egypt']
+
+  - name: dim_date
+    description: >
+      Date spine dimension covering 2026-06-01 to 2026-12-31.
+      Includes Cairo-specific calendar logic:
+        - Weekend = Friday + Saturday (not Saturday + Sunday)
+        - Egypt seasons and heat categories by month
+      Used for time intelligence in Power BI.
+    columns:
+      - name: date_actual
+        description: Primary key — the calendar date
+        data_tests:
+          - not_null
+          - unique
+      - name: is_weekend_cairo
+        description: TRUE for Friday and Saturday (Egyptian weekend)
+        data_tests:
+          - not_null
+      - name: egypt_season
+        data_tests:
+          - accepted_values:
+              values: ['Winter', 'Spring', 'Summer', 'Autumn']
+
+  - name: dim_weather_condition
+    description: >
+      Static weather condition dimension — 10 conditions from
+      weather_fetcher.py CONDITION_SPEED_FACTOR dictionary.
+      speed_factor values match exactly what the simulator uses
+      to slow vehicles in real-time.
+    columns:
+      - name: condition
+        description: Primary key — weather condition label
+        data_tests:
+          - not_null
+          - unique
+      - name: speed_factor
+        description: Vehicle speed multiplier (1.0=no effect, 0.65=fog)
+        data_tests:
+          - not_null
+
+  - name: dim_road_event_type
+    description: >
+      Static road event type dimension — 4 event types from
+      vehicle_simulator.py ROAD_EVENTS list.
+      severity_score values used consistently across all fact tables.
+    columns:
+      - name: event_type
+        description: Primary key — road event type
+        data_tests:
+          - not_null
+          - unique
+      - name: severity_score
+        description: Numeric severity 1=low to 4=critical
+        data_tests:
+          - not_null
+
+# ══════════════════════════════════════════════════════════════
+# MART MODELS
+# ══════════════════════════════════════════════════════════════
+
+  - name: mart_vehicle_performance
+    description: >
+      Central fact table for vehicle KPI analysis.
+      Power BI Dashboard 1: Vehicle Performance & Tracking.
+      Grain: one row per vehicle per 5-minute window.
+      Joins vehicle_5min staging with dim_vehicle, dim_route,
+      dim_date, and weather for full contextual analysis.
+    columns:
+      - name: vehicle_id
+        description: Foreign key to dim_vehicle
+        data_tests:
+          - not_null
+      - name: route_name
+        description: Foreign key to dim_route
+        data_tests:
+          - not_null
+      - name: partition_date
+        description: Foreign key to dim_date
+        data_tests:
+          - not_null
+      - name: had_anomaly
+        description: TRUE if any anomaly threshold was exceeded in this window
+        data_tests:
+          - not_null
+
+  - name: mart_route_analytics
+    description: >
+      Route congestion and throughput fact table.
+      Power BI Dashboard 2: Route Analytics & Congestion.
+      Grain: one row per route_name + road_type per hour.
+      Includes congestion_cause analysis combining weather and traffic signals.
+    columns:
+      - name: route_name
+        data_tests:
+          - not_null
+      - name: congestion_level
+        data_tests:
+          - accepted_values:
+              values: ['light', 'moderate', 'heavy']
+      - name: congestion_cause
+        description: Root cause attribution for congestion
+        data_tests:
+          - accepted_values:
+              values:
+                - 'weather_and_traffic'
+                - 'traffic_volume'
+                - 'weather_conditions'
+                - 'incidents'
+                - 'normal'
+
+  - name: mart_fuel_environment
+    description: >
+      Fleet fuel efficiency and environmental impact fact table.
+      Power BI Dashboard 3: Fuel & Environment.
+      Grain: one row per vehicle_type per day.
+      Includes fleet-level window functions for share-of-total analysis.
+    columns:
+      - name: vehicle_type
+        data_tests:
+          - not_null
+      - name: efficiency_rating
+        data_tests:
+          - accepted_values:
+              values: ['excellent', 'good', 'average', 'poor']
+
+  - name: mart_incidents_safety
+    description: >
+      Road incident and safety KPI fact table.
+      Power BI Dashboard 4: Incidents & Safety.
+      Grain: one row per event_type + road_type per hour.
+      Includes composite_risk_score combining incident severity,
+      visibility risk, and weather severity.
+    columns:
+      - name: event_type
+        data_tests:
+          - not_null
+      - name: road_type
+        data_tests:
+          - not_null
+      - name: severity_label
+        data_tests:
+          - accepted_values:
+              values: ['critical', 'high', 'medium', 'low', 'unknown']

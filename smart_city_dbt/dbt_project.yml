@@ -1,0 +1,40 @@
+name: 'smart_city_dbt'
+version: '1.0.0'
+config-version: 2
+
+profile: 'smart_city_dbt'
+
+model-paths:    ["models"]
+analysis-paths: ["analyses"]
+test-paths:     ["tests"]
+seed-paths:     ["seeds"]
+macro-paths:    ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path:  "target"
+clean-targets: ["target", "dbt_packages"]
+
+# ── Business constants — change here, rebuilt everywhere ──────
+vars:
+  fuel_price_egp: 11        # Egypt 95-octane petrol price per litre (EGP)
+  co2_kg_per_litre: 2.31    # Egypt 95-octane CO2 factor (kg CO2 per litre)
+
+models:
+  smart_city_dbt:
+    staging:
+      +materialized: view
+      +schema: STAGING
+      +docs:
+        show: true
+
+    dimensions:
+      +materialized: table
+      +schema: STAGING
+      +docs:
+        show: true
+
+    mart:
+      +materialized: table
+      +schema: MART
+      +docs:
+        show: true

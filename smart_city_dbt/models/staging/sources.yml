@@ -1,0 +1,67 @@
+version: 2
+
+sources:
+  - name: raw
+    description: >
+      External tables in Snowflake RAW schema pointing at S3 Gold Parquet files.
+      These are read-only — dbt never writes here.
+      Data flows: Kafka → Spark Bronze → Spark Silver → Spark Gold (S3) → Snowflake External Tables
+    database: SMART_CITY_DB
+    schema: RAW
+    tables:
+
+      - name: vehicle_5min
+        description: >
+          5-minute tumbling window aggregations per vehicle from silver/telemetry.
+          One row = one vehicle × one 5-minute window.
+          Produced by: gold_aggregator.py → agg_vehicle_5min()
+        columns:
+          - name: vehicle_id
+            description: Unique vehicle identifier (CAR-1001 through CAR-1005)
+          - name: vehicle_type
+            description: sedan / suv / microbus
+          - name: avg_speed_kmh
+            description: Average speed in km/h during the 5-minute window
+          - name: anomaly_count
+            description: Number of readings exceeding alert thresholds in this window
+
+      - name: route_hourly
+        description: >
+          1-hour tumbling window aggregations per route + road_type.
+          Produced by: gold_aggregator.py → agg_route_hourly()
+        columns:
+          - name: route_name
+            description: One of 4 Cairo routes (tahrir_to_new_capital etc.)
+          - name: road_type
+            description: highway / arterial / urban
+          - name: count_stopped
+            description: Number of vehicle readings where speed < 5 km/h
+
+      - name: fuel_daily
+        description: >
+          1-day tumbling window fuel aggregations per vehicle_type.
+          CO2 estimate uses Egypt 95-octane factor of 2.31 kg CO2/litre.
+          Produced by: gold_aggregator.py → agg_fuel_daily()
+
+      - name: road_event_summary
+        description: >
+          15-minute window counts of road events extracted from telemetry
+          road_event column. Produced by: gold_aggregator.py → agg_road_event_summary()
+
+      - name: weather_hourly
+        description: >
+          1-hour weather aggregations from silver/weather.
+          speed_factor < 1.0 means weather is slowing vehicles.
+          Produced by: gold_aggregator.py → agg_weather_hourly()
+
+      - name: traffic_30min
+        description: >
+          30-minute traffic congestion per GPS grid bucket (~1.1km grid).
+          gps_lat_bucket and gps_lon_bucket rounded to 2 decimal places.
+          Produced by: gold_aggregator.py → agg_traffic_30min()
+
+      - name: incident_summary
+        description: >
+          1-hour incident aggregations from silver/road_events (dedicated topic).
+          Richer than road_event_summary: has severity_score and GPS coordinates.
+          Produced by: gold_aggregator.py → agg_incident_summary()

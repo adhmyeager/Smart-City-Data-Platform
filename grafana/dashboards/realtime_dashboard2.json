@@ -1,0 +1,487 @@
+{
+  "id": null,
+  "uid": "smartcity-realtime",
+  "title": "Smart City — Real-Time Monitoring",
+  "tags": ["smartcity", "realtime"],
+  "timezone": "browser",
+  "schemaVersion": 38,
+  "version": 1,
+  "refresh": "5s",
+  "time": { "from": "now-30m", "to": "now" },
+  "panels": [
+
+    {
+      "id": 1,
+      "title": "Active Vehicles",
+      "type": "stat",
+      "gridPos": { "h": 4, "w": 4, "x": 0, "y": 0 },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "background",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "red", "value": 0 }
+            ]
+          },
+          "unit": "none",
+          "decimals": 0
+        }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT NOW() AS time, COUNT(DISTINCT vehicle_id) AS value FROM realtime_telemetry WHERE ts >= NOW() - INTERVAL '2 minutes'",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 2,
+      "title": "Total Alerts (Last 30 min)",
+      "type": "stat",
+      "gridPos": { "h": 4, "w": 4, "x": 4, "y": 0 },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "background",
+        "graphMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 5 },
+              { "color": "red", "value": 20 }
+            ]
+          },
+          "unit": "none",
+          "decimals": 0
+        }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT NOW() AS time, COUNT(*) AS value FROM realtime_alerts WHERE ts >= NOW() - INTERVAL '30 minutes'",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 3,
+      "title": "Critical Alerts",
+      "type": "stat",
+      "gridPos": { "h": 4, "w": 4, "x": 8, "y": 0 },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "background",
+        "graphMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "red", "value": 1 }
+            ]
+          },
+          "unit": "none",
+          "decimals": 0
+        }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT NOW() AS time, COUNT(*) AS value FROM realtime_alerts WHERE severity = 'CRITICAL' AND ts >= NOW() - INTERVAL '30 minutes'",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 4,
+      "title": "Fleet Avg Speed (km/h)",
+      "type": "stat",
+      "gridPos": { "h": 4, "w": 4, "x": 12, "y": 0 },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "background",
+        "graphMode": "area"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red", "value": null },
+              { "color": "yellow", "value": 20 },
+              { "color": "green", "value": 40 },
+              { "color": "orange", "value": 100 }
+            ]
+          },
+          "unit": "velocitykmh",
+          "decimals": 1
+        }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT NOW() AS time, ROUND(AVG(speed_kmh)::numeric, 1) AS value FROM realtime_telemetry WHERE ts >= NOW() - INTERVAL '2 minutes'",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 5,
+      "title": "Avg Fuel Level (%)",
+      "type": "stat",
+      "gridPos": { "h": 4, "w": 4, "x": 16, "y": 0 },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "background",
+        "graphMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red", "value": null },
+              { "color": "orange", "value": 10 },
+              { "color": "yellow", "value": 25 },
+              { "color": "green", "value": 50 }
+            ]
+          },
+          "unit": "percent",
+          "decimals": 1
+        }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT NOW() AS time, ROUND(AVG(fuel_level_pct)::numeric, 1) AS value FROM realtime_telemetry WHERE ts >= NOW() - INTERVAL '2 minutes'",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 6,
+      "title": "Avg Engine Temp (°C)",
+      "type": "stat",
+      "gridPos": { "h": 4, "w": 4, "x": 20, "y": 0 },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "background",
+        "graphMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 95 },
+              { "color": "red", "value": 105 }
+            ]
+          },
+          "unit": "celsius",
+          "decimals": 1
+        }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT NOW() AS time, ROUND(AVG(engine_temp_c)::numeric, 1) AS value FROM realtime_telemetry WHERE ts >= NOW() - INTERVAL '2 minutes'",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 7,
+      "title": "Vehicle Speed Over Time",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 14, "x": 0, "y": 4 },
+      "options": {
+        "tooltip": { "mode": "multi", "sort": "none" },
+        "legend": { "displayMode": "list", "placement": "bottom" }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "unit": "velocitykmh",
+          "custom": {
+            "lineWidth": 2,
+            "fillOpacity": 10,
+            "pointSize": 3,
+            "showPoints": "auto"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "red", "value": 120 }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "alert_threshold" },
+            "properties": [
+              { "id": "color", "value": { "fixedColor": "red", "mode": "fixed" } },
+              { "id": "custom.lineWidth", "value": 1 },
+              { "id": "custom.lineStyle", "value": { "dash": [4, 4], "fill": "dash" } }
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT\n  date_trunc('second', ts) AS time,\n  vehicle_id AS metric,\n  ROUND(AVG(speed_kmh)::numeric, 1) AS value\nFROM realtime_telemetry\nWHERE $__timeFilter(ts)\nGROUP BY 1, 2\nORDER BY 1",
+          "format": "time_series",
+          "refId": "A"
+        },
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT date_trunc('second', ts) AS time, 'alert_threshold' AS metric, 120 AS value FROM realtime_telemetry WHERE $__timeFilter(ts) GROUP BY 1 ORDER BY 1",
+          "format": "time_series",
+          "refId": "B"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 8,
+      "title": "Alerts by Severity",
+      "type": "piechart",
+      "gridPos": { "h": 8, "w": 5, "x": 14, "y": 4 },
+      "options": {
+        "pieType": "donut",
+        "tooltipOptions": { "mode": "single" },
+        "legend": { "displayMode": "table", "placement": "bottom", "values": ["value"] }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "unit": "short"
+        },
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "CRITICAL" }, "properties": [{ "id": "color", "value": { "fixedColor": "red", "mode": "fixed" } }] },
+          { "matcher": { "id": "byName", "options": "HIGH" }, "properties": [{ "id": "color", "value": { "fixedColor": "orange", "mode": "fixed" } }] },
+          { "matcher": { "id": "byName", "options": "MEDIUM" }, "properties": [{ "id": "color", "value": { "fixedColor": "yellow", "mode": "fixed" } }] }
+        ]
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT severity AS metric, COUNT(*) AS value FROM realtime_alerts WHERE ts >= NOW() - INTERVAL '30 minutes' GROUP BY severity ORDER BY value DESC",
+          "format": "table",
+          "refId": "A"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 9,
+      "title": "Alert Rate per Minute",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 5, "x": 19, "y": 4 },
+      "options": {
+        "tooltip": { "mode": "single" },
+        "legend": { "displayMode": "list", "placement": "bottom" }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "fixedColor": "red", "mode": "fixed" },
+          "unit": "short",
+          "custom": { "lineWidth": 2, "fillOpacity": 20 }
+        }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT\n  date_trunc('minute', ts) AS time,\n  COUNT(*) AS value\nFROM realtime_alerts\nWHERE $__timeFilter(ts)\nGROUP BY 1\nORDER BY 1",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 10,
+      "title": "Per-Vehicle Engine Temp",
+      "type": "timeseries",
+      "gridPos": { "h": 7, "w": 12, "x": 0, "y": 12 },
+      "options": {
+        "tooltip": { "mode": "multi" },
+        "legend": { "displayMode": "list", "placement": "bottom" }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "unit": "celsius",
+          "custom": { "lineWidth": 2, "fillOpacity": 5 }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "overheat_threshold" },
+            "properties": [
+              { "id": "color", "value": { "fixedColor": "red", "mode": "fixed" } },
+              { "id": "custom.lineStyle", "value": { "dash": [4, 4], "fill": "dash" } },
+              { "id": "custom.lineWidth", "value": 1 }
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT\n  date_trunc('second', ts) AS time,\n  vehicle_id AS metric,\n  ROUND(AVG(engine_temp_c)::numeric, 1) AS value\nFROM realtime_telemetry\nWHERE $__timeFilter(ts)\nGROUP BY 1, 2\nORDER BY 1",
+          "format": "time_series",
+          "refId": "A"
+        },
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT date_trunc('second', ts) AS time, 'overheat_threshold' AS metric, 105 AS value FROM realtime_telemetry WHERE $__timeFilter(ts) GROUP BY 1 ORDER BY 1",
+          "format": "time_series",
+          "refId": "B"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 11,
+      "title": "Fuel Level by Vehicle",
+      "type": "timeseries",
+      "gridPos": { "h": 7, "w": 12, "x": 12, "y": 12 },
+      "options": {
+        "tooltip": { "mode": "multi" },
+        "legend": { "displayMode": "list", "placement": "bottom" }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "custom": { "lineWidth": 2, "fillOpacity": 8 }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "low_fuel_threshold" },
+            "properties": [
+              { "id": "color", "value": { "fixedColor": "orange", "mode": "fixed" } },
+              { "id": "custom.lineStyle", "value": { "dash": [4, 4], "fill": "dash" } },
+              { "id": "custom.lineWidth", "value": 1 }
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT\n  date_trunc('second', ts) AS time,\n  vehicle_id AS metric,\n  ROUND(AVG(fuel_level_pct)::numeric, 1) AS value\nFROM realtime_telemetry\nWHERE $__timeFilter(ts)\nGROUP BY 1, 2\nORDER BY 1",
+          "format": "time_series",
+          "refId": "A"
+        },
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT date_trunc('second', ts) AS time, 'low_fuel_threshold' AS metric, 10 AS value FROM realtime_telemetry WHERE $__timeFilter(ts) GROUP BY 1 ORDER BY 1",
+          "format": "time_series",
+          "refId": "B"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    },
+
+    {
+      "id": 12,
+      "title": "Recent Alerts Log",
+      "type": "table",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 19 },
+      "options": {
+        "showHeader": true,
+        "footer": { "show": false }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": { "align": "auto", "displayMode": "auto" }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "severity" },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  { "type": "value", "options": { "CRITICAL": { "color": "red",    "index": 0 } } },
+                  { "type": "value", "options": { "HIGH":     { "color": "orange", "index": 1 } } },
+                  { "type": "value", "options": { "MEDIUM":   { "color": "yellow", "index": 2 } } }
+                ]
+              }
+            ]
+          },
+          { "matcher": { "id": "byName", "options": "ts" }, "properties": [{ "id": "displayName", "value": "Time" }, { "id": "unit", "value": "dateTimeAsLocal" }] },
+          { "matcher": { "id": "byName", "options": "vehicle_id" }, "properties": [{ "id": "displayName", "value": "Vehicle" }] },
+          { "matcher": { "id": "byName", "options": "alert_type" }, "properties": [{ "id": "displayName", "value": "Alert Type" }] },
+          { "matcher": { "id": "byName", "options": "speed_kmh" }, "properties": [{ "id": "displayName", "value": "Speed" }, { "id": "unit", "value": "velocitykmh" }, { "id": "decimals", "value": 1 }] },
+          { "matcher": { "id": "byName", "options": "engine_temp_c" }, "properties": [{ "id": "displayName", "value": "Engine °C" }, { "id": "unit", "value": "celsius" }, { "id": "decimals", "value": 1 }] },
+          { "matcher": { "id": "byName", "options": "fuel_pct" }, "properties": [{ "id": "displayName", "value": "Fuel %" }, { "id": "unit", "value": "percent" }, { "id": "decimals", "value": 1 }] },
+          { "matcher": { "id": "byName", "options": "route_name" }, "properties": [{ "id": "displayName", "value": "Route" }] }
+        ]
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" },
+          "rawSql": "SELECT\n  ts,\n  vehicle_id,\n  alert_type,\n  severity,\n  speed_kmh,\n  engine_temp_c,\n  fuel_pct,\n  route_name\nFROM realtime_alerts\nWHERE ts >= NOW() - INTERVAL '30 minutes'\nORDER BY ts DESC\nLIMIT 50",
+          "format": "table",
+          "refId": "A"
+        }
+      ],
+      "datasource": { "type": "postgres", "uid": "deaad98e-b879-4cb3-b7b2-343c2d5000fd" }
+    }
+  ],
+  "templating": { "list": [] },
+  "annotations": { "list": [] },
+  "links": []
+}

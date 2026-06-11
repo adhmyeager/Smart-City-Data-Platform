@@ -1,0 +1,3646 @@
+[0m10:37:37.864491 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F0533510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1EF49D990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F0533490>]}
+
+
+============================== 10:37:37.869755 | d265276f-0e28-442e-ab34-9a6a8988c022 ==============================
+[0m10:37:37.869755 [info ] [MainThread]: Running with dbt=1.11.11
+[0m10:37:37.869755 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\Admin\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run', 'use_experimental_parser': 'False', 'log_path': 'D:\\ITI campaign\\ITI content\\final_project\\data_sources\\test\\smart_city_dbt\\logs'}
+[0m10:37:38.741883 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m10:37:38.742882 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m10:37:38.742882 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m10:37:38.971923 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F064D2D0>]}
+[0m10:37:39.042360 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F064F050>]}
+[0m10:37:39.044379 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m10:37:39.467209 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m10:37:39.468110 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m10:37:39.468110 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1B7A410>]}
+[0m10:37:41.019753 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on
+'stg_vehicle_5min' in package 'smart_city_dbt' (models\staging\schema.yml).
+Arguments to generic tests should be nested under the `arguments` property.
+[0m10:37:41.021370 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1947BD0>]}
+[0m10:37:41.548719 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F2169D90>]}
+[0m10:37:41.741407 [debug] [MainThread]: Wrote artifact WritableManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\manifest.json
+[0m10:37:41.745410 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\semantic_manifest.json
+[0m10:37:41.775505 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F217E650>]}
+[0m10:37:41.776897 [info ] [MainThread]: Found 16 models, 64 data tests, 7 sources, 537 macros
+[0m10:37:41.777901 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1EBFA0910>]}
+[0m10:37:41.782547 [info ] [MainThread]: 
+[0m10:37:41.783550 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m10:37:41.784520 [info ] [MainThread]: 
+[0m10:37:41.785515 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m10:37:41.794194 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SMART_CITY_DB'
+[0m10:37:41.993150 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB"
+[0m10:37:41.994150 [debug] [ThreadPool]: On list_SMART_CITY_DB: show terse schemas in database SMART_CITY_DB
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB"} */
+[0m10:37:41.994150 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:37:45.175705 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 3.181 seconds
+[0m10:37:45.180698 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB"
+[0m10:37:45.181699 [debug] [ThreadPool]: On list_SMART_CITY_DB: show terse schemas in database SMART_CITY_DB
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB"} */
+[0m10:37:45.578858 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 0.397 seconds
+[0m10:37:45.587867 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SMART_CITY_DB_STAGING'
+[0m10:37:45.610229 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB_STAGING"
+[0m10:37:45.611215 [debug] [ThreadPool]: On list_SMART_CITY_DB_STAGING: show objects in SMART_CITY_DB.STAGING
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB_STAGING"} */;
+[0m10:37:45.611215 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:37:47.593485 [debug] [ThreadPool]: SQL status: SUCCESS 12 in 1.982 seconds
+[0m10:37:47.597521 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_SMART_CITY_DB_STAGING, now list_SMART_CITY_DB_MART)
+[0m10:37:47.604064 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB_MART"
+[0m10:37:47.604064 [debug] [ThreadPool]: On list_SMART_CITY_DB_MART: show objects in SMART_CITY_DB.MART
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB_MART"} */;
+[0m10:37:48.060936 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.455 seconds
+[0m10:37:48.068038 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F20C4990>]}
+[0m10:37:48.077040 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_date
+[0m10:37:48.078039 [info ] [Thread-2 (]: 1 of 16 START sql table model STAGING.dim_date ................................. [RUN]
+[0m10:37:48.079038 [debug] [Thread-2 (]: Acquiring new snowflake connection 'model.smart_city_dbt.dim_date'
+[0m10:37:48.080039 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_date
+[0m10:37:48.095135 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_date"
+[0m10:37:48.097913 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_date
+[0m10:37:48.168739 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_date"
+[0m10:37:48.178380 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_date"
+[0m10:37:48.179398 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_date: create or replace transient table SMART_CITY_DB.STAGING.dim_date
+    
+    
+    
+    as (/*
+dimensions/dim_date.sql
+
+Type    : Date spine (generated — covers all dates in simulation data)
+Source  : Generated using Snowflake GENERATOR function
+Purpose : Provides rich time context for all fact tables.
+          Critical for Power BI time intelligence functions.
+
+Cairo calendar notes:
+  - Weekend = Friday + Saturday (NOT Saturday + Sunday)
+  - Rush hours = 8:00-10:30 AM and 4:00-7:30 PM on weekdays
+  - Ramadan: traffic patterns change significantly (not modeled here)
+
+Grain   : One row per calendar date
+Range   : 2026-06-01 to 2026-12-31 (covers project duration)
+*/
+
+WITH date_spine AS (
+    SELECT
+        DATEADD(
+            DAY,
+            SEQ4(),
+            '2026-06-01'::DATE
+        ) AS date_actual
+    FROM TABLE(GENERATOR(ROWCOUNT => 214))  -- 214 days: Jun 2026 to Dec 2026
+),
+
+date_attributes AS (
+    SELECT
+        date_actual,
+        DATE_PART('year',    date_actual)::INT  AS year,
+        DATE_PART('quarter', date_actual)::INT  AS quarter,
+        DATE_PART('month',   date_actual)::INT  AS month_number,
+        MONTHNAME(date_actual)                   AS month_name,
+        DATE_PART('week',    date_actual)::INT  AS week_of_year,
+        DATE_PART('day',     date_actual)::INT  AS day_of_month,
+        DAYOFWEEK(date_actual)::INT              AS day_of_week,     -- 0=Sun, 6=Sat
+        DAYNAME(date_actual)                     AS day_name,
+
+        -- Cairo weekend: Friday (day_of_week=6 in Snowflake) + Saturday (day_of_week=0)
+        -- Snowflake: 0=Sunday, 1=Monday, ..., 5=Friday, 6=Saturday
+        CASE
+            WHEN DAYOFWEEK(date_actual) IN (5, 6) THEN TRUE
+            ELSE FALSE
+        END AS is_weekend_cairo,
+
+        -- Cairo rush-hour days (Sun-Thu are workdays)
+        CASE
+            WHEN DAYOFWEEK(date_actual) NOT IN (5, 6) THEN TRUE
+            ELSE FALSE
+        END AS is_workday_cairo,
+
+        -- Month quarter label
+        'Q' || DATE_PART('quarter', date_actual)::VARCHAR AS quarter_label,
+
+        -- Year-Month label for Power BI axis
+        TO_VARCHAR(date_actual, 'YYYY-MM')        AS year_month,
+
+        -- Is this a month start/end?
+        CASE WHEN DATE_PART('day', date_actual) = 1
+             THEN TRUE ELSE FALSE END              AS is_month_start,
+        CASE WHEN date_actual = LAST_DAY(date_actual)
+             THEN TRUE ELSE FALSE END              AS is_month_end,
+
+        -- Season in Egypt
+        CASE DATE_PART('month', date_actual)
+            WHEN 12 THEN 'Winter' WHEN 1 THEN 'Winter' WHEN 2 THEN 'Winter'
+            WHEN 3  THEN 'Spring' WHEN 4 THEN 'Spring' WHEN 5 THEN 'Spring'
+            WHEN 6  THEN 'Summer' WHEN 7 THEN 'Summer' WHEN 8 THEN 'Summer'
+            ELSE 'Autumn'
+        END AS egypt_season,
+
+        -- Expected weather category by month (Cairo averages)
+        CASE DATE_PART('month', date_actual)
+            WHEN 6  THEN 'hot'
+            WHEN 7  THEN 'hot'
+            WHEN 8  THEN 'hot'
+            WHEN 9  THEN 'warm'
+            WHEN 10 THEN 'warm'
+            WHEN 11 THEN 'mild'
+            WHEN 12 THEN 'mild'
+            ELSE 'warm'
+        END AS typical_heat_category
+
+    FROM date_spine
+)
+
+SELECT
+    date_actual,
+    year,
+    quarter,
+    quarter_label,
+    month_number,
+    month_name,
+    year_month,
+    week_of_year,
+    day_of_month,
+    day_of_week,
+    day_name,
+    is_weekend_cairo,
+    is_workday_cairo,
+    is_month_start,
+    is_month_end,
+    egypt_season,
+    typical_heat_category,
+    CURRENT_TIMESTAMP() AS dbt_updated_at
+FROM date_attributes
+ORDER BY date_actual
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_date"} */;
+[0m10:37:48.180890 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m10:37:51.608523 [debug] [Thread-2 (]: SQL status: SUCCESS 214 in 3.427 seconds
+[0m10:37:51.657692 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1EF9910>]}
+[0m10:37:51.658693 [info ] [Thread-2 (]: 1 of 16 OK created sql table model STAGING.dim_date ............................ [[32mSUCCESS 214[0m in 3.58s]
+[0m10:37:51.659663 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_date
+[0m10:37:51.659663 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_road_event_type
+[0m10:37:51.660661 [info ] [Thread-2 (]: 2 of 16 START sql table model STAGING.dim_road_event_type ...................... [RUN]
+[0m10:37:51.661665 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.dim_date, now model.smart_city_dbt.dim_road_event_type)
+[0m10:37:51.661665 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_road_event_type
+[0m10:37:51.664662 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_road_event_type"
+[0m10:37:51.665662 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_road_event_type
+[0m10:37:51.668661 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_road_event_type"
+[0m10:37:51.672021 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_road_event_type"
+[0m10:37:51.672021 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_road_event_type: create or replace transient table SMART_CITY_DB.STAGING.dim_road_event_type
+    
+    
+    
+    as (/*
+dimensions/dim_road_event_type.sql
+
+Type    : Static (finite set defined in vehicle_simulator.py)
+Source  : Hardcoded — matches ROAD_EVENTS list in vehicle_simulator.py
+Purpose : Provides severity scoring and response context for incident analysis.
+
+Grain   : One row per event_type (4 event types + 1 for NONE baseline)
+
+Data source: vehicle_simulator.py
+  ROAD_EVENTS = ["NONE","NONE","NONE","NONE","NONE",
+                 "ACCIDENT","ROADWORK","BREAKDOWN","CONGESTION_INCIDENT"]
+
+Probability from simulator (approximate):
+  NONE:                 ~85% of ticks
+  ACCIDENT:             ~3.75% of events
+  ROADWORK:             ~3.75% of events
+  BREAKDOWN:            ~3.75% of events
+  CONGESTION_INCIDENT:  ~3.75% of events
+*/
+
+SELECT
+    event_type,
+    severity_score,
+    severity_label,
+    requires_emergency_response,
+    typical_duration_minutes,
+    impact_radius_km,
+    description,
+    CURRENT_TIMESTAMP() AS dbt_updated_at
+
+FROM (
+    VALUES
+        (
+            'ACCIDENT', 4, 'critical', TRUE, 60, 2.0,
+            'Vehicle collision — emergency services required, lane closure likely'
+        ),
+        (
+            'CONGESTION_INCIDENT', 3, 'high', FALSE, 30, 1.0,
+            'Severe traffic buildup — secondary to another event or bottleneck'
+        ),
+        (
+            'BREAKDOWN', 2, 'medium', FALSE, 15, 0.5,
+            'Vehicle breakdown — tow truck needed, partial lane blockage'
+        ),
+        (
+            'ROADWORK', 1, 'low', FALSE, 480, 0.3,
+            'Planned road maintenance — reduced lanes, expect delays'
+        )
+) AS t (
+    event_type,
+    severity_score,
+    severity_label,
+    requires_emergency_response,
+    typical_duration_minutes,
+    impact_radius_km,
+    description
+)
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_road_event_type"} */;
+[0m10:37:52.537210 [debug] [Thread-2 (]: SQL status: SUCCESS 4 in 0.864 seconds
+[0m10:37:52.540158 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1FC8DD0>]}
+[0m10:37:52.541125 [info ] [Thread-2 (]: 2 of 16 OK created sql table model STAGING.dim_road_event_type ................. [[32mSUCCESS 4[0m in 0.88s]
+[0m10:37:52.542127 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_road_event_type
+[0m10:37:52.543126 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_route
+[0m10:37:52.543126 [info ] [Thread-2 (]: 3 of 16 START sql table model STAGING.dim_route ................................ [RUN]
+[0m10:37:52.544163 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.dim_road_event_type, now model.smart_city_dbt.dim_route)
+[0m10:37:52.545163 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_route
+[0m10:37:52.548165 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_route"
+[0m10:37:52.549126 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_route
+[0m10:37:52.552125 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_route"
+[0m10:37:52.556160 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_route"
+[0m10:37:52.557125 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_route: create or replace transient table SMART_CITY_DB.STAGING.dim_route
+    
+    
+    
+    as (/*
+dimensions/dim_route.sql
+
+Type    : Static (routes never change — hardcoded from cairo_routes.py)
+Source  : Hardcoded — 4 real Cairo OSM routes
+Purpose : Provides geographic context for each route_name.
+          Power BI uses this for route-level filtering and map context.
+
+Grain   : One row per route_name (4 rows total)
+
+Data source: cairo_routes.py — real OpenStreetMap GPS coordinates
+*/
+
+WITH route_data AS (
+
+    SELECT 'tahrir_to_new_capital'   AS route_name UNION ALL
+    SELECT 'maadi_to_nasr_city'                    UNION ALL
+    SELECT 'giza_to_heliopolis'                    UNION ALL
+    SELECT 'sixth_october_to_maadi'
+
+),
+
+route_details AS (
+
+    SELECT
+        route_name,
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 'Tahrir Square'
+            WHEN 'maadi_to_nasr_city'      THEN 'Maadi Metro Station'
+            WHEN 'giza_to_heliopolis'      THEN 'Giza Square'
+            WHEN 'sixth_october_to_maadi'  THEN '6th October City Center'
+        END AS start_location,
+
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 'New Capital Downtown'
+            WHEN 'maadi_to_nasr_city'      THEN 'Nasr City Center'
+            WHEN 'giza_to_heliopolis'      THEN 'Heliopolis'
+            WHEN 'sixth_october_to_maadi'  THEN 'Maadi'
+        END AS end_location,
+
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 60.0
+            WHEN 'maadi_to_nasr_city'      THEN 22.0
+            WHEN 'giza_to_heliopolis'      THEN 30.0
+            WHEN 'sixth_october_to_maadi'  THEN 38.0
+        END AS distance_km,
+
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 14
+            WHEN 'maadi_to_nasr_city'      THEN 9
+            WHEN 'giza_to_heliopolis'      THEN 8
+            WHEN 'sixth_october_to_maadi'  THEN 9
+        END AS waypoint_count,
+
+        -- Primary road type for this route
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 'highway'
+            WHEN 'maadi_to_nasr_city'      THEN 'highway'
+            WHEN 'giza_to_heliopolis'      THEN 'arterial'
+            WHEN 'sixth_october_to_maadi'  THEN 'highway'
+        END AS primary_road_type,
+
+        -- Start GPS (from cairo_routes.py)
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 30.0444
+            WHEN 'maadi_to_nasr_city'      THEN 29.9602
+            WHEN 'giza_to_heliopolis'      THEN 29.9870
+            WHEN 'sixth_october_to_maadi'  THEN 29.9343
+        END AS start_latitude,
+
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 31.2357
+            WHEN 'maadi_to_nasr_city'      THEN 31.2569
+            WHEN 'giza_to_heliopolis'      THEN 31.2118
+            WHEN 'sixth_october_to_maadi'  THEN 30.9274
+        END AS start_longitude,
+
+        -- End GPS (from cairo_routes.py)
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 30.0150
+            WHEN 'maadi_to_nasr_city'      THEN 30.0626
+            WHEN 'giza_to_heliopolis'      THEN 30.0868
+            WHEN 'sixth_october_to_maadi'  THEN 29.9602
+        END AS end_latitude,
+
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 31.7400
+            WHEN 'maadi_to_nasr_city'      THEN 31.3417
+            WHEN 'giza_to_heliopolis'      THEN 31.3275
+            WHEN 'sixth_october_to_maadi'  THEN 31.2569
+        END AS end_longitude,
+
+        -- Via description
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'
+                THEN 'Ring Road East → Cairo-Suez Desert Road'
+            WHEN 'maadi_to_nasr_city'
+                THEN 'Ring Road → Autostrad'
+            WHEN 'giza_to_heliopolis'
+                THEN '6th October Bridge → Downtown → Ramses → Airport Road'
+            WHEN 'sixth_october_to_maadi'
+                THEN 'Desert Road → Giza → Ring Road'
+        END AS via_description,
+
+        'Cairo, Egypt' AS city
+
+    FROM route_data
+
+)
+
+SELECT
+    route_name,
+    start_location,
+    end_location,
+    distance_km,
+    waypoint_count,
+    primary_road_type,
+    start_latitude,
+    start_longitude,
+    end_latitude,
+    end_longitude,
+    via_description,
+    city,
+    CURRENT_TIMESTAMP() AS dbt_updated_at
+FROM route_details
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_route"} */;
+[0m10:37:53.904004 [debug] [Thread-2 (]: SQL status: SUCCESS 4 in 1.346 seconds
+[0m10:37:53.906004 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1EED219D0>]}
+[0m10:37:53.907005 [info ] [Thread-2 (]: 3 of 16 OK created sql table model STAGING.dim_route ........................... [[32mSUCCESS 4[0m in 1.36s]
+[0m10:37:53.908000 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_route
+[0m10:37:53.909004 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_weather_condition
+[0m10:37:53.909004 [info ] [Thread-2 (]: 4 of 16 START sql table model STAGING.dim_weather_condition .................... [RUN]
+[0m10:37:53.911006 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.dim_route, now model.smart_city_dbt.dim_weather_condition)
+[0m10:37:53.911006 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_weather_condition
+[0m10:37:53.916008 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_weather_condition"
+[0m10:37:53.919000 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_weather_condition
+[0m10:37:53.922997 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_weather_condition"
+[0m10:37:53.926003 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_weather_condition"
+[0m10:37:53.927004 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_weather_condition: create or replace transient table SMART_CITY_DB.STAGING.dim_weather_condition
+    
+    
+    
+    as (/*
+dimensions/dim_weather_condition.sql
+
+Type    : Static (finite set of Cairo weather conditions)
+Source  : Hardcoded — matches weather_fetcher.py CONDITION_SPEED_FACTOR dict
+Purpose : Provides business labels and speed impact for each weather condition.
+
+Grain   : One row per weather condition (8 conditions)
+
+Data source: weather_fetcher.py
+  CONDITION_SPEED_FACTOR = {
+      "Clear": 1.00, "Partly cloudy": 1.00, "Clouds": 0.98,
+      "Haze": 0.95, "Dust": 0.85, "Sand": 0.80,
+      "Rain": 0.80, "Thunderstorm": 0.70, "Fog": 0.65, "Unknown": 0.95
+  }
+*/
+
+SELECT
+    condition,
+    severity,
+    speed_factor,
+    -- How much this condition reduces fleet speed in km/h
+    -- (assuming 80 km/h average free-flow speed on Cairo arterials)
+    ROUND((1.0 - speed_factor) * 80, 1)    AS speed_reduction_kmh,
+    description,
+    affects_visibility,
+    CURRENT_TIMESTAMP()                     AS dbt_updated_at
+
+FROM (
+    VALUES
+        ('Clear',        'low',      1.00, 'Clear sky, no weather impact',             FALSE),
+        ('Partly cloudy','low',      1.00, 'Partly cloudy, negligible impact',         FALSE),
+        ('Clouds',       'moderate', 0.98, 'Overcast, minor speed reduction',          FALSE),
+        ('Haze',         'moderate', 0.95, 'Haze reduces visibility slightly',         TRUE),
+        ('Dust',         'high',     0.85, 'Dust storm, significant speed reduction',  TRUE),
+        ('Sand',         'high',     0.80, 'Sandstorm, dangerous driving conditions',  TRUE),
+        ('Rain',         'high',     0.80, 'Rain, slippery roads, reduced visibility', TRUE),
+        ('Thunderstorm', 'severe',   0.70, 'Thunderstorm, hazardous conditions',       TRUE),
+        ('Fog',          'severe',   0.65, 'Fog, very low visibility, slow speeds',    TRUE),
+        ('Unknown',      'moderate', 0.95, 'Unknown condition, cautious estimate',     FALSE)
+) AS t (condition, severity, speed_factor, description, affects_visibility)
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_weather_condition"} */;
+[0m10:37:54.598496 [debug] [Thread-2 (]: SQL status: SUCCESS 10 in 0.671 seconds
+[0m10:37:54.601494 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1FD4090>]}
+[0m10:37:54.602495 [info ] [Thread-2 (]: 4 of 16 OK created sql table model STAGING.dim_weather_condition ............... [[32mSUCCESS 10[0m in 0.69s]
+[0m10:37:54.604523 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_weather_condition
+[0m10:37:54.604523 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_fuel_daily
+[0m10:37:54.606540 [info ] [Thread-2 (]: 5 of 16 START sql view model STAGING.stg_fuel_daily ............................ [RUN]
+[0m10:37:54.607538 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.dim_weather_condition, now model.smart_city_dbt.stg_fuel_daily)
+[0m10:37:54.607538 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_fuel_daily
+[0m10:37:54.613540 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_fuel_daily"
+[0m10:37:54.615537 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_fuel_daily
+[0m10:37:54.640778 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_fuel_daily"
+[0m10:37:54.643882 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_fuel_daily"
+[0m10:37:54.643882 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_fuel_daily: create or replace   view SMART_CITY_DB.STAGING.stg_fuel_daily
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_fuel_daily.sql
+
+Purpose : Type-cast fuel_daily Gold data, add cost estimates.
+Source  : RAW.fuel_daily
+Note    : Egypt average petrol price ~11 EGP/litre (2026)
+          CO2 factor: 2.31 kg per litre (Egypt 95-octane)
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                             AS window_start,
+    window_end::TIMESTAMP_NTZ                               AS window_end,
+    vehicle_type::VARCHAR                                   AS vehicle_type,
+
+    ROUND(total_fuel_consumed_l::DOUBLE, 3)                 AS total_fuel_consumed_l,
+    ROUND(avg_fuel_rate_l100km::DOUBLE, 2)                  AS avg_fuel_rate_l100km,
+    ROUND(avg_fuel_level_pct::DOUBLE, 2)                    AS avg_fuel_level_pct,
+    unique_vehicles::BIGINT                                 AS unique_vehicles,
+    total_events::BIGINT                                    AS total_events,
+    ROUND(estimated_co2_kg::DOUBLE, 2)                      AS estimated_co2_kg,
+
+    partition_date::DATE                                    AS partition_date,
+
+    -- Business derived metrics
+    -- Egypt petrol price estimate
+    ROUND(total_fuel_consumed_l::DOUBLE * 11.0, 2)          AS estimated_cost_egp,
+
+    -- CO2 per vehicle in this day
+    ROUND(
+        estimated_co2_kg::DOUBLE
+        / NULLIF(unique_vehicles::DOUBLE, 0), 2
+    )                                                       AS co2_per_vehicle_kg,
+
+    -- Cost per vehicle
+    ROUND(
+        (total_fuel_consumed_l::DOUBLE * 11.0)
+        / NULLIF(unique_vehicles::DOUBLE, 0), 2
+    )                                                       AS cost_per_vehicle_egp,
+
+    -- Efficiency rating based on industry benchmarks for Cairo conditions
+    CASE
+        WHEN avg_fuel_rate_l100km::DOUBLE < 8  THEN 'excellent'
+        WHEN avg_fuel_rate_l100km::DOUBLE < 12 THEN 'good'
+        WHEN avg_fuel_rate_l100km::DOUBLE < 16 THEN 'average'
+        ELSE 'poor'
+    END                                                     AS efficiency_rating
+
+FROM SMART_CITY_DB.RAW.fuel_daily
+WHERE window_start IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_fuel_daily"} */;
+[0m10:37:55.158124 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.513 seconds
+[0m10:37:55.160094 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1EF4B8150>]}
+[0m10:37:55.161093 [info ] [Thread-2 (]: 5 of 16 OK created sql view model STAGING.stg_fuel_daily ....................... [[32mSUCCESS 1[0m in 0.55s]
+[0m10:37:55.163120 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_fuel_daily
+[0m10:37:55.164720 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_incident_summary
+[0m10:37:55.165763 [info ] [Thread-2 (]: 6 of 16 START sql view model STAGING.stg_incident_summary ...................... [RUN]
+[0m10:37:55.167738 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_fuel_daily, now model.smart_city_dbt.stg_incident_summary)
+[0m10:37:55.167738 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_incident_summary
+[0m10:37:55.172329 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_incident_summary"
+[0m10:37:55.173298 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_incident_summary
+[0m10:37:55.176295 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_incident_summary"
+[0m10:37:55.179294 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_incident_summary"
+[0m10:37:55.179294 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_incident_summary: create or replace   view SMART_CITY_DB.STAGING.stg_incident_summary
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_incident_summary.sql
+
+Purpose : Type-cast incident_summary from dedicated road-events topic.
+Source  : RAW.incident_summary (from silver/road_events via gold_aggregator)
+Note    : Richer than road_event_summary — has GPS coords + severity_score
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                          AS window_start,
+    window_end::TIMESTAMP_NTZ                            AS window_end,
+    event_type::VARCHAR                                  AS event_type,
+    road_type::VARCHAR                                   AS road_type,
+
+    incident_count::BIGINT                               AS incident_count,
+    vehicles_involved::BIGINT                            AS vehicles_involved,
+    ROUND(avg_severity_score::DOUBLE, 2)                 AS avg_severity_score,
+    max_severity_score::BIGINT                           AS max_severity_score,
+    ROUND(avg_latitude::DOUBLE, 4)                       AS avg_latitude,
+    ROUND(avg_longitude::DOUBLE, 4)                      AS avg_longitude,
+
+    partition_date::DATE                                 AS partition_date,
+
+    CASE event_type::VARCHAR
+        WHEN 'ACCIDENT'            THEN 'critical'
+        WHEN 'CONGESTION_INCIDENT' THEN 'high'
+        WHEN 'BREAKDOWN'           THEN 'medium'
+        WHEN 'ROADWORK'            THEN 'low'
+        ELSE 'unknown'
+    END                                                  AS severity_label
+
+FROM SMART_CITY_DB.RAW.incident_summary
+WHERE window_start IS NOT NULL
+  AND event_type IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_incident_summary"} */;
+[0m10:37:55.670691 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.490 seconds
+[0m10:37:55.674701 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1CFEFD0>]}
+[0m10:37:55.675701 [info ] [Thread-2 (]: 6 of 16 OK created sql view model STAGING.stg_incident_summary ................. [[32mSUCCESS 1[0m in 0.51s]
+[0m10:37:55.677701 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_incident_summary
+[0m10:37:55.681804 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_road_event_summary
+[0m10:37:55.684163 [info ] [Thread-2 (]: 7 of 16 START sql view model STAGING.stg_road_event_summary .................... [RUN]
+[0m10:37:55.686394 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_incident_summary, now model.smart_city_dbt.stg_road_event_summary)
+[0m10:37:55.687508 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_road_event_summary
+[0m10:37:55.692674 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_road_event_summary"
+[0m10:37:55.693674 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_road_event_summary
+[0m10:37:55.702674 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_road_event_summary"
+[0m10:37:55.706677 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_road_event_summary"
+[0m10:37:55.708674 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_road_event_summary: create or replace   view SMART_CITY_DB.STAGING.stg_road_event_summary
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_road_event_summary.sql
+
+Purpose : Type-cast road_event_summary, add severity scores.
+Source  : RAW.road_event_summary (from telemetry road_event column)
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                         AS window_start,
+    window_end::TIMESTAMP_NTZ                           AS window_end,
+    road_event::VARCHAR                                 AS road_event,
+    road_type::VARCHAR                                  AS road_type,
+    route_name::VARCHAR                                 AS route_name,
+
+    event_count::BIGINT                                 AS event_count,
+    vehicles_involved::BIGINT                           AS vehicles_involved,
+    ROUND(avg_speed_at_event_kmh::DOUBLE, 2)            AS avg_speed_at_event_kmh,
+
+    partition_date::DATE                                AS partition_date,
+
+    -- Severity score (matches dim_road_event_type)
+    CASE road_event::VARCHAR
+        WHEN 'ACCIDENT'            THEN 4
+        WHEN 'CONGESTION_INCIDENT' THEN 3
+        WHEN 'BREAKDOWN'           THEN 2
+        WHEN 'ROADWORK'            THEN 1
+        ELSE 0
+    END                                                 AS severity_score,
+
+    CASE road_event::VARCHAR
+        WHEN 'ACCIDENT'            THEN 'critical'
+        WHEN 'CONGESTION_INCIDENT' THEN 'high'
+        WHEN 'BREAKDOWN'           THEN 'medium'
+        WHEN 'ROADWORK'            THEN 'low'
+        ELSE 'unknown'
+    END                                                 AS severity_label
+
+FROM SMART_CITY_DB.RAW.road_event_summary
+WHERE window_start IS NOT NULL
+  AND road_event IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_road_event_summary"} */;
+[0m10:37:56.227083 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.518 seconds
+[0m10:37:56.230096 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1E8F310>]}
+[0m10:37:56.230096 [info ] [Thread-2 (]: 7 of 16 OK created sql view model STAGING.stg_road_event_summary ............... [[32mSUCCESS 1[0m in 0.54s]
+[0m10:37:56.232095 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_road_event_summary
+[0m10:37:56.232095 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_route_hourly
+[0m10:37:56.233097 [info ] [Thread-2 (]: 8 of 16 START sql view model STAGING.stg_route_hourly .......................... [RUN]
+[0m10:37:56.234100 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_road_event_summary, now model.smart_city_dbt.stg_route_hourly)
+[0m10:37:56.234100 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_route_hourly
+[0m10:37:56.237829 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_route_hourly"
+[0m10:37:56.238828 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_route_hourly
+[0m10:37:56.242828 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_route_hourly"
+[0m10:37:56.246384 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_route_hourly"
+[0m10:37:56.246384 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_route_hourly: create or replace   view SMART_CITY_DB.STAGING.stg_route_hourly
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_route_hourly.sql  (v2)
+
+Changes v2:
+  - Added gps_lat_bucket, gps_lon_bucket (written by historical generator
+    and by gold_aggregator.py into route_hourly Parquet)
+  - Added avg_congestion_ratio, avg_speed_deficit_kmh, avg_pct_of_free_flow,
+    dominant_congestion_band, road_closure_count
+    (mart_route_analytics uses these via COALESCE with traffic_30min)
+  - All new columns use TRY_CAST so real streaming data (which may not
+    have these columns) does not fail — returns NULL instead
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                       AS window_start,
+    window_end::TIMESTAMP_NTZ                         AS window_end,
+    route_name::VARCHAR                               AS route_name,
+    road_type::VARCHAR                                AS road_type,
+
+    ROUND(avg_speed_kmh::DOUBLE, 2)                   AS avg_speed_kmh,
+    ROUND(max_speed_kmh::DOUBLE, 2)                   AS max_speed_kmh,
+    ROUND(avg_traffic_density::DOUBLE, 1)             AS avg_traffic_density,
+    ROUND(avg_fuel_rate_l100km::DOUBLE, 2)            AS avg_fuel_rate_l100km,
+
+    anomaly_count::BIGINT                             AS anomaly_count,
+    road_event_count::BIGINT                          AS road_event_count,
+    unique_vehicles::BIGINT                           AS unique_vehicles,
+    total_events::BIGINT                              AS total_events,
+    count_stopped::BIGINT                             AS count_stopped,
+    count_slow::BIGINT                                AS count_slow,
+    count_medium::BIGINT                              AS count_medium,
+    count_fast::BIGINT                                AS count_fast,
+    count_overspeed::BIGINT                           AS count_overspeed,
+
+    partition_date::DATE                              AS partition_date,
+
+    -- ── New columns written by historical generator and gold_aggregator v2 ─
+    -- Use TRY_CAST so old real-streaming Parquet files return NULL safely
+    TRY_CAST(value:gps_lat_bucket::DOUBLE AS DOUBLE)        AS gps_lat_bucket,
+    TRY_CAST(value:gps_lon_bucket::DOUBLE AS DOUBLE)        AS gps_lon_bucket,
+    TRY_CAST(value:avg_congestion_ratio::DOUBLE AS DOUBLE)  AS avg_congestion_ratio,
+    TRY_CAST(value:avg_speed_deficit_kmh::DOUBLE AS DOUBLE) AS avg_speed_deficit_kmh,
+    TRY_CAST(value:avg_pct_of_free_flow::DOUBLE AS DOUBLE)  AS avg_pct_of_free_flow,
+    TRY_CAST(value:dominant_congestion_band::VARCHAR AS VARCHAR) AS dominant_congestion_band,
+    TRY_CAST(value:road_closure_count::BIGINT AS BIGINT)    AS road_closure_count,
+
+    -- ── Derived ───────────────────────────────────────────────────────────
+    CASE
+        WHEN road_type = 'highway'
+             AND avg_speed_kmh::DOUBLE < 60  THEN 'heavy'
+        WHEN road_type = 'highway'
+             AND avg_speed_kmh::DOUBLE < 90  THEN 'moderate'
+        WHEN road_type = 'arterial'
+             AND avg_speed_kmh::DOUBLE < 30  THEN 'heavy'
+        WHEN road_type = 'arterial'
+             AND avg_speed_kmh::DOUBLE < 50  THEN 'moderate'
+        WHEN road_type = 'urban'
+             AND avg_speed_kmh::DOUBLE < 15  THEN 'heavy'
+        WHEN road_type = 'urban'
+             AND avg_speed_kmh::DOUBLE < 30  THEN 'moderate'
+        ELSE 'light'
+    END                                               AS congestion_level,
+
+    ROUND(
+        (count_stopped::DOUBLE + count_slow::DOUBLE)
+        / NULLIF(total_events::DOUBLE, 0) * 100, 1
+    )                                                 AS pct_slow_or_stopped
+
+FROM SMART_CITY_DB.RAW.route_hourly
+WHERE window_start IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_route_hourly"} */;
+[0m10:37:56.729846 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.482 seconds
+[0m10:37:56.733825 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F20B5210>]}
+[0m10:37:56.735798 [info ] [Thread-2 (]: 8 of 16 OK created sql view model STAGING.stg_route_hourly ..................... [[32mSUCCESS 1[0m in 0.50s]
+[0m10:37:56.737845 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_route_hourly
+[0m10:37:56.738797 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_traffic_30min
+[0m10:37:56.739834 [info ] [Thread-2 (]: 9 of 16 START sql view model STAGING.stg_traffic_30min ......................... [RUN]
+[0m10:37:56.741790 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_route_hourly, now model.smart_city_dbt.stg_traffic_30min)
+[0m10:37:56.742798 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_traffic_30min
+[0m10:37:56.749821 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_traffic_30min"
+[0m10:37:56.750787 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_traffic_30min
+[0m10:37:56.755818 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_traffic_30min"
+[0m10:37:56.759360 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_traffic_30min"
+[0m10:37:56.759360 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_traffic_30min: create or replace   view SMART_CITY_DB.STAGING.stg_traffic_30min
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_traffic_30min.sql
+
+Purpose : Type-cast traffic_30min, derive pct_of_free_flow.
+Source  : RAW.traffic_30min (from silver/traffic via gold_aggregator)
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                              AS window_start,
+    window_end::TIMESTAMP_NTZ                                AS window_end,
+    ROUND(gps_lat_bucket::DOUBLE, 2)                         AS gps_lat_bucket,
+    ROUND(gps_lon_bucket::DOUBLE, 2)                         AS gps_lon_bucket,
+    congestion_band::VARCHAR                                 AS congestion_band,
+
+    ROUND(avg_congestion_ratio::DOUBLE, 3)                   AS avg_congestion_ratio,
+    ROUND(max_congestion_ratio::DOUBLE, 3)                   AS max_congestion_ratio,
+    ROUND(avg_current_speed_kmh::DOUBLE, 1)                  AS avg_current_speed_kmh,
+    ROUND(avg_free_flow_speed_kmh::DOUBLE, 1)                AS avg_free_flow_speed_kmh,
+    ROUND(avg_speed_deficit_kmh::DOUBLE, 1)                  AS avg_speed_deficit_kmh,
+    ROUND(avg_traffic_density::DOUBLE, 1)                    AS avg_traffic_density,
+    road_closure_count::BIGINT                               AS road_closure_count,
+    observation_count::BIGINT                                AS observation_count,
+    partition_date::DATE                                     AS partition_date,
+
+    -- Percentage of free-flow speed achieved (100% = no congestion)
+    ROUND(
+        avg_current_speed_kmh::DOUBLE
+        / NULLIF(avg_free_flow_speed_kmh::DOUBLE, 0) * 100, 1
+    )                                                        AS pct_of_free_flow,
+
+    -- Congestion severity score 0-10 for heatmap
+    ROUND(avg_congestion_ratio::DOUBLE * 10, 1)              AS congestion_score
+
+FROM SMART_CITY_DB.RAW.traffic_30min
+WHERE window_start IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_traffic_30min"} */;
+[0m10:37:57.286997 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.526 seconds
+[0m10:37:57.290526 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1CB7650>]}
+[0m10:37:57.291526 [info ] [Thread-2 (]: 9 of 16 OK created sql view model STAGING.stg_traffic_30min .................... [[32mSUCCESS 1[0m in 0.55s]
+[0m10:37:57.292519 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_traffic_30min
+[0m10:37:57.293557 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_vehicle_5min
+[0m10:37:57.294555 [info ] [Thread-2 (]: 10 of 16 START sql view model STAGING.stg_vehicle_5min ......................... [RUN]
+[0m10:37:57.295557 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_traffic_30min, now model.smart_city_dbt.stg_vehicle_5min)
+[0m10:37:57.296526 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_vehicle_5min
+[0m10:37:57.305526 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_vehicle_5min"
+[0m10:37:57.309261 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_vehicle_5min
+[0m10:37:57.313259 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_vehicle_5min"
+[0m10:37:57.318253 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_vehicle_5min"
+[0m10:37:57.319255 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_vehicle_5min: create or replace   view SMART_CITY_DB.STAGING.stg_vehicle_5min
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_vehicle_5min.sql
+
+Purpose : Type-cast and light enrichment of vehicle_5min Gold data.
+Source  : RAW.vehicle_5min (Snowflake External Table → S3 Gold Parquet)
+Output  : STAGING view — no storage cost
+
+Rules applied here:
+  - Cast all VARIANT columns to proper SQL types
+  - Round numeric values to meaningful precision
+  - Derive speed_band, fuel_band, had_anomaly
+  - No joins, no business aggregations — those belong in mart layer
+*/
+
+SELECT
+    -- Time window
+    window_start::TIMESTAMP_NTZ                       AS window_start,
+    window_end::TIMESTAMP_NTZ                         AS window_end,
+
+    -- Vehicle identifiers
+    vehicle_id::VARCHAR                               AS vehicle_id,
+    vehicle_type::VARCHAR                             AS vehicle_type,
+    route_name::VARCHAR                               AS route_name,
+
+    -- Speed metrics
+    ROUND(avg_speed_kmh::DOUBLE, 2)                   AS avg_speed_kmh,
+    ROUND(max_speed_kmh::DOUBLE, 2)                   AS max_speed_kmh,
+    ROUND(min_speed_kmh::DOUBLE, 2)                   AS min_speed_kmh,
+
+    -- Powertrain
+    ROUND(avg_rpm::DOUBLE, 0)::INT                    AS avg_rpm,
+    ROUND(avg_engine_temp_c::DOUBLE, 1)               AS avg_engine_temp_c,
+    ROUND(max_engine_temp_c::DOUBLE, 1)               AS max_engine_temp_c,
+
+    -- Fuel
+    ROUND(avg_fuel_level_pct::DOUBLE, 2)              AS avg_fuel_level_pct,
+    ROUND(avg_fuel_rate_l100km::DOUBLE, 2)            AS avg_fuel_rate_l100km,
+    ROUND(total_fuel_consumed_l::DOUBLE, 5)           AS total_fuel_consumed_l,
+
+    -- Traffic
+    ROUND(avg_traffic_density::DOUBLE, 1)             AS avg_traffic_density,
+
+    -- GPS
+    ROUND(trip_distance_km::DOUBLE, 3)                AS trip_distance_km,
+    ROUND(avg_latitude::DOUBLE, 6)                    AS avg_latitude,
+    ROUND(avg_longitude::DOUBLE, 6)                   AS avg_longitude,
+
+    -- Counts
+    event_count::BIGINT                               AS event_count,
+    anomaly_count::BIGINT                             AS anomaly_count,
+    clamped_count::BIGINT                             AS clamped_count,
+
+    -- Partition
+    partition_date::DATE                              AS partition_date,
+
+    -- ── Derived categorical columns ───────────────────────────────────────
+    -- speed_band: matches silver_cleaner.py derive_bands() exactly
+    CASE
+        WHEN avg_speed_kmh::DOUBLE < 5   THEN 'stopped'
+        WHEN avg_speed_kmh::DOUBLE < 40  THEN 'slow'
+        WHEN avg_speed_kmh::DOUBLE < 90  THEN 'medium'
+        WHEN avg_speed_kmh::DOUBLE < 120 THEN 'fast'
+        ELSE 'overspeed'
+    END                                               AS speed_band,
+
+    -- fuel_band: matches silver_cleaner.py derive_bands() exactly
+    CASE
+        WHEN avg_fuel_level_pct::DOUBLE < 10 THEN 'critical'
+        WHEN avg_fuel_level_pct::DOUBLE < 25 THEN 'low'
+        WHEN avg_fuel_level_pct::DOUBLE < 75 THEN 'ok'
+        ELSE 'full'
+    END                                               AS fuel_band,
+
+    -- engine health indicator
+    CASE
+        WHEN max_engine_temp_c::DOUBLE > 105 THEN 'overheating'
+        WHEN max_engine_temp_c::DOUBLE > 98  THEN 'warm'
+        WHEN max_engine_temp_c::DOUBLE > 85  THEN 'normal'
+        ELSE 'cold'
+    END                                               AS engine_health,
+
+    -- anomaly flag
+    CASE WHEN anomaly_count::BIGINT > 0
+         THEN TRUE ELSE FALSE
+    END                                               AS had_anomaly
+
+FROM SMART_CITY_DB.RAW.vehicle_5min
+WHERE window_start IS NOT NULL
+  AND vehicle_id    IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_vehicle_5min"} */;
+[0m10:37:57.844823 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.525 seconds
+[0m10:37:57.853826 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1FF6090>]}
+[0m10:37:57.856358 [info ] [Thread-2 (]: 10 of 16 OK created sql view model STAGING.stg_vehicle_5min .................... [[32mSUCCESS 1[0m in 0.56s]
+[0m10:37:57.857369 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_vehicle_5min
+[0m10:37:57.858367 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_weather_hourly
+[0m10:37:57.858367 [info ] [Thread-2 (]: 11 of 16 START sql view model STAGING.stg_weather_hourly ....................... [RUN]
+[0m10:37:57.859413 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_vehicle_5min, now model.smart_city_dbt.stg_weather_hourly)
+[0m10:37:57.860366 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_weather_hourly
+[0m10:37:57.867029 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_weather_hourly"
+[0m10:37:57.868027 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_weather_hourly
+[0m10:37:57.871063 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_weather_hourly"
+[0m10:37:57.877087 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_weather_hourly"
+[0m10:37:57.878085 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_weather_hourly: create or replace   view SMART_CITY_DB.STAGING.stg_weather_hourly
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_weather_hourly.sql
+
+Purpose : Type-cast weather_hourly, add heat_category and speed impact.
+Source  : RAW.weather_hourly (from silver/weather via gold_aggregator)
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                             AS window_start,
+    window_end::TIMESTAMP_NTZ                               AS window_end,
+    condition::VARCHAR                                      AS condition,
+    weather_severity::VARCHAR                               AS weather_severity,
+    location::VARCHAR                                       AS location,
+
+    ROUND(avg_temp_c::DOUBLE, 1)                            AS avg_temp_c,
+    ROUND(max_temp_c::DOUBLE, 1)                            AS max_temp_c,
+    ROUND(avg_feels_like_c::DOUBLE, 1)                      AS avg_feels_like_c,
+    ROUND(avg_humidity_pct::DOUBLE, 1)                      AS avg_humidity_pct,
+    ROUND(avg_wind_kmh::DOUBLE, 1)                          AS avg_wind_kmh,
+    ROUND(avg_visibility_km::DOUBLE, 1)                     AS avg_visibility_km,
+    ROUND(avg_pressure_hpa::DOUBLE, 0)::INT                 AS avg_pressure_hpa,
+    ROUND(avg_speed_factor::DOUBLE, 3)                      AS avg_speed_factor,
+    ROUND(min_speed_factor::DOUBLE, 3)                      AS min_speed_factor,
+    observation_count::BIGINT                               AS observation_count,
+    partition_date::DATE                                    AS partition_date,
+
+    -- How much this weather reduces vehicle speed (percentage)
+    ROUND((1.0 - avg_speed_factor::DOUBLE) * 100, 1)        AS speed_reduction_pct,
+
+    -- Heat category for Cairo context
+    CASE
+        WHEN avg_temp_c::DOUBLE >= 40 THEN 'extreme_heat'
+        WHEN avg_temp_c::DOUBLE >= 35 THEN 'very_hot'
+        WHEN avg_temp_c::DOUBLE >= 28 THEN 'hot'
+        WHEN avg_temp_c::DOUBLE >= 20 THEN 'warm'
+        ELSE 'mild'
+    END                                                     AS heat_category,
+
+    -- A/C load factor: high temps force A/C on → more fuel
+    CASE
+        WHEN avg_temp_c::DOUBLE >= 30 THEN 1.5
+        WHEN avg_temp_c::DOUBLE >= 22 THEN 1.0
+        ELSE 0.0
+    END                                                     AS ac_load_extra_l100km,
+
+    -- Visibility risk for accident analysis
+    CASE
+        WHEN avg_visibility_km::DOUBLE < 2  THEN 'very_high_risk'
+        WHEN avg_visibility_km::DOUBLE < 5  THEN 'high_risk'
+        WHEN avg_visibility_km::DOUBLE < 8  THEN 'moderate_risk'
+        ELSE 'normal_risk'
+    END                                                     AS visibility_risk
+
+FROM SMART_CITY_DB.RAW.weather_hourly
+WHERE window_start IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_weather_hourly"} */;
+[0m10:37:58.355876 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.476 seconds
+[0m10:37:58.365335 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1FB6090>]}
+[0m10:37:58.369850 [info ] [Thread-2 (]: 11 of 16 OK created sql view model STAGING.stg_weather_hourly .................. [[32mSUCCESS 1[0m in 0.50s]
+[0m10:37:58.372865 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_weather_hourly
+[0m10:37:58.375322 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_vehicle
+[0m10:37:58.381452 [info ] [Thread-2 (]: 12 of 16 START sql table model STAGING.dim_vehicle ............................. [RUN]
+[0m10:37:58.383955 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_weather_hourly, now model.smart_city_dbt.dim_vehicle)
+[0m10:37:58.388939 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_vehicle
+[0m10:37:58.402266 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_vehicle"
+[0m10:37:58.405138 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_vehicle
+[0m10:37:58.417362 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_vehicle"
+[0m10:37:58.425190 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_vehicle"
+[0m10:37:58.427366 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_vehicle: create or replace transient table SMART_CITY_DB.STAGING.dim_vehicle
+    
+    
+    
+    as (/*
+dimensions/dim_vehicle.sql
+
+Type    : SCD Type 1 (overwrite — vehicle attributes don't change)
+Source  : stg_vehicle_5min (DISTINCT vehicles seen in telemetry)
+Purpose : Provides business context for each vehicle ID.
+          Power BI uses this to filter/group dashboards by vehicle type.
+
+Grain   : One row per vehicle_id (5 vehicles in this simulation)
+
+Columns explained:
+  vehicle_type     — sedan/suv/microbus, determines fuel profile
+  route_name       — primary route this vehicle operates on
+  tank_size_l      — from vehicle_simulator.py VEHICLE_PROFILES
+  fuel_base_l100km — baseline fuel consumption (before traffic/weather)
+  max_rpm          — redline RPM for this vehicle class
+*/
+
+WITH vehicles_seen AS (
+    SELECT DISTINCT
+        vehicle_id,
+        vehicle_type,
+        route_name
+    FROM SMART_CITY_DB.STAGING.stg_vehicle_5min
+),
+
+vehicle_specs AS (
+    SELECT
+        vehicle_type,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 55.0
+            WHEN 'suv'      THEN 70.0
+            WHEN 'microbus' THEN 70.0
+            WHEN 'bus'      THEN 200.0
+            ELSE 55.0
+        END AS tank_size_l,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 8.0
+            WHEN 'suv'      THEN 11.0
+            WHEN 'microbus' THEN 12.0
+            WHEN 'bus'      THEN 22.0
+            ELSE 8.0
+        END AS fuel_base_l100km,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 6500
+            WHEN 'suv'      THEN 6000
+            WHEN 'microbus' THEN 5000
+            WHEN 'bus'      THEN 2800
+            ELSE 6500
+        END AS max_rpm,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 1300
+            WHEN 'suv'      THEN 1900
+            WHEN 'microbus' THEN 2500
+            WHEN 'bus'      THEN 12000
+            ELSE 1300
+        END AS mass_kg
+    FROM (
+        SELECT DISTINCT vehicle_type
+        FROM SMART_CITY_DB.STAGING.stg_vehicle_5min
+    )
+)
+
+SELECT
+    v.vehicle_id,
+    v.vehicle_type,
+    v.route_name,
+    s.tank_size_l,
+    s.fuel_base_l100km,
+    s.max_rpm,
+    s.mass_kg,
+    -- Human-readable label for Power BI reports
+    v.vehicle_id || ' (' || v.vehicle_type || ')' AS vehicle_label,
+    CURRENT_TIMESTAMP()                            AS dbt_updated_at
+
+FROM vehicles_seen v
+LEFT JOIN vehicle_specs s
+    ON v.vehicle_type = s.vehicle_type
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_vehicle"} */;
+[0m10:38:06.335030 [debug] [Thread-2 (]: SQL status: SUCCESS 8 in 7.904 seconds
+[0m10:38:06.338996 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1C8AD10>]}
+[0m10:38:06.339994 [info ] [Thread-2 (]: 12 of 16 OK created sql table model STAGING.dim_vehicle ........................ [[32mSUCCESS 8[0m in 7.96s]
+[0m10:38:06.340959 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_vehicle
+[0m10:38:06.340959 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.mart_fuel_environment
+[0m10:38:06.341995 [info ] [Thread-2 (]: 13 of 16 START sql table model MART.mart_fuel_environment ...................... [RUN]
+[0m10:38:06.342996 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.dim_vehicle, now model.smart_city_dbt.mart_fuel_environment)
+[0m10:38:06.343996 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.mart_fuel_environment
+[0m10:38:06.347993 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.mart_fuel_environment"
+[0m10:38:06.349784 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.mart_fuel_environment
+[0m10:38:06.352791 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.mart_fuel_environment"
+[0m10:38:06.356791 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.mart_fuel_environment"
+[0m10:38:06.357792 [debug] [Thread-2 (]: On model.smart_city_dbt.mart_fuel_environment: create or replace transient table SMART_CITY_DB.MART.mart_fuel_environment
+    
+    
+    
+    as (/*
+mart/mart_fuel_environment.sql
+
+Purpose : Fleet fuel efficiency and environmental impact analysis.
+          Power BI Dashboard 3: Fuel & Environment
+
+Grain   : One row per vehicle_type per day
+
+Joins:
+  stg_fuel_daily     (fact source — daily fuel aggregations by vehicle type)
+  dim_date           (calendar attributes)
+  stg_weather_hourly (temperature context — A/C load drives fuel consumption)
+
+Key business questions this table answers:
+  1. Which vehicle type consumes the most fuel? (sedan vs suv vs microbus)
+  2. How much does Cairo summer heat increase fuel consumption via A/C?
+  3. What is the fleet's daily CO2 footprint?
+  4. How much does the fleet cost per day in fuel (EGP)?
+  5. Does efficiency improve on weekends (less traffic, less idling)?
+*/
+
+WITH fuel_fact AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_fuel_daily
+),
+
+date_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_date
+),
+
+-- Daily average weather (fuel runs daily, weather is hourly)
+weather_daily AS (
+    SELECT
+        partition_date,
+        AVG(avg_temp_c)        AS avg_daily_temp_c,
+        AVG(ac_load_extra_l100km) AS avg_ac_load,
+        MODE(heat_category)    AS dominant_heat_category,
+        MODE(condition)        AS dominant_condition
+    FROM SMART_CITY_DB.STAGING.stg_weather_hourly
+    GROUP BY partition_date
+)
+
+SELECT
+    -- ── Time ──────────────────────────────────────────────────────────────
+    f.window_start,
+    f.window_end,
+    f.partition_date,
+    d.day_name,
+    d.is_weekend_cairo,
+    d.is_workday_cairo,
+    d.egypt_season,
+
+    -- ── Vehicle type ──────────────────────────────────────────────────────
+    f.vehicle_type,
+    f.unique_vehicles,
+
+    -- ── Fuel consumption ──────────────────────────────────────────────────
+    f.total_fuel_consumed_l,
+    f.avg_fuel_rate_l100km,
+    f.avg_fuel_level_pct,
+    f.efficiency_rating,
+
+    -- Per-vehicle metrics
+    f.co2_per_vehicle_kg,
+    f.cost_per_vehicle_egp,
+
+    -- ── Environmental impact ──────────────────────────────────────────────
+    f.estimated_co2_kg,
+
+    -- EGP cost breakdown
+    f.estimated_cost_egp,
+
+    -- Annualized projections (if current rate continued)
+    ROUND(f.estimated_co2_kg    * 365, 1) AS projected_annual_co2_kg,
+    ROUND(f.estimated_cost_egp  * 365, 0) AS projected_annual_cost_egp,
+
+    -- ── Weather impact on fuel ────────────────────────────────────────────
+    wd.avg_daily_temp_c,
+    wd.dominant_heat_category,
+    wd.dominant_condition        AS dominant_weather,
+    wd.avg_ac_load,
+
+    -- Estimated A/C overhead fuel (how much extra fuel from heat)
+    ROUND(
+        f.total_fuel_consumed_l * (wd.avg_ac_load / NULLIF(f.avg_fuel_rate_l100km, 0)),
+        3
+    )                            AS estimated_ac_fuel_consumed_l,
+
+    -- ── Fleet totals (all vehicle types combined, calculated per row) ──────
+    -- These allow Power BI to show fleet total without extra aggregation
+    SUM(f.total_fuel_consumed_l) OVER (
+        PARTITION BY f.partition_date
+    )                            AS fleet_total_fuel_l,
+
+    SUM(f.estimated_co2_kg) OVER (
+        PARTITION BY f.partition_date
+    )                            AS fleet_total_co2_kg,
+
+    SUM(f.estimated_cost_egp) OVER (
+        PARTITION BY f.partition_date
+    )                            AS fleet_total_cost_egp,
+
+    -- This vehicle type's share of fleet fuel
+    ROUND(
+        f.total_fuel_consumed_l / NULLIF(
+            SUM(f.total_fuel_consumed_l) OVER (PARTITION BY f.partition_date), 0
+        ) * 100, 1
+    )                            AS pct_of_fleet_fuel
+
+FROM fuel_fact f
+LEFT JOIN date_dim d
+    ON f.partition_date = d.date_actual
+LEFT JOIN weather_daily wd
+    ON f.partition_date = wd.partition_date
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.mart_fuel_environment"} */;
+[0m10:38:09.880946 [debug] [Thread-2 (]: SQL status: SUCCESS 93 in 3.522 seconds
+[0m10:38:09.883950 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1F6D490>]}
+[0m10:38:09.884945 [info ] [Thread-2 (]: 13 of 16 OK created sql table model MART.mart_fuel_environment ................. [[32mSUCCESS 93[0m in 3.54s]
+[0m10:38:09.884945 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.mart_fuel_environment
+[0m10:38:09.887091 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.mart_incidents_safety
+[0m10:38:09.888102 [info ] [Thread-2 (]: 14 of 16 START sql table model MART.mart_incidents_safety ...................... [RUN]
+[0m10:38:09.889134 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.mart_fuel_environment, now model.smart_city_dbt.mart_incidents_safety)
+[0m10:38:09.890134 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.mart_incidents_safety
+[0m10:38:09.895134 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.mart_incidents_safety"
+[0m10:38:09.896134 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.mart_incidents_safety
+[0m10:38:09.901135 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.mart_incidents_safety"
+[0m10:38:09.907283 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.mart_incidents_safety"
+[0m10:38:09.908284 [debug] [Thread-2 (]: On model.smart_city_dbt.mart_incidents_safety: create or replace transient table SMART_CITY_DB.MART.mart_incidents_safety
+    
+    
+    
+    as (/*
+mart/mart_incidents_safety.sql
+
+Purpose : Road incident and safety KPI analysis.
+          Power BI Dashboard 4: Incidents & Safety
+
+Grain   : One row per event_type + road_type per hour
+
+Joins:
+  stg_incident_summary   (fact source — from dedicated road-events Kafka topic)
+  stg_road_event_summary (corroborating counts from telemetry road_event column)
+  dim_road_event_type    (severity metadata, response requirements)
+  dim_date               (calendar attributes)
+  stg_weather_hourly     (weather context — does bad weather cause more incidents?)
+
+Key business questions:
+  1. Which road type (highway/arterial/urban) has the most accidents?
+  2. Does fog or dust increase accident frequency?
+  3. What is the mean severity score of incidents per hour?
+  4. How many vehicles are affected by each incident type?
+  5. Where (GPS) do most incidents occur?
+*/
+
+WITH incident_fact AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_incident_summary
+),
+
+event_telemetry AS (
+    -- Corroborating signal from telemetry road_event column
+    SELECT
+        DATE_TRUNC('hour', window_start)  AS event_hour,
+        road_event,
+        road_type,
+        SUM(event_count)                  AS telemetry_event_count,
+        AVG(avg_speed_at_event_kmh)       AS avg_speed_at_event,
+        MAX(severity_score)               AS max_telemetry_severity
+    FROM SMART_CITY_DB.STAGING.stg_road_event_summary
+    GROUP BY 1, 2, 3
+),
+
+event_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_road_event_type
+),
+
+date_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_date
+),
+
+weather AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_weather_hourly
+)
+
+SELECT
+    -- ── Time ──────────────────────────────────────────────────────────────
+    i.window_start,
+    i.window_end,
+    i.partition_date,
+    d.day_name,
+    d.is_weekend_cairo,
+    d.egypt_season,
+
+    -- ── Incident type ─────────────────────────────────────────────────────
+    i.event_type,
+    i.road_type,
+    e.severity_label,
+    e.severity_score,
+    e.requires_emergency_response,
+    e.typical_duration_minutes,
+    e.impact_radius_km,
+    e.description                  AS event_description,
+
+    -- ── Incident metrics ──────────────────────────────────────────────────
+    i.incident_count,
+    i.vehicles_involved,
+    i.avg_severity_score,
+    i.max_severity_score,
+
+    -- GPS location of incidents (for Power BI map visual)
+    i.avg_latitude,
+    i.avg_longitude,
+
+    -- ── Corroborating telemetry signal ────────────────────────────────────
+    et.telemetry_event_count,
+    et.avg_speed_at_event,
+    et.max_telemetry_severity,
+
+    -- Agreement between dedicated topic and telemetry signal
+    CASE
+        WHEN i.incident_count > 0
+         AND et.telemetry_event_count > 0
+        THEN 'confirmed_by_both'
+        WHEN i.incident_count > 0
+        THEN 'road_events_topic_only'
+        ELSE 'telemetry_only'
+    END                            AS signal_agreement,
+
+    -- ── Weather at time of incident ───────────────────────────────────────
+    w.condition                    AS weather_condition,
+    w.weather_severity,
+    w.avg_temp_c                   AS weather_temp_c,
+    w.avg_visibility_km,
+    w.visibility_risk,
+
+    -- ── Risk analysis ─────────────────────────────────────────────────────
+    -- Combined risk score: incident severity × visibility risk × weather severity
+    ROUND(
+        i.avg_severity_score *
+        CASE w.visibility_risk
+            WHEN 'very_high_risk' THEN 2.0
+            WHEN 'high_risk'      THEN 1.5
+            WHEN 'moderate_risk'  THEN 1.2
+            ELSE 1.0
+        END *
+        CASE w.weather_severity
+            WHEN 'severe'   THEN 1.5
+            WHEN 'high'     THEN 1.3
+            WHEN 'moderate' THEN 1.1
+            ELSE 1.0
+        END,
+    2)                             AS composite_risk_score,
+
+    -- Was this a high-risk incident given conditions?
+    CASE
+        WHEN i.avg_severity_score >= 3
+         AND w.visibility_risk IN ('very_high_risk', 'high_risk')
+        THEN TRUE
+        ELSE FALSE
+    END                            AS is_high_risk_incident
+
+FROM incident_fact i
+LEFT JOIN event_telemetry et
+    ON DATE_TRUNC('hour', i.window_start) = et.event_hour
+    AND i.event_type = et.road_event
+    AND i.road_type  = et.road_type
+LEFT JOIN event_dim e
+    ON i.event_type = e.event_type
+LEFT JOIN date_dim d
+    ON i.partition_date = d.date_actual
+LEFT JOIN weather w
+    ON DATE_TRUNC('hour', i.window_start) = DATE_TRUNC('hour', w.window_start)
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.mart_incidents_safety"} */;
+[0m10:38:14.262993 [debug] [Thread-2 (]: SQL status: SUCCESS 667 in 4.354 seconds
+[0m10:38:14.265503 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1DA4450>]}
+[0m10:38:14.266504 [info ] [Thread-2 (]: 14 of 16 OK created sql table model MART.mart_incidents_safety ................. [[32mSUCCESS 667[0m in 4.38s]
+[0m10:38:14.267084 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.mart_incidents_safety
+[0m10:38:14.268090 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.mart_route_analytics
+[0m10:38:14.269092 [info ] [Thread-2 (]: 15 of 16 START sql table model MART.mart_route_analytics ....................... [RUN]
+[0m10:38:14.269683 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.mart_incidents_safety, now model.smart_city_dbt.mart_route_analytics)
+[0m10:38:14.270691 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.mart_route_analytics
+[0m10:38:14.274690 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.mart_route_analytics"
+[0m10:38:14.275689 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.mart_route_analytics
+[0m10:38:14.278726 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.mart_route_analytics"
+[0m10:38:14.285007 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.mart_route_analytics"
+[0m10:38:14.286513 [debug] [Thread-2 (]: On model.smart_city_dbt.mart_route_analytics: create or replace transient table SMART_CITY_DB.MART.mart_route_analytics
+    
+    
+    
+    as (/*
+mart/mart_route_analytics.sql  (v2 — fixed GPS columns)
+
+Purpose : Route-level congestion and throughput analysis.
+          Power BI Dashboard 2: Route Analytics & Congestion
+
+Grain   : One row per route_name + road_type per hour
+
+Changes v2:
+  - Added route_mid_lat / route_mid_lon from dim_route for map visual
+  - avg_congestion_ratio, avg_speed_deficit_kmh now come from
+    route_hourly staging (historical generator writes these columns)
+    and fall back to traffic_30min grid aggregate
+  - Added surrogate key route_analytics_key
+*/
+
+WITH route_fact AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_route_hourly
+),
+
+route_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_route
+),
+
+date_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_date
+),
+
+weather AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_weather_hourly
+),
+
+traffic_grid AS (
+    SELECT
+        DATE_TRUNC('hour', window_start)       AS traffic_hour,
+        AVG(avg_congestion_ratio)              AS grid_avg_congestion_ratio,
+        AVG(avg_speed_deficit_kmh)             AS grid_avg_speed_deficit_kmh,
+        AVG(pct_of_free_flow)                  AS grid_avg_pct_of_free_flow,
+        MAX(road_closure_count)                AS road_closure_count,
+        MODE(congestion_band)                  AS grid_dominant_congestion_band,
+        AVG(gps_lat_bucket)                    AS grid_avg_lat,
+        AVG(gps_lon_bucket)                    AS grid_avg_lon
+    FROM SMART_CITY_DB.STAGING.stg_traffic_30min
+    WHERE gps_lat_bucket BETWEEN 29.9 AND 30.2
+      AND gps_lon_bucket BETWEEN 30.9 AND 31.8
+    GROUP BY 1
+)
+
+SELECT
+    f.window_start,
+    f.window_end,
+    f.partition_date,
+    d.day_name,
+    d.is_weekend_cairo,
+    d.is_workday_cairo,
+    d.egypt_season,
+
+    f.route_name,
+    f.road_type,
+    r.start_location,
+    r.end_location,
+    r.distance_km,
+    r.via_description,
+    r.primary_road_type,
+
+    -- Route GPS midpoint for map visual
+    ROUND((r.start_latitude  + r.end_latitude)  / 2, 4) AS route_mid_lat,
+    ROUND((r.start_longitude + r.end_longitude) / 2, 4) AS route_mid_lon,
+
+    f.avg_speed_kmh,
+    f.max_speed_kmh,
+    f.avg_traffic_density,
+    f.avg_fuel_rate_l100km,
+    f.congestion_level,
+    f.pct_slow_or_stopped,
+
+    f.count_stopped,
+    f.count_slow,
+    f.count_medium,
+    f.count_fast,
+    f.count_overspeed,
+    f.total_events,
+    f.unique_vehicles,
+    f.anomaly_count,
+    f.road_event_count,
+
+    ROUND(f.count_stopped   / NULLIF(f.total_events, 0) * 100, 1) AS pct_stopped,
+    ROUND(f.count_slow      / NULLIF(f.total_events, 0) * 100, 1) AS pct_slow,
+    ROUND(f.count_medium    / NULLIF(f.total_events, 0) * 100, 1) AS pct_medium,
+    ROUND(f.count_fast      / NULLIF(f.total_events, 0) * 100, 1) AS pct_fast,
+    ROUND(f.count_overspeed / NULLIF(f.total_events, 0) * 100, 1) AS pct_overspeed,
+
+    w.condition                             AS weather_condition,
+    w.weather_severity,
+    w.avg_temp_c                            AS weather_temp_c,
+    w.avg_speed_factor                      AS weather_speed_factor,
+    w.speed_reduction_pct                   AS weather_speed_reduction_pct,
+    w.avg_visibility_km,
+    w.visibility_risk,
+
+    -- Congestion from route_hourly (richer for historical data)
+    -- Falls back to GPS grid if column missing
+    COALESCE(
+        TRY_CAST(f.avg_congestion_ratio AS DOUBLE),
+        tg.grid_avg_congestion_ratio
+    )                                       AS avg_congestion_ratio,
+
+    COALESCE(
+        TRY_CAST(f.avg_speed_deficit_kmh AS DOUBLE),
+        tg.grid_avg_speed_deficit_kmh
+    )                                       AS avg_speed_deficit_kmh,
+
+    COALESCE(
+        TRY_CAST(f.avg_pct_of_free_flow AS DOUBLE),
+        tg.grid_avg_pct_of_free_flow
+    )                                       AS avg_pct_of_free_flow,
+
+    COALESCE(
+        f.dominant_congestion_band,
+        tg.grid_dominant_congestion_band
+    )                                       AS dominant_congestion_band,
+
+    COALESCE(f.road_closure_count, tg.road_closure_count, 0)
+                                            AS road_closure_count,
+
+    tg.grid_avg_lat,
+    tg.grid_avg_lon,
+
+    CASE
+        WHEN COALESCE(
+                 TRY_CAST(f.avg_congestion_ratio AS DOUBLE),
+                 tg.grid_avg_congestion_ratio
+             ) > 0.7
+         AND w.avg_speed_factor < 0.9
+        THEN 'weather_and_traffic'
+        WHEN COALESCE(
+                 TRY_CAST(f.avg_congestion_ratio AS DOUBLE),
+                 tg.grid_avg_congestion_ratio
+             ) > 0.7
+        THEN 'traffic_volume'
+        WHEN w.avg_speed_factor < 0.9
+        THEN 'weather_conditions'
+        WHEN f.anomaly_count > 0
+        THEN 'incidents'
+        ELSE 'normal'
+    END                                     AS congestion_cause,
+
+    MD5(
+        COALESCE(f.route_name, '') || '|' ||
+        COALESCE(f.road_type, '')  || '|' ||
+        COALESCE(CAST(f.window_start AS VARCHAR), '')
+    )                                       AS route_analytics_key
+
+FROM route_fact f
+LEFT JOIN route_dim r
+    ON f.route_name = r.route_name
+LEFT JOIN date_dim d
+    ON f.partition_date = d.date_actual
+LEFT JOIN weather w
+    ON DATE_TRUNC('hour', f.window_start) = DATE_TRUNC('hour', w.window_start)
+LEFT JOIN traffic_grid tg
+    ON DATE_TRUNC('hour', f.window_start) = tg.traffic_hour
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.mart_route_analytics"} */;
+[0m10:38:18.745983 [debug] [Thread-2 (]: SQL status: SUCCESS 2898 in 4.459 seconds
+[0m10:38:18.754031 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1F85810>]}
+[0m10:38:18.757028 [info ] [Thread-2 (]: 15 of 16 OK created sql table model MART.mart_route_analytics .................. [[32mSUCCESS 2898[0m in 4.48s]
+[0m10:38:18.759985 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.mart_route_analytics
+[0m10:38:18.760976 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.mart_vehicle_performance
+[0m10:38:18.762971 [info ] [Thread-2 (]: 16 of 16 START sql table model MART.mart_vehicle_performance ................... [RUN]
+[0m10:38:18.765008 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.mart_route_analytics, now model.smart_city_dbt.mart_vehicle_performance)
+[0m10:38:18.766008 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.mart_vehicle_performance
+[0m10:38:18.776008 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.mart_vehicle_performance"
+[0m10:38:18.779009 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.mart_vehicle_performance
+[0m10:38:18.785020 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.mart_vehicle_performance"
+[0m10:38:18.798734 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.mart_vehicle_performance"
+[0m10:38:18.799734 [debug] [Thread-2 (]: On model.smart_city_dbt.mart_vehicle_performance: create or replace transient table SMART_CITY_DB.MART.mart_vehicle_performance
+    
+    
+    
+    as (/*
+mart/mart_vehicle_performance.sql
+
+Purpose : Central fact table for vehicle-level KPIs.
+          Power BI Dashboard 1: Vehicle Performance & Tracking
+
+Grain   : One row per vehicle_id per 5-minute window
+
+Joins:
+  stg_vehicle_5min   (fact source — Gold telemetry aggregations)
+  dim_vehicle        (vehicle attributes: type, tank size, fuel profile)
+  dim_route          (route attributes: distance, start/end location)
+  dim_date           (calendar: is_weekend, is_rush_hour)
+  stg_weather_hourly (weather context at time of window)
+
+Why join weather here:
+  Speed, fuel rate, and engine temp are all affected by weather.
+  A vehicle showing low speed COULD be traffic or COULD be fog.
+  The weather join lets analysts distinguish between these causes.
+
+Materialized as TABLE so Power BI queries are fast.
+Refreshed every time Airflow triggers dbt run (hourly).
+*/
+
+WITH vehicle_fact AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_vehicle_5min
+),
+
+vehicle_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_vehicle
+),
+
+route_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_route
+),
+
+date_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_date
+),
+
+weather AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_weather_hourly
+)
+
+SELECT
+    -- ── Time ──────────────────────────────────────────────────────────────
+    f.window_start,
+    f.window_end,
+    f.partition_date,
+    d.day_name,
+    d.is_weekend_cairo,
+    d.is_workday_cairo,
+    d.egypt_season,
+
+    -- ── Vehicle identity ──────────────────────────────────────────────────
+    f.vehicle_id,
+    f.vehicle_type,
+    v.vehicle_label,
+    v.tank_size_l,
+    v.fuel_base_l100km              AS manufacturer_fuel_rate_l100km,
+    v.mass_kg,
+
+    -- ── Route identity ────────────────────────────────────────────────────
+    f.route_name,
+    r.start_location,
+    r.end_location,
+    r.distance_km                   AS route_total_km,
+    r.via_description,
+
+    -- ── Speed metrics ─────────────────────────────────────────────────────
+    f.avg_speed_kmh,
+    f.max_speed_kmh,
+    f.min_speed_kmh,
+    f.speed_band,
+
+    -- ── Powertrain ────────────────────────────────────────────────────────
+    f.avg_rpm,
+    f.avg_engine_temp_c,
+    f.max_engine_temp_c,
+    f.engine_health,
+
+    -- ── Fuel ──────────────────────────────────────────────────────────────
+    f.avg_fuel_level_pct,
+    f.avg_fuel_rate_l100km,
+    f.total_fuel_consumed_l,
+    f.fuel_band,
+
+    -- Excess fuel rate vs manufacturer baseline
+    ROUND(
+        f.avg_fuel_rate_l100km - v.fuel_base_l100km, 2
+    )                               AS excess_fuel_rate_l100km,
+
+    -- Fuel cost for this 5-min window (Egypt 11 EGP/litre)
+    ROUND(f.total_fuel_consumed_l * 11.0, 3) AS fuel_cost_egp,
+
+    -- ── Traffic ───────────────────────────────────────────────────────────
+    f.avg_traffic_density,
+
+    -- ── GPS ───────────────────────────────────────────────────────────────
+    f.trip_distance_km,
+    f.avg_latitude,
+    f.avg_longitude,
+
+    -- ── Quality flags ─────────────────────────────────────────────────────
+    f.event_count,
+    f.anomaly_count,
+    f.had_anomaly,
+    f.clamped_count,
+
+    -- ── Weather context (joined on matching hour) ─────────────────────────
+    w.condition                     AS weather_condition,
+    w.avg_temp_c                    AS weather_temp_c,
+    w.weather_severity,
+    w.heat_category,
+    w.avg_speed_factor              AS weather_speed_factor,
+    w.speed_reduction_pct           AS weather_speed_reduction_pct,
+    w.ac_load_extra_l100km,
+    w.visibility_risk,
+
+    -- ── Derived cross-dimension metrics ───────────────────────────────────
+    -- Was vehicle significantly below expected speed for road type?
+    CASE
+        WHEN f.avg_speed_kmh < (f.avg_speed_kmh / NULLIF(w.avg_speed_factor, 0)) * 0.7
+        THEN TRUE ELSE FALSE
+    END                             AS was_significantly_slowed,
+
+    -- CO2 estimate for this window (2.31 kg per litre)
+    ROUND(f.total_fuel_consumed_l * 2.31, 5) AS co2_kg
+
+FROM vehicle_fact f
+LEFT JOIN vehicle_dim v
+    ON f.vehicle_id = v.vehicle_id
+LEFT JOIN route_dim r
+    ON f.route_name = r.route_name
+LEFT JOIN date_dim d
+    ON f.partition_date = d.date_actual
+LEFT JOIN weather w
+    ON DATE_TRUNC('hour', f.window_start) = DATE_TRUNC('hour', w.window_start)
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.mart_vehicle_performance"} */;
+[0m10:38:22.347145 [debug] [Thread-2 (]: SQL status: SUCCESS 69280 in 3.547 seconds
+[0m10:38:22.351141 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd265276f-0e28-442e-ab34-9a6a8988c022', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1F1DF2210>]}
+[0m10:38:22.352141 [info ] [Thread-2 (]: 16 of 16 OK created sql table model MART.mart_vehicle_performance .............. [[32mSUCCESS 69280[0m in 3.59s]
+[0m10:38:22.353136 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.mart_vehicle_performance
+[0m10:38:22.355179 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m10:38:22.356140 [debug] [MainThread]: Connection 'list_SMART_CITY_DB' was left open.
+[0m10:38:22.357168 [debug] [MainThread]: On list_SMART_CITY_DB: Close
+[0m10:38:22.702638 [debug] [MainThread]: Connection 'list_SMART_CITY_DB_MART' was left open.
+[0m10:38:22.703629 [debug] [MainThread]: On list_SMART_CITY_DB_MART: Close
+[0m10:38:23.092126 [debug] [MainThread]: Connection 'model.smart_city_dbt.mart_vehicle_performance' was left open.
+[0m10:38:23.094077 [debug] [MainThread]: On model.smart_city_dbt.mart_vehicle_performance: Close
+[0m10:38:23.460308 [info ] [MainThread]: 
+[0m10:38:23.462315 [info ] [MainThread]: Finished running 9 table models, 7 view models in 0 hours 0 minutes and 41.67 seconds (41.67s).
+[0m10:38:23.476381 [debug] [MainThread]: Command end result
+[0m10:38:23.538946 [debug] [MainThread]: Wrote artifact WritableManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\manifest.json
+[0m10:38:23.543963 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\semantic_manifest.json
+[0m10:38:23.550927 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\run_results.json
+[0m10:38:23.551963 [info ] [MainThread]: 
+[0m10:38:23.552929 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m10:38:23.553950 [info ] [MainThread]: 
+[0m10:38:23.554930 [info ] [MainThread]: Done. PASS=16 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=16
+[0m10:38:23.556941 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 22 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m10:38:23.557945 [debug] [MainThread]: Command `dbt run` succeeded at 10:38:23.557945 after 45.79 seconds
+[0m10:38:23.558930 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1E8ADB0D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1E8A52CD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C1E8A51F50>]}
+[0m10:38:23.559930 [debug] [MainThread]: Flushing usage events
+[0m10:38:24.997530 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:42:45.129858 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDBDF3610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDAD70D90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDBDF31D0>]}
+
+
+============================== 10:42:45.134003 | c17445c0-87fa-4807-b99d-817638459615 ==============================
+[0m10:42:45.134003 [info ] [MainThread]: Running with dbt=1.11.11
+[0m10:42:45.135003 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Admin\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt run', 'use_experimental_parser': 'False', 'log_path': 'D:\\ITI campaign\\ITI content\\final_project\\data_sources\\test\\smart_city_dbt\\logs'}
+[0m10:42:45.772985 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m10:42:45.772985 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m10:42:45.773991 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m10:42:46.008272 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CD9E98450>]}
+[0m10:42:46.075429 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CD9DF2110>]}
+[0m10:42:46.076430 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m10:42:46.533192 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m10:42:46.774850 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m10:42:46.775846 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m10:42:46.776401 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m10:42:46.861252 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDD647190>]}
+[0m10:42:47.059128 [debug] [MainThread]: Wrote artifact WritableManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\manifest.json
+[0m10:42:47.063087 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\semantic_manifest.json
+[0m10:42:47.088084 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDD6088D0>]}
+[0m10:42:47.089083 [info ] [MainThread]: Found 16 models, 64 data tests, 7 sources, 537 macros
+[0m10:42:47.090125 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDAD42210>]}
+[0m10:42:47.095129 [info ] [MainThread]: 
+[0m10:42:47.096129 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m10:42:47.097096 [info ] [MainThread]: 
+[0m10:42:47.099101 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m10:42:47.108098 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SMART_CITY_DB'
+[0m10:42:47.261528 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB"
+[0m10:42:47.261528 [debug] [ThreadPool]: On list_SMART_CITY_DB: show terse schemas in database SMART_CITY_DB
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB"} */
+[0m10:42:47.262528 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:42:49.150449 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 1.887 seconds
+[0m10:42:49.156459 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB"
+[0m10:42:49.156966 [debug] [ThreadPool]: On list_SMART_CITY_DB: show terse schemas in database SMART_CITY_DB
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB"} */
+[0m10:42:49.397006 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 0.240 seconds
+[0m10:42:49.402005 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SMART_CITY_DB_STAGING'
+[0m10:42:49.418422 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB_STAGING"
+[0m10:42:49.418422 [debug] [ThreadPool]: On list_SMART_CITY_DB_STAGING: show objects in SMART_CITY_DB.STAGING
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB_STAGING"} */;
+[0m10:42:49.419420 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:42:51.200276 [debug] [ThreadPool]: SQL status: SUCCESS 12 in 1.781 seconds
+[0m10:42:51.202276 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_SMART_CITY_DB_STAGING, now list_SMART_CITY_DB_MART)
+[0m10:42:51.208711 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB_MART"
+[0m10:42:51.209324 [debug] [ThreadPool]: On list_SMART_CITY_DB_MART: show objects in SMART_CITY_DB.MART
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB_MART"} */;
+[0m10:42:51.445461 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.236 seconds
+[0m10:42:51.449460 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDD67C210>]}
+[0m10:42:51.453461 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_date
+[0m10:42:51.454461 [info ] [Thread-2 (]: 1 of 16 START sql table model STAGING.dim_date ................................. [RUN]
+[0m10:42:51.455461 [debug] [Thread-2 (]: Acquiring new snowflake connection 'model.smart_city_dbt.dim_date'
+[0m10:42:51.456461 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_date
+[0m10:42:51.466463 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_date"
+[0m10:42:51.468462 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_date
+[0m10:42:51.521785 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_date"
+[0m10:42:51.525785 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_date"
+[0m10:42:51.526790 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_date: create or replace transient table SMART_CITY_DB.STAGING.dim_date
+    
+    
+    
+    as (/*
+dimensions/dim_date.sql
+
+Type    : Date spine (generated — covers all dates in simulation data)
+Source  : Generated using Snowflake GENERATOR function
+Purpose : Provides rich time context for all fact tables.
+          Critical for Power BI time intelligence functions.
+
+Cairo calendar notes:
+  - Weekend = Friday + Saturday (NOT Saturday + Sunday)
+  - Rush hours = 8:00-10:30 AM and 4:00-7:30 PM on weekdays
+  - Ramadan: traffic patterns change significantly (not modeled here)
+
+Grain   : One row per calendar date
+Range   : 2026-06-01 to 2026-12-31 (covers project duration)
+*/
+
+WITH date_spine AS (
+    SELECT
+        DATEADD(
+            DAY,
+            SEQ4(),
+            '2026-06-01'::DATE
+        ) AS date_actual
+    FROM TABLE(GENERATOR(ROWCOUNT => 214))  -- 214 days: Jun 2026 to Dec 2026
+),
+
+date_attributes AS (
+    SELECT
+        date_actual,
+        DATE_PART('year',    date_actual)::INT  AS year,
+        DATE_PART('quarter', date_actual)::INT  AS quarter,
+        DATE_PART('month',   date_actual)::INT  AS month_number,
+        MONTHNAME(date_actual)                   AS month_name,
+        DATE_PART('week',    date_actual)::INT  AS week_of_year,
+        DATE_PART('day',     date_actual)::INT  AS day_of_month,
+        DAYOFWEEK(date_actual)::INT              AS day_of_week,     -- 0=Sun, 6=Sat
+        DAYNAME(date_actual)                     AS day_name,
+
+        -- Cairo weekend: Friday (day_of_week=6 in Snowflake) + Saturday (day_of_week=0)
+        -- Snowflake: 0=Sunday, 1=Monday, ..., 5=Friday, 6=Saturday
+        CASE
+            WHEN DAYOFWEEK(date_actual) IN (5, 6) THEN TRUE
+            ELSE FALSE
+        END AS is_weekend_cairo,
+
+        -- Cairo rush-hour days (Sun-Thu are workdays)
+        CASE
+            WHEN DAYOFWEEK(date_actual) NOT IN (5, 6) THEN TRUE
+            ELSE FALSE
+        END AS is_workday_cairo,
+
+        -- Month quarter label
+        'Q' || DATE_PART('quarter', date_actual)::VARCHAR AS quarter_label,
+
+        -- Year-Month label for Power BI axis
+        TO_VARCHAR(date_actual, 'YYYY-MM')        AS year_month,
+
+        -- Is this a month start/end?
+        CASE WHEN DATE_PART('day', date_actual) = 1
+             THEN TRUE ELSE FALSE END              AS is_month_start,
+        CASE WHEN date_actual = LAST_DAY(date_actual)
+             THEN TRUE ELSE FALSE END              AS is_month_end,
+
+        -- Season in Egypt
+        CASE DATE_PART('month', date_actual)
+            WHEN 12 THEN 'Winter' WHEN 1 THEN 'Winter' WHEN 2 THEN 'Winter'
+            WHEN 3  THEN 'Spring' WHEN 4 THEN 'Spring' WHEN 5 THEN 'Spring'
+            WHEN 6  THEN 'Summer' WHEN 7 THEN 'Summer' WHEN 8 THEN 'Summer'
+            ELSE 'Autumn'
+        END AS egypt_season,
+
+        -- Expected weather category by month (Cairo averages)
+        CASE DATE_PART('month', date_actual)
+            WHEN 6  THEN 'hot'
+            WHEN 7  THEN 'hot'
+            WHEN 8  THEN 'hot'
+            WHEN 9  THEN 'warm'
+            WHEN 10 THEN 'warm'
+            WHEN 11 THEN 'mild'
+            WHEN 12 THEN 'mild'
+            ELSE 'warm'
+        END AS typical_heat_category
+
+    FROM date_spine
+)
+
+SELECT
+    date_actual,
+    year,
+    quarter,
+    quarter_label,
+    month_number,
+    month_name,
+    year_month,
+    week_of_year,
+    day_of_month,
+    day_of_week,
+    day_name,
+    is_weekend_cairo,
+    is_workday_cairo,
+    is_month_start,
+    is_month_end,
+    egypt_season,
+    typical_heat_category,
+    CURRENT_TIMESTAMP() AS dbt_updated_at
+FROM date_attributes
+ORDER BY date_actual
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_date"} */;
+[0m10:42:51.527780 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m10:42:53.059902 [debug] [Thread-2 (]: SQL status: SUCCESS 214 in 1.533 seconds
+[0m10:42:53.089901 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDDD1F7D0>]}
+[0m10:42:53.090900 [info ] [Thread-2 (]: 1 of 16 OK created sql table model STAGING.dim_date ............................ [[32mSUCCESS 214[0m in 1.63s]
+[0m10:42:53.091900 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_date
+[0m10:42:53.091900 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_road_event_type
+[0m10:42:53.092904 [info ] [Thread-2 (]: 2 of 16 START sql table model STAGING.dim_road_event_type ...................... [RUN]
+[0m10:42:53.093913 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.dim_date, now model.smart_city_dbt.dim_road_event_type)
+[0m10:42:53.094900 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_road_event_type
+[0m10:42:53.097922 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_road_event_type"
+[0m10:42:53.099904 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_road_event_type
+[0m10:42:53.102914 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_road_event_type"
+[0m10:42:53.104912 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_road_event_type"
+[0m10:42:53.105914 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_road_event_type: create or replace transient table SMART_CITY_DB.STAGING.dim_road_event_type
+    
+    
+    
+    as (/*
+dimensions/dim_road_event_type.sql
+
+Type    : Static (finite set defined in vehicle_simulator.py)
+Source  : Hardcoded — matches ROAD_EVENTS list in vehicle_simulator.py
+Purpose : Provides severity scoring and response context for incident analysis.
+
+Grain   : One row per event_type (4 event types + 1 for NONE baseline)
+
+Data source: vehicle_simulator.py
+  ROAD_EVENTS = ["NONE","NONE","NONE","NONE","NONE",
+                 "ACCIDENT","ROADWORK","BREAKDOWN","CONGESTION_INCIDENT"]
+
+Probability from simulator (approximate):
+  NONE:                 ~85% of ticks
+  ACCIDENT:             ~3.75% of events
+  ROADWORK:             ~3.75% of events
+  BREAKDOWN:            ~3.75% of events
+  CONGESTION_INCIDENT:  ~3.75% of events
+*/
+
+SELECT
+    event_type,
+    severity_score,
+    severity_label,
+    requires_emergency_response,
+    typical_duration_minutes,
+    impact_radius_km,
+    description,
+    CURRENT_TIMESTAMP() AS dbt_updated_at
+
+FROM (
+    VALUES
+        (
+            'ACCIDENT', 4, 'critical', TRUE, 60, 2.0,
+            'Vehicle collision — emergency services required, lane closure likely'
+        ),
+        (
+            'CONGESTION_INCIDENT', 3, 'high', FALSE, 30, 1.0,
+            'Severe traffic buildup — secondary to another event or bottleneck'
+        ),
+        (
+            'BREAKDOWN', 2, 'medium', FALSE, 15, 0.5,
+            'Vehicle breakdown — tow truck needed, partial lane blockage'
+        ),
+        (
+            'ROADWORK', 1, 'low', FALSE, 480, 0.3,
+            'Planned road maintenance — reduced lanes, expect delays'
+        )
+) AS t (
+    event_type,
+    severity_score,
+    severity_label,
+    requires_emergency_response,
+    typical_duration_minutes,
+    impact_radius_km,
+    description
+)
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_road_event_type"} */;
+[0m10:42:53.882746 [debug] [Thread-2 (]: SQL status: SUCCESS 4 in 0.776 seconds
+[0m10:42:53.884747 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDDBA2150>]}
+[0m10:42:53.885747 [info ] [Thread-2 (]: 2 of 16 OK created sql table model STAGING.dim_road_event_type ................. [[32mSUCCESS 4[0m in 0.79s]
+[0m10:42:53.886746 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_road_event_type
+[0m10:42:53.886746 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_route
+[0m10:42:53.887746 [info ] [Thread-2 (]: 3 of 16 START sql table model STAGING.dim_route ................................ [RUN]
+[0m10:42:53.888752 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.dim_road_event_type, now model.smart_city_dbt.dim_route)
+[0m10:42:53.889749 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_route
+[0m10:42:53.893745 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_route"
+[0m10:42:53.894751 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_route
+[0m10:42:53.899756 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_route"
+[0m10:42:53.902748 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_route"
+[0m10:42:53.903750 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_route: create or replace transient table SMART_CITY_DB.STAGING.dim_route
+    
+    
+    
+    as (/*
+dimensions/dim_route.sql
+
+Type    : Static (routes never change — hardcoded from cairo_routes.py)
+Source  : Hardcoded — 4 real Cairo OSM routes
+Purpose : Provides geographic context for each route_name.
+          Power BI uses this for route-level filtering and map context.
+
+Grain   : One row per route_name (4 rows total)
+
+Data source: cairo_routes.py — real OpenStreetMap GPS coordinates
+*/
+
+WITH route_data AS (
+
+    SELECT 'tahrir_to_new_capital'   AS route_name UNION ALL
+    SELECT 'maadi_to_nasr_city'                    UNION ALL
+    SELECT 'giza_to_heliopolis'                    UNION ALL
+    SELECT 'sixth_october_to_maadi'
+
+),
+
+route_details AS (
+
+    SELECT
+        route_name,
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 'Tahrir Square'
+            WHEN 'maadi_to_nasr_city'      THEN 'Maadi Metro Station'
+            WHEN 'giza_to_heliopolis'      THEN 'Giza Square'
+            WHEN 'sixth_october_to_maadi'  THEN '6th October City Center'
+        END AS start_location,
+
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 'New Capital Downtown'
+            WHEN 'maadi_to_nasr_city'      THEN 'Nasr City Center'
+            WHEN 'giza_to_heliopolis'      THEN 'Heliopolis'
+            WHEN 'sixth_october_to_maadi'  THEN 'Maadi'
+        END AS end_location,
+
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 60.0
+            WHEN 'maadi_to_nasr_city'      THEN 22.0
+            WHEN 'giza_to_heliopolis'      THEN 30.0
+            WHEN 'sixth_october_to_maadi'  THEN 38.0
+        END AS distance_km,
+
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 14
+            WHEN 'maadi_to_nasr_city'      THEN 9
+            WHEN 'giza_to_heliopolis'      THEN 8
+            WHEN 'sixth_october_to_maadi'  THEN 9
+        END AS waypoint_count,
+
+        -- Primary road type for this route
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 'highway'
+            WHEN 'maadi_to_nasr_city'      THEN 'highway'
+            WHEN 'giza_to_heliopolis'      THEN 'arterial'
+            WHEN 'sixth_october_to_maadi'  THEN 'highway'
+        END AS primary_road_type,
+
+        -- Start GPS (from cairo_routes.py)
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 30.0444
+            WHEN 'maadi_to_nasr_city'      THEN 29.9602
+            WHEN 'giza_to_heliopolis'      THEN 29.9870
+            WHEN 'sixth_october_to_maadi'  THEN 29.9343
+        END AS start_latitude,
+
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 31.2357
+            WHEN 'maadi_to_nasr_city'      THEN 31.2569
+            WHEN 'giza_to_heliopolis'      THEN 31.2118
+            WHEN 'sixth_october_to_maadi'  THEN 30.9274
+        END AS start_longitude,
+
+        -- End GPS (from cairo_routes.py)
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 30.0150
+            WHEN 'maadi_to_nasr_city'      THEN 30.0626
+            WHEN 'giza_to_heliopolis'      THEN 30.0868
+            WHEN 'sixth_october_to_maadi'  THEN 29.9602
+        END AS end_latitude,
+
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'   THEN 31.7400
+            WHEN 'maadi_to_nasr_city'      THEN 31.3417
+            WHEN 'giza_to_heliopolis'      THEN 31.3275
+            WHEN 'sixth_october_to_maadi'  THEN 31.2569
+        END AS end_longitude,
+
+        -- Via description
+        CASE route_name
+            WHEN 'tahrir_to_new_capital'
+                THEN 'Ring Road East → Cairo-Suez Desert Road'
+            WHEN 'maadi_to_nasr_city'
+                THEN 'Ring Road → Autostrad'
+            WHEN 'giza_to_heliopolis'
+                THEN '6th October Bridge → Downtown → Ramses → Airport Road'
+            WHEN 'sixth_october_to_maadi'
+                THEN 'Desert Road → Giza → Ring Road'
+        END AS via_description,
+
+        'Cairo, Egypt' AS city
+
+    FROM route_data
+
+)
+
+SELECT
+    route_name,
+    start_location,
+    end_location,
+    distance_km,
+    waypoint_count,
+    primary_road_type,
+    start_latitude,
+    start_longitude,
+    end_latitude,
+    end_longitude,
+    via_description,
+    city,
+    CURRENT_TIMESTAMP() AS dbt_updated_at
+FROM route_details
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_route"} */;
+[0m10:42:54.737391 [debug] [Thread-2 (]: SQL status: SUCCESS 4 in 0.833 seconds
+[0m10:42:54.740427 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDEE25950>]}
+[0m10:42:54.741393 [info ] [Thread-2 (]: 3 of 16 OK created sql table model STAGING.dim_route ........................... [[32mSUCCESS 4[0m in 0.85s]
+[0m10:42:54.742393 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_route
+[0m10:42:54.743427 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_weather_condition
+[0m10:42:54.744397 [info ] [Thread-2 (]: 4 of 16 START sql table model STAGING.dim_weather_condition .................... [RUN]
+[0m10:42:54.745427 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.dim_route, now model.smart_city_dbt.dim_weather_condition)
+[0m10:42:54.746428 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_weather_condition
+[0m10:42:54.750427 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_weather_condition"
+[0m10:42:54.751678 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_weather_condition
+[0m10:42:54.756323 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_weather_condition"
+[0m10:42:54.759321 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_weather_condition"
+[0m10:42:54.759321 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_weather_condition: create or replace transient table SMART_CITY_DB.STAGING.dim_weather_condition
+    
+    
+    
+    as (/*
+dimensions/dim_weather_condition.sql
+
+Type    : Static (finite set of Cairo weather conditions)
+Source  : Hardcoded — matches weather_fetcher.py CONDITION_SPEED_FACTOR dict
+Purpose : Provides business labels and speed impact for each weather condition.
+
+Grain   : One row per weather condition (8 conditions)
+
+Data source: weather_fetcher.py
+  CONDITION_SPEED_FACTOR = {
+      "Clear": 1.00, "Partly cloudy": 1.00, "Clouds": 0.98,
+      "Haze": 0.95, "Dust": 0.85, "Sand": 0.80,
+      "Rain": 0.80, "Thunderstorm": 0.70, "Fog": 0.65, "Unknown": 0.95
+  }
+*/
+
+SELECT
+    condition,
+    severity,
+    speed_factor,
+    -- How much this condition reduces fleet speed in km/h
+    -- (assuming 80 km/h average free-flow speed on Cairo arterials)
+    ROUND((1.0 - speed_factor) * 80, 1)    AS speed_reduction_kmh,
+    description,
+    affects_visibility,
+    CURRENT_TIMESTAMP()                     AS dbt_updated_at
+
+FROM (
+    VALUES
+        ('Clear',        'low',      1.00, 'Clear sky, no weather impact',             FALSE),
+        ('Partly cloudy','low',      1.00, 'Partly cloudy, negligible impact',         FALSE),
+        ('Clouds',       'moderate', 0.98, 'Overcast, minor speed reduction',          FALSE),
+        ('Haze',         'moderate', 0.95, 'Haze reduces visibility slightly',         TRUE),
+        ('Dust',         'high',     0.85, 'Dust storm, significant speed reduction',  TRUE),
+        ('Sand',         'high',     0.80, 'Sandstorm, dangerous driving conditions',  TRUE),
+        ('Rain',         'high',     0.80, 'Rain, slippery roads, reduced visibility', TRUE),
+        ('Thunderstorm', 'severe',   0.70, 'Thunderstorm, hazardous conditions',       TRUE),
+        ('Fog',          'severe',   0.65, 'Fog, very low visibility, slow speeds',    TRUE),
+        ('Unknown',      'moderate', 0.95, 'Unknown condition, cautious estimate',     FALSE)
+) AS t (condition, severity, speed_factor, description, affects_visibility)
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_weather_condition"} */;
+[0m10:42:55.521118 [debug] [Thread-2 (]: SQL status: SUCCESS 10 in 0.760 seconds
+[0m10:42:55.524149 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDEE26D10>]}
+[0m10:42:55.525115 [info ] [Thread-2 (]: 4 of 16 OK created sql table model STAGING.dim_weather_condition ............... [[32mSUCCESS 10[0m in 0.78s]
+[0m10:42:55.526114 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_weather_condition
+[0m10:42:55.527117 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_fuel_daily
+[0m10:42:55.528119 [info ] [Thread-2 (]: 5 of 16 START sql view model STAGING.stg_fuel_daily ............................ [RUN]
+[0m10:42:55.529116 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.dim_weather_condition, now model.smart_city_dbt.stg_fuel_daily)
+[0m10:42:55.530149 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_fuel_daily
+[0m10:42:55.536148 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_fuel_daily"
+[0m10:42:55.539566 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_fuel_daily
+[0m10:42:55.573528 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_fuel_daily"
+[0m10:42:55.577527 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_fuel_daily"
+[0m10:42:55.578527 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_fuel_daily: create or replace   view SMART_CITY_DB.STAGING.stg_fuel_daily
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_fuel_daily.sql
+
+Purpose : Type-cast fuel_daily Gold data, add cost estimates.
+Source  : RAW.fuel_daily
+Note    : Egypt average petrol price ~11 EGP/litre (2026)
+          CO2 factor: 2.31 kg per litre (Egypt 95-octane)
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                             AS window_start,
+    window_end::TIMESTAMP_NTZ                               AS window_end,
+    vehicle_type::VARCHAR                                   AS vehicle_type,
+
+    ROUND(total_fuel_consumed_l::DOUBLE, 3)                 AS total_fuel_consumed_l,
+    ROUND(avg_fuel_rate_l100km::DOUBLE, 2)                  AS avg_fuel_rate_l100km,
+    ROUND(avg_fuel_level_pct::DOUBLE, 2)                    AS avg_fuel_level_pct,
+    unique_vehicles::BIGINT                                 AS unique_vehicles,
+    total_events::BIGINT                                    AS total_events,
+    ROUND(estimated_co2_kg::DOUBLE, 2)                      AS estimated_co2_kg,
+
+    partition_date::DATE                                    AS partition_date,
+
+    -- Business derived metrics
+    -- Egypt petrol price estimate
+    ROUND(total_fuel_consumed_l::DOUBLE * 11.0, 2)          AS estimated_cost_egp,
+
+    -- CO2 per vehicle in this day
+    ROUND(
+        estimated_co2_kg::DOUBLE
+        / NULLIF(unique_vehicles::DOUBLE, 0), 2
+    )                                                       AS co2_per_vehicle_kg,
+
+    -- Cost per vehicle
+    ROUND(
+        (total_fuel_consumed_l::DOUBLE * 11.0)
+        / NULLIF(unique_vehicles::DOUBLE, 0), 2
+    )                                                       AS cost_per_vehicle_egp,
+
+    -- Efficiency rating based on industry benchmarks for Cairo conditions
+    CASE
+        WHEN avg_fuel_rate_l100km::DOUBLE < 8  THEN 'excellent'
+        WHEN avg_fuel_rate_l100km::DOUBLE < 12 THEN 'good'
+        WHEN avg_fuel_rate_l100km::DOUBLE < 16 THEN 'average'
+        ELSE 'poor'
+    END                                                     AS efficiency_rating
+
+FROM SMART_CITY_DB.RAW.fuel_daily
+WHERE window_start IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_fuel_daily"} */;
+[0m10:42:56.064717 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.485 seconds
+[0m10:42:56.066717 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDD4CEAD0>]}
+[0m10:42:56.067718 [info ] [Thread-2 (]: 5 of 16 OK created sql view model STAGING.stg_fuel_daily ....................... [[32mSUCCESS 1[0m in 0.54s]
+[0m10:42:56.068717 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_fuel_daily
+[0m10:42:56.069718 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_incident_summary
+[0m10:42:56.069718 [info ] [Thread-2 (]: 6 of 16 START sql view model STAGING.stg_incident_summary ...................... [RUN]
+[0m10:42:56.071735 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_fuel_daily, now model.smart_city_dbt.stg_incident_summary)
+[0m10:42:56.072725 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_incident_summary
+[0m10:42:56.076716 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_incident_summary"
+[0m10:42:56.078719 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_incident_summary
+[0m10:42:56.082718 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_incident_summary"
+[0m10:42:56.084716 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_incident_summary"
+[0m10:42:56.085718 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_incident_summary: create or replace   view SMART_CITY_DB.STAGING.stg_incident_summary
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_incident_summary.sql
+
+Purpose : Type-cast incident_summary from dedicated road-events topic.
+Source  : RAW.incident_summary (from silver/road_events via gold_aggregator)
+Note    : Richer than road_event_summary — has GPS coords + severity_score
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                          AS window_start,
+    window_end::TIMESTAMP_NTZ                            AS window_end,
+    event_type::VARCHAR                                  AS event_type,
+    road_type::VARCHAR                                   AS road_type,
+
+    incident_count::BIGINT                               AS incident_count,
+    vehicles_involved::BIGINT                            AS vehicles_involved,
+    ROUND(avg_severity_score::DOUBLE, 2)                 AS avg_severity_score,
+    max_severity_score::BIGINT                           AS max_severity_score,
+    ROUND(avg_latitude::DOUBLE, 4)                       AS avg_latitude,
+    ROUND(avg_longitude::DOUBLE, 4)                      AS avg_longitude,
+
+    partition_date::DATE                                 AS partition_date,
+
+    CASE event_type::VARCHAR
+        WHEN 'ACCIDENT'            THEN 'critical'
+        WHEN 'CONGESTION_INCIDENT' THEN 'high'
+        WHEN 'BREAKDOWN'           THEN 'medium'
+        WHEN 'ROADWORK'            THEN 'low'
+        ELSE 'unknown'
+    END                                                  AS severity_label
+
+FROM SMART_CITY_DB.RAW.incident_summary
+WHERE window_start IS NOT NULL
+  AND event_type IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_incident_summary"} */;
+[0m10:42:56.502969 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.417 seconds
+[0m10:42:56.507987 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDEEB2990>]}
+[0m10:42:56.508972 [info ] [Thread-2 (]: 6 of 16 OK created sql view model STAGING.stg_incident_summary ................. [[32mSUCCESS 1[0m in 0.44s]
+[0m10:42:56.510972 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_incident_summary
+[0m10:42:56.511991 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_road_event_summary
+[0m10:42:56.514003 [info ] [Thread-2 (]: 7 of 16 START sql view model STAGING.stg_road_event_summary .................... [RUN]
+[0m10:42:56.515974 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_incident_summary, now model.smart_city_dbt.stg_road_event_summary)
+[0m10:42:56.515974 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_road_event_summary
+[0m10:42:56.521092 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_road_event_summary"
+[0m10:42:56.522082 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_road_event_summary
+[0m10:42:56.527079 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_road_event_summary"
+[0m10:42:56.531095 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_road_event_summary"
+[0m10:42:56.532091 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_road_event_summary: create or replace   view SMART_CITY_DB.STAGING.stg_road_event_summary
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_road_event_summary.sql
+
+Purpose : Type-cast road_event_summary, add severity scores.
+Source  : RAW.road_event_summary (from telemetry road_event column)
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                         AS window_start,
+    window_end::TIMESTAMP_NTZ                           AS window_end,
+    road_event::VARCHAR                                 AS road_event,
+    road_type::VARCHAR                                  AS road_type,
+    route_name::VARCHAR                                 AS route_name,
+
+    event_count::BIGINT                                 AS event_count,
+    vehicles_involved::BIGINT                           AS vehicles_involved,
+    ROUND(avg_speed_at_event_kmh::DOUBLE, 2)            AS avg_speed_at_event_kmh,
+
+    partition_date::DATE                                AS partition_date,
+
+    -- Severity score (matches dim_road_event_type)
+    CASE road_event::VARCHAR
+        WHEN 'ACCIDENT'            THEN 4
+        WHEN 'CONGESTION_INCIDENT' THEN 3
+        WHEN 'BREAKDOWN'           THEN 2
+        WHEN 'ROADWORK'            THEN 1
+        ELSE 0
+    END                                                 AS severity_score,
+
+    CASE road_event::VARCHAR
+        WHEN 'ACCIDENT'            THEN 'critical'
+        WHEN 'CONGESTION_INCIDENT' THEN 'high'
+        WHEN 'BREAKDOWN'           THEN 'medium'
+        WHEN 'ROADWORK'            THEN 'low'
+        ELSE 'unknown'
+    END                                                 AS severity_label
+
+FROM SMART_CITY_DB.RAW.road_event_summary
+WHERE window_start IS NOT NULL
+  AND road_event IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_road_event_summary"} */;
+[0m10:42:56.907273 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.374 seconds
+[0m10:42:56.910238 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDEEB2F10>]}
+[0m10:42:56.911240 [info ] [Thread-2 (]: 7 of 16 OK created sql view model STAGING.stg_road_event_summary ............... [[32mSUCCESS 1[0m in 0.39s]
+[0m10:42:56.913244 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_road_event_summary
+[0m10:42:56.913244 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_route_hourly
+[0m10:42:56.915242 [info ] [Thread-2 (]: 8 of 16 START sql view model STAGING.stg_route_hourly .......................... [RUN]
+[0m10:42:56.916238 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_road_event_summary, now model.smart_city_dbt.stg_route_hourly)
+[0m10:42:56.916238 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_route_hourly
+[0m10:42:56.919272 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_route_hourly"
+[0m10:42:56.920812 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_route_hourly
+[0m10:42:56.923860 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_route_hourly"
+[0m10:42:56.927820 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_route_hourly"
+[0m10:42:56.929820 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_route_hourly: create or replace   view SMART_CITY_DB.STAGING.stg_route_hourly
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_route_hourly.sql  (v2)
+
+Changes v2:
+  - Added gps_lat_bucket, gps_lon_bucket (written by historical generator
+    and by gold_aggregator.py into route_hourly Parquet)
+  - Added avg_congestion_ratio, avg_speed_deficit_kmh, avg_pct_of_free_flow,
+    dominant_congestion_band, road_closure_count
+    (mart_route_analytics uses these via COALESCE with traffic_30min)
+  - All new columns use TRY_CAST so real streaming data (which may not
+    have these columns) does not fail — returns NULL instead
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                       AS window_start,
+    window_end::TIMESTAMP_NTZ                         AS window_end,
+    route_name::VARCHAR                               AS route_name,
+    road_type::VARCHAR                                AS road_type,
+
+    ROUND(avg_speed_kmh::DOUBLE, 2)                   AS avg_speed_kmh,
+    ROUND(max_speed_kmh::DOUBLE, 2)                   AS max_speed_kmh,
+    ROUND(avg_traffic_density::DOUBLE, 1)             AS avg_traffic_density,
+    ROUND(avg_fuel_rate_l100km::DOUBLE, 2)            AS avg_fuel_rate_l100km,
+
+    anomaly_count::BIGINT                             AS anomaly_count,
+    road_event_count::BIGINT                          AS road_event_count,
+    unique_vehicles::BIGINT                           AS unique_vehicles,
+    total_events::BIGINT                              AS total_events,
+    count_stopped::BIGINT                             AS count_stopped,
+    count_slow::BIGINT                                AS count_slow,
+    count_medium::BIGINT                              AS count_medium,
+    count_fast::BIGINT                                AS count_fast,
+    count_overspeed::BIGINT                           AS count_overspeed,
+
+    partition_date::DATE                              AS partition_date,
+
+    -- ── New columns written by historical generator and gold_aggregator v2 ─
+    -- Use TRY_CAST so old real-streaming Parquet files return NULL safely
+    TRY_CAST(value:gps_lat_bucket::DOUBLE AS DOUBLE)        AS gps_lat_bucket,
+    TRY_CAST(value:gps_lon_bucket::DOUBLE AS DOUBLE)        AS gps_lon_bucket,
+    TRY_CAST(value:avg_congestion_ratio::DOUBLE AS DOUBLE)  AS avg_congestion_ratio,
+    TRY_CAST(value:avg_speed_deficit_kmh::DOUBLE AS DOUBLE) AS avg_speed_deficit_kmh,
+    TRY_CAST(value:avg_pct_of_free_flow::DOUBLE AS DOUBLE)  AS avg_pct_of_free_flow,
+    TRY_CAST(value:dominant_congestion_band::VARCHAR AS VARCHAR) AS dominant_congestion_band,
+    TRY_CAST(value:road_closure_count::BIGINT AS BIGINT)    AS road_closure_count,
+
+    -- ── Derived ───────────────────────────────────────────────────────────
+    CASE
+        WHEN road_type = 'highway'
+             AND avg_speed_kmh::DOUBLE < 60  THEN 'heavy'
+        WHEN road_type = 'highway'
+             AND avg_speed_kmh::DOUBLE < 90  THEN 'moderate'
+        WHEN road_type = 'arterial'
+             AND avg_speed_kmh::DOUBLE < 30  THEN 'heavy'
+        WHEN road_type = 'arterial'
+             AND avg_speed_kmh::DOUBLE < 50  THEN 'moderate'
+        WHEN road_type = 'urban'
+             AND avg_speed_kmh::DOUBLE < 15  THEN 'heavy'
+        WHEN road_type = 'urban'
+             AND avg_speed_kmh::DOUBLE < 30  THEN 'moderate'
+        ELSE 'light'
+    END                                               AS congestion_level,
+
+    ROUND(
+        (count_stopped::DOUBLE + count_slow::DOUBLE)
+        / NULLIF(total_events::DOUBLE, 0) * 100, 1
+    )                                                 AS pct_slow_or_stopped
+
+FROM SMART_CITY_DB.RAW.route_hourly
+WHERE window_start IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_route_hourly"} */;
+[0m10:42:57.394908 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.464 seconds
+[0m10:42:57.398950 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDEE1A3D0>]}
+[0m10:42:57.399947 [info ] [Thread-2 (]: 8 of 16 OK created sql view model STAGING.stg_route_hourly ..................... [[32mSUCCESS 1[0m in 0.48s]
+[0m10:42:57.400942 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_route_hourly
+[0m10:42:57.400942 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_traffic_30min
+[0m10:42:57.401909 [info ] [Thread-2 (]: 9 of 16 START sql view model STAGING.stg_traffic_30min ......................... [RUN]
+[0m10:42:57.402924 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_route_hourly, now model.smart_city_dbt.stg_traffic_30min)
+[0m10:42:57.402924 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_traffic_30min
+[0m10:42:57.405971 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_traffic_30min"
+[0m10:42:57.406984 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_traffic_30min
+[0m10:42:57.410986 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_traffic_30min"
+[0m10:42:57.415087 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_traffic_30min"
+[0m10:42:57.415986 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_traffic_30min: create or replace   view SMART_CITY_DB.STAGING.stg_traffic_30min
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_traffic_30min.sql
+
+Purpose : Type-cast traffic_30min, derive pct_of_free_flow.
+Source  : RAW.traffic_30min (from silver/traffic via gold_aggregator)
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                              AS window_start,
+    window_end::TIMESTAMP_NTZ                                AS window_end,
+    ROUND(gps_lat_bucket::DOUBLE, 2)                         AS gps_lat_bucket,
+    ROUND(gps_lon_bucket::DOUBLE, 2)                         AS gps_lon_bucket,
+    congestion_band::VARCHAR                                 AS congestion_band,
+
+    ROUND(avg_congestion_ratio::DOUBLE, 3)                   AS avg_congestion_ratio,
+    ROUND(max_congestion_ratio::DOUBLE, 3)                   AS max_congestion_ratio,
+    ROUND(avg_current_speed_kmh::DOUBLE, 1)                  AS avg_current_speed_kmh,
+    ROUND(avg_free_flow_speed_kmh::DOUBLE, 1)                AS avg_free_flow_speed_kmh,
+    ROUND(avg_speed_deficit_kmh::DOUBLE, 1)                  AS avg_speed_deficit_kmh,
+    ROUND(avg_traffic_density::DOUBLE, 1)                    AS avg_traffic_density,
+    road_closure_count::BIGINT                               AS road_closure_count,
+    observation_count::BIGINT                                AS observation_count,
+    partition_date::DATE                                     AS partition_date,
+
+    -- Percentage of free-flow speed achieved (100% = no congestion)
+    ROUND(
+        avg_current_speed_kmh::DOUBLE
+        / NULLIF(avg_free_flow_speed_kmh::DOUBLE, 0) * 100, 1
+    )                                                        AS pct_of_free_flow,
+
+    -- Congestion severity score 0-10 for heatmap
+    ROUND(avg_congestion_ratio::DOUBLE * 10, 1)              AS congestion_score
+
+FROM SMART_CITY_DB.RAW.traffic_30min
+WHERE window_start IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_traffic_30min"} */;
+[0m10:42:58.344362 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.928 seconds
+[0m10:42:58.347753 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDEEC5750>]}
+[0m10:42:58.349778 [info ] [Thread-2 (]: 9 of 16 OK created sql view model STAGING.stg_traffic_30min .................... [[32mSUCCESS 1[0m in 0.94s]
+[0m10:42:58.351688 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_traffic_30min
+[0m10:42:58.352651 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_vehicle_5min
+[0m10:42:58.354621 [info ] [Thread-2 (]: 10 of 16 START sql view model STAGING.stg_vehicle_5min ......................... [RUN]
+[0m10:42:58.356326 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_traffic_30min, now model.smart_city_dbt.stg_vehicle_5min)
+[0m10:42:58.358013 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_vehicle_5min
+[0m10:42:58.369572 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_vehicle_5min"
+[0m10:42:58.371801 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_vehicle_5min
+[0m10:42:58.382202 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_vehicle_5min"
+[0m10:42:58.395312 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_vehicle_5min"
+[0m10:42:58.396767 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_vehicle_5min: create or replace   view SMART_CITY_DB.STAGING.stg_vehicle_5min
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_vehicle_5min.sql
+
+Purpose : Type-cast and light enrichment of vehicle_5min Gold data.
+Source  : RAW.vehicle_5min (Snowflake External Table → S3 Gold Parquet)
+Output  : STAGING view — no storage cost
+
+Rules applied here:
+  - Cast all VARIANT columns to proper SQL types
+  - Round numeric values to meaningful precision
+  - Derive speed_band, fuel_band, had_anomaly
+  - No joins, no business aggregations — those belong in mart layer
+*/
+
+SELECT
+    -- Time window
+    window_start::TIMESTAMP_NTZ                       AS window_start,
+    window_end::TIMESTAMP_NTZ                         AS window_end,
+
+    -- Vehicle identifiers
+    vehicle_id::VARCHAR                               AS vehicle_id,
+    vehicle_type::VARCHAR                             AS vehicle_type,
+    route_name::VARCHAR                               AS route_name,
+
+    -- Speed metrics
+    ROUND(avg_speed_kmh::DOUBLE, 2)                   AS avg_speed_kmh,
+    ROUND(max_speed_kmh::DOUBLE, 2)                   AS max_speed_kmh,
+    ROUND(min_speed_kmh::DOUBLE, 2)                   AS min_speed_kmh,
+
+    -- Powertrain
+    ROUND(avg_rpm::DOUBLE, 0)::INT                    AS avg_rpm,
+    ROUND(avg_engine_temp_c::DOUBLE, 1)               AS avg_engine_temp_c,
+    ROUND(max_engine_temp_c::DOUBLE, 1)               AS max_engine_temp_c,
+
+    -- Fuel
+    ROUND(avg_fuel_level_pct::DOUBLE, 2)              AS avg_fuel_level_pct,
+    ROUND(avg_fuel_rate_l100km::DOUBLE, 2)            AS avg_fuel_rate_l100km,
+    ROUND(total_fuel_consumed_l::DOUBLE, 5)           AS total_fuel_consumed_l,
+
+    -- Traffic
+    ROUND(avg_traffic_density::DOUBLE, 1)             AS avg_traffic_density,
+
+    -- GPS
+    ROUND(trip_distance_km::DOUBLE, 3)                AS trip_distance_km,
+    ROUND(avg_latitude::DOUBLE, 6)                    AS avg_latitude,
+    ROUND(avg_longitude::DOUBLE, 6)                   AS avg_longitude,
+
+    -- Counts
+    event_count::BIGINT                               AS event_count,
+    anomaly_count::BIGINT                             AS anomaly_count,
+    clamped_count::BIGINT                             AS clamped_count,
+
+    -- Partition
+    partition_date::DATE                              AS partition_date,
+
+    -- ── Derived categorical columns ───────────────────────────────────────
+    -- speed_band: matches silver_cleaner.py derive_bands() exactly
+    CASE
+        WHEN avg_speed_kmh::DOUBLE < 5   THEN 'stopped'
+        WHEN avg_speed_kmh::DOUBLE < 40  THEN 'slow'
+        WHEN avg_speed_kmh::DOUBLE < 90  THEN 'medium'
+        WHEN avg_speed_kmh::DOUBLE < 120 THEN 'fast'
+        ELSE 'overspeed'
+    END                                               AS speed_band,
+
+    -- fuel_band: matches silver_cleaner.py derive_bands() exactly
+    CASE
+        WHEN avg_fuel_level_pct::DOUBLE < 10 THEN 'critical'
+        WHEN avg_fuel_level_pct::DOUBLE < 25 THEN 'low'
+        WHEN avg_fuel_level_pct::DOUBLE < 75 THEN 'ok'
+        ELSE 'full'
+    END                                               AS fuel_band,
+
+    -- engine health indicator
+    CASE
+        WHEN max_engine_temp_c::DOUBLE > 105 THEN 'overheating'
+        WHEN max_engine_temp_c::DOUBLE > 98  THEN 'warm'
+        WHEN max_engine_temp_c::DOUBLE > 85  THEN 'normal'
+        ELSE 'cold'
+    END                                               AS engine_health,
+
+    -- anomaly flag
+    CASE WHEN anomaly_count::BIGINT > 0
+         THEN TRUE ELSE FALSE
+    END                                               AS had_anomaly
+
+FROM SMART_CITY_DB.RAW.vehicle_5min
+WHERE window_start IS NOT NULL
+  AND vehicle_id    IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_vehicle_5min"} */;
+[0m10:42:59.291955 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.893 seconds
+[0m10:42:59.293958 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDD60BA10>]}
+[0m10:42:59.294923 [info ] [Thread-2 (]: 10 of 16 OK created sql view model STAGING.stg_vehicle_5min .................... [[32mSUCCESS 1[0m in 0.94s]
+[0m10:42:59.295928 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_vehicle_5min
+[0m10:42:59.295928 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.stg_weather_hourly
+[0m10:42:59.296923 [info ] [Thread-2 (]: 11 of 16 START sql view model STAGING.stg_weather_hourly ....................... [RUN]
+[0m10:42:59.297966 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_vehicle_5min, now model.smart_city_dbt.stg_weather_hourly)
+[0m10:42:59.298963 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.stg_weather_hourly
+[0m10:42:59.303961 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.stg_weather_hourly"
+[0m10:42:59.304960 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.stg_weather_hourly
+[0m10:42:59.306954 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.stg_weather_hourly"
+[0m10:42:59.310004 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.stg_weather_hourly"
+[0m10:42:59.312040 [debug] [Thread-2 (]: On model.smart_city_dbt.stg_weather_hourly: create or replace   view SMART_CITY_DB.STAGING.stg_weather_hourly
+  
+  
+  
+  
+  as (
+    /*
+staging/stg_weather_hourly.sql
+
+Purpose : Type-cast weather_hourly, add heat_category and speed impact.
+Source  : RAW.weather_hourly (from silver/weather via gold_aggregator)
+*/
+
+SELECT
+    window_start::TIMESTAMP_NTZ                             AS window_start,
+    window_end::TIMESTAMP_NTZ                               AS window_end,
+    condition::VARCHAR                                      AS condition,
+    weather_severity::VARCHAR                               AS weather_severity,
+    location::VARCHAR                                       AS location,
+
+    ROUND(avg_temp_c::DOUBLE, 1)                            AS avg_temp_c,
+    ROUND(max_temp_c::DOUBLE, 1)                            AS max_temp_c,
+    ROUND(avg_feels_like_c::DOUBLE, 1)                      AS avg_feels_like_c,
+    ROUND(avg_humidity_pct::DOUBLE, 1)                      AS avg_humidity_pct,
+    ROUND(avg_wind_kmh::DOUBLE, 1)                          AS avg_wind_kmh,
+    ROUND(avg_visibility_km::DOUBLE, 1)                     AS avg_visibility_km,
+    ROUND(avg_pressure_hpa::DOUBLE, 0)::INT                 AS avg_pressure_hpa,
+    ROUND(avg_speed_factor::DOUBLE, 3)                      AS avg_speed_factor,
+    ROUND(min_speed_factor::DOUBLE, 3)                      AS min_speed_factor,
+    observation_count::BIGINT                               AS observation_count,
+    partition_date::DATE                                    AS partition_date,
+
+    -- How much this weather reduces vehicle speed (percentage)
+    ROUND((1.0 - avg_speed_factor::DOUBLE) * 100, 1)        AS speed_reduction_pct,
+
+    -- Heat category for Cairo context
+    CASE
+        WHEN avg_temp_c::DOUBLE >= 40 THEN 'extreme_heat'
+        WHEN avg_temp_c::DOUBLE >= 35 THEN 'very_hot'
+        WHEN avg_temp_c::DOUBLE >= 28 THEN 'hot'
+        WHEN avg_temp_c::DOUBLE >= 20 THEN 'warm'
+        ELSE 'mild'
+    END                                                     AS heat_category,
+
+    -- A/C load factor: high temps force A/C on → more fuel
+    CASE
+        WHEN avg_temp_c::DOUBLE >= 30 THEN 1.5
+        WHEN avg_temp_c::DOUBLE >= 22 THEN 1.0
+        ELSE 0.0
+    END                                                     AS ac_load_extra_l100km,
+
+    -- Visibility risk for accident analysis
+    CASE
+        WHEN avg_visibility_km::DOUBLE < 2  THEN 'very_high_risk'
+        WHEN avg_visibility_km::DOUBLE < 5  THEN 'high_risk'
+        WHEN avg_visibility_km::DOUBLE < 8  THEN 'moderate_risk'
+        ELSE 'normal_risk'
+    END                                                     AS visibility_risk
+
+FROM SMART_CITY_DB.RAW.weather_hourly
+WHERE window_start IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.stg_weather_hourly"} */;
+[0m10:42:59.800280 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.487 seconds
+[0m10:42:59.802217 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDD4CF210>]}
+[0m10:42:59.803216 [info ] [Thread-2 (]: 11 of 16 OK created sql view model STAGING.stg_weather_hourly .................. [[32mSUCCESS 1[0m in 0.51s]
+[0m10:42:59.804217 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.stg_weather_hourly
+[0m10:42:59.805215 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_vehicle
+[0m10:42:59.806218 [info ] [Thread-2 (]: 12 of 16 START sql table model STAGING.dim_vehicle ............................. [RUN]
+[0m10:42:59.807228 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.stg_weather_hourly, now model.smart_city_dbt.dim_vehicle)
+[0m10:42:59.807228 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_vehicle
+[0m10:42:59.813286 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_vehicle"
+[0m10:42:59.814286 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_vehicle
+[0m10:42:59.817284 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_vehicle"
+[0m10:42:59.820284 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_vehicle"
+[0m10:42:59.821284 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_vehicle: create or replace transient table SMART_CITY_DB.STAGING.dim_vehicle
+    
+    
+    
+    as (/*
+dimensions/dim_vehicle.sql
+
+Type    : SCD Type 1 (overwrite — vehicle attributes don't change)
+Source  : stg_vehicle_5min (DISTINCT vehicles seen in telemetry)
+Purpose : Provides business context for each vehicle ID.
+          Power BI uses this to filter/group dashboards by vehicle type.
+
+Grain   : One row per vehicle_id (5 vehicles in this simulation)
+
+Columns explained:
+  vehicle_type     — sedan/suv/microbus, determines fuel profile
+  route_name       — primary route this vehicle operates on
+  tank_size_l      — from vehicle_simulator.py VEHICLE_PROFILES
+  fuel_base_l100km — baseline fuel consumption (before traffic/weather)
+  max_rpm          — redline RPM for this vehicle class
+*/
+
+WITH vehicles_seen AS (
+    SELECT DISTINCT
+        vehicle_id,
+        vehicle_type,
+        route_name
+    FROM SMART_CITY_DB.STAGING.stg_vehicle_5min
+),
+
+vehicle_specs AS (
+    SELECT
+        vehicle_type,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 55.0
+            WHEN 'suv'      THEN 70.0
+            WHEN 'microbus' THEN 70.0
+            WHEN 'bus'      THEN 200.0
+            ELSE 55.0
+        END AS tank_size_l,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 8.0
+            WHEN 'suv'      THEN 11.0
+            WHEN 'microbus' THEN 12.0
+            WHEN 'bus'      THEN 22.0
+            ELSE 8.0
+        END AS fuel_base_l100km,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 6500
+            WHEN 'suv'      THEN 6000
+            WHEN 'microbus' THEN 5000
+            WHEN 'bus'      THEN 2800
+            ELSE 6500
+        END AS max_rpm,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 1300
+            WHEN 'suv'      THEN 1900
+            WHEN 'microbus' THEN 2500
+            WHEN 'bus'      THEN 12000
+            ELSE 1300
+        END AS mass_kg
+    FROM (
+        SELECT DISTINCT vehicle_type
+        FROM SMART_CITY_DB.STAGING.stg_vehicle_5min
+    )
+)
+
+SELECT
+    v.vehicle_id,
+    v.vehicle_type,
+    v.route_name,
+    s.tank_size_l,
+    s.fuel_base_l100km,
+    s.max_rpm,
+    s.mass_kg,
+    -- Human-readable label for Power BI reports
+    v.vehicle_id || ' (' || v.vehicle_type || ')' AS vehicle_label,
+    CURRENT_TIMESTAMP()                            AS dbt_updated_at
+
+FROM vehicles_seen v
+LEFT JOIN vehicle_specs s
+    ON v.vehicle_type = s.vehicle_type
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_vehicle"} */;
+[0m10:43:02.007993 [debug] [Thread-2 (]: SQL status: SUCCESS 8 in 2.187 seconds
+[0m10:43:02.009993 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDDD25450>]}
+[0m10:43:02.011002 [info ] [Thread-2 (]: 12 of 16 OK created sql table model STAGING.dim_vehicle ........................ [[32mSUCCESS 8[0m in 2.20s]
+[0m10:43:02.012020 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_vehicle
+[0m10:43:02.012020 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.mart_fuel_environment
+[0m10:43:02.013063 [info ] [Thread-2 (]: 13 of 16 START sql table model MART.mart_fuel_environment ...................... [RUN]
+[0m10:43:02.014032 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.dim_vehicle, now model.smart_city_dbt.mart_fuel_environment)
+[0m10:43:02.015063 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.mart_fuel_environment
+[0m10:43:02.019067 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.mart_fuel_environment"
+[0m10:43:02.020063 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.mart_fuel_environment
+[0m10:43:02.023075 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.mart_fuel_environment"
+[0m10:43:02.027063 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.mart_fuel_environment"
+[0m10:43:02.027063 [debug] [Thread-2 (]: On model.smart_city_dbt.mart_fuel_environment: create or replace transient table SMART_CITY_DB.MART.mart_fuel_environment
+    
+    
+    
+    as (/*
+mart/mart_fuel_environment.sql
+
+Purpose : Fleet fuel efficiency and environmental impact analysis.
+          Power BI Dashboard 3: Fuel & Environment
+
+Grain   : One row per vehicle_type per day
+
+Joins:
+  stg_fuel_daily     (fact source — daily fuel aggregations by vehicle type)
+  dim_date           (calendar attributes)
+  stg_weather_hourly (temperature context — A/C load drives fuel consumption)
+
+Key business questions this table answers:
+  1. Which vehicle type consumes the most fuel? (sedan vs suv vs microbus)
+  2. How much does Cairo summer heat increase fuel consumption via A/C?
+  3. What is the fleet's daily CO2 footprint?
+  4. How much does the fleet cost per day in fuel (EGP)?
+  5. Does efficiency improve on weekends (less traffic, less idling)?
+*/
+
+WITH fuel_fact AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_fuel_daily
+),
+
+date_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_date
+),
+
+-- Daily average weather (fuel runs daily, weather is hourly)
+weather_daily AS (
+    SELECT
+        partition_date,
+        AVG(avg_temp_c)        AS avg_daily_temp_c,
+        AVG(ac_load_extra_l100km) AS avg_ac_load,
+        MODE(heat_category)    AS dominant_heat_category,
+        MODE(condition)        AS dominant_condition
+    FROM SMART_CITY_DB.STAGING.stg_weather_hourly
+    GROUP BY partition_date
+)
+
+SELECT
+    -- ── Time ──────────────────────────────────────────────────────────────
+    f.window_start,
+    f.window_end,
+    f.partition_date,
+    d.day_name,
+    d.is_weekend_cairo,
+    d.is_workday_cairo,
+    d.egypt_season,
+
+    -- ── Vehicle type ──────────────────────────────────────────────────────
+    f.vehicle_type,
+    f.unique_vehicles,
+
+    -- ── Fuel consumption ──────────────────────────────────────────────────
+    f.total_fuel_consumed_l,
+    f.avg_fuel_rate_l100km,
+    f.avg_fuel_level_pct,
+    f.efficiency_rating,
+
+    -- Per-vehicle metrics
+    f.co2_per_vehicle_kg,
+    f.cost_per_vehicle_egp,
+
+    -- ── Environmental impact ──────────────────────────────────────────────
+    f.estimated_co2_kg,
+
+    -- EGP cost breakdown
+    f.estimated_cost_egp,
+
+    -- Annualized projections (if current rate continued)
+    ROUND(f.estimated_co2_kg    * 365, 1) AS projected_annual_co2_kg,
+    ROUND(f.estimated_cost_egp  * 365, 0) AS projected_annual_cost_egp,
+
+    -- ── Weather impact on fuel ────────────────────────────────────────────
+    wd.avg_daily_temp_c,
+    wd.dominant_heat_category,
+    wd.dominant_condition        AS dominant_weather,
+    wd.avg_ac_load,
+
+    -- Estimated A/C overhead fuel (how much extra fuel from heat)
+    ROUND(
+        f.total_fuel_consumed_l * (wd.avg_ac_load / NULLIF(f.avg_fuel_rate_l100km, 0)),
+        3
+    )                            AS estimated_ac_fuel_consumed_l,
+
+    -- ── Fleet totals (all vehicle types combined, calculated per row) ──────
+    -- These allow Power BI to show fleet total without extra aggregation
+    SUM(f.total_fuel_consumed_l) OVER (
+        PARTITION BY f.partition_date
+    )                            AS fleet_total_fuel_l,
+
+    SUM(f.estimated_co2_kg) OVER (
+        PARTITION BY f.partition_date
+    )                            AS fleet_total_co2_kg,
+
+    SUM(f.estimated_cost_egp) OVER (
+        PARTITION BY f.partition_date
+    )                            AS fleet_total_cost_egp,
+
+    -- This vehicle type's share of fleet fuel
+    ROUND(
+        f.total_fuel_consumed_l / NULLIF(
+            SUM(f.total_fuel_consumed_l) OVER (PARTITION BY f.partition_date), 0
+        ) * 100, 1
+    )                            AS pct_of_fleet_fuel
+
+FROM fuel_fact f
+LEFT JOIN date_dim d
+    ON f.partition_date = d.date_actual
+LEFT JOIN weather_daily wd
+    ON f.partition_date = wd.partition_date
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.mart_fuel_environment"} */;
+[0m10:43:07.430076 [debug] [Thread-2 (]: SQL status: SUCCESS 93 in 5.401 seconds
+[0m10:43:07.433042 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDEE529D0>]}
+[0m10:43:07.434041 [info ] [Thread-2 (]: 13 of 16 OK created sql table model MART.mart_fuel_environment ................. [[32mSUCCESS 93[0m in 5.42s]
+[0m10:43:07.435551 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.mart_fuel_environment
+[0m10:43:07.436593 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.mart_incidents_safety
+[0m10:43:07.438605 [info ] [Thread-2 (]: 14 of 16 START sql table model MART.mart_incidents_safety ...................... [RUN]
+[0m10:43:07.439604 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.mart_fuel_environment, now model.smart_city_dbt.mart_incidents_safety)
+[0m10:43:07.440602 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.mart_incidents_safety
+[0m10:43:07.447246 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.mart_incidents_safety"
+[0m10:43:07.448634 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.mart_incidents_safety
+[0m10:43:07.453606 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.mart_incidents_safety"
+[0m10:43:07.459635 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.mart_incidents_safety"
+[0m10:43:07.460630 [debug] [Thread-2 (]: On model.smart_city_dbt.mart_incidents_safety: create or replace transient table SMART_CITY_DB.MART.mart_incidents_safety
+    
+    
+    
+    as (/*
+mart/mart_incidents_safety.sql
+
+Purpose : Road incident and safety KPI analysis.
+          Power BI Dashboard 4: Incidents & Safety
+
+Grain   : One row per event_type + road_type per hour
+
+Joins:
+  stg_incident_summary   (fact source — from dedicated road-events Kafka topic)
+  stg_road_event_summary (corroborating counts from telemetry road_event column)
+  dim_road_event_type    (severity metadata, response requirements)
+  dim_date               (calendar attributes)
+  stg_weather_hourly     (weather context — does bad weather cause more incidents?)
+
+Key business questions:
+  1. Which road type (highway/arterial/urban) has the most accidents?
+  2. Does fog or dust increase accident frequency?
+  3. What is the mean severity score of incidents per hour?
+  4. How many vehicles are affected by each incident type?
+  5. Where (GPS) do most incidents occur?
+*/
+
+WITH incident_fact AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_incident_summary
+),
+
+event_telemetry AS (
+    -- Corroborating signal from telemetry road_event column
+    SELECT
+        DATE_TRUNC('hour', window_start)  AS event_hour,
+        road_event,
+        road_type,
+        SUM(event_count)                  AS telemetry_event_count,
+        AVG(avg_speed_at_event_kmh)       AS avg_speed_at_event,
+        MAX(severity_score)               AS max_telemetry_severity
+    FROM SMART_CITY_DB.STAGING.stg_road_event_summary
+    GROUP BY 1, 2, 3
+),
+
+event_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_road_event_type
+),
+
+date_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_date
+),
+
+weather AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_weather_hourly
+)
+
+SELECT
+    -- ── Time ──────────────────────────────────────────────────────────────
+    i.window_start,
+    i.window_end,
+    i.partition_date,
+    d.day_name,
+    d.is_weekend_cairo,
+    d.egypt_season,
+
+    -- ── Incident type ─────────────────────────────────────────────────────
+    i.event_type,
+    i.road_type,
+    e.severity_label,
+    e.severity_score,
+    e.requires_emergency_response,
+    e.typical_duration_minutes,
+    e.impact_radius_km,
+    e.description                  AS event_description,
+
+    -- ── Incident metrics ──────────────────────────────────────────────────
+    i.incident_count,
+    i.vehicles_involved,
+    i.avg_severity_score,
+    i.max_severity_score,
+
+    -- GPS location of incidents (for Power BI map visual)
+    i.avg_latitude,
+    i.avg_longitude,
+
+    -- ── Corroborating telemetry signal ────────────────────────────────────
+    et.telemetry_event_count,
+    et.avg_speed_at_event,
+    et.max_telemetry_severity,
+
+    -- Agreement between dedicated topic and telemetry signal
+    CASE
+        WHEN i.incident_count > 0
+         AND et.telemetry_event_count > 0
+        THEN 'confirmed_by_both'
+        WHEN i.incident_count > 0
+        THEN 'road_events_topic_only'
+        ELSE 'telemetry_only'
+    END                            AS signal_agreement,
+
+    -- ── Weather at time of incident ───────────────────────────────────────
+    w.condition                    AS weather_condition,
+    w.weather_severity,
+    w.avg_temp_c                   AS weather_temp_c,
+    w.avg_visibility_km,
+    w.visibility_risk,
+
+    -- ── Risk analysis ─────────────────────────────────────────────────────
+    -- Combined risk score: incident severity × visibility risk × weather severity
+    ROUND(
+        i.avg_severity_score *
+        CASE w.visibility_risk
+            WHEN 'very_high_risk' THEN 2.0
+            WHEN 'high_risk'      THEN 1.5
+            WHEN 'moderate_risk'  THEN 1.2
+            ELSE 1.0
+        END *
+        CASE w.weather_severity
+            WHEN 'severe'   THEN 1.5
+            WHEN 'high'     THEN 1.3
+            WHEN 'moderate' THEN 1.1
+            ELSE 1.0
+        END,
+    2)                             AS composite_risk_score,
+
+    -- Was this a high-risk incident given conditions?
+    CASE
+        WHEN i.avg_severity_score >= 3
+         AND w.visibility_risk IN ('very_high_risk', 'high_risk')
+        THEN TRUE
+        ELSE FALSE
+    END                            AS is_high_risk_incident
+
+FROM incident_fact i
+LEFT JOIN event_telemetry et
+    ON DATE_TRUNC('hour', i.window_start) = et.event_hour
+    AND i.event_type = et.road_event
+    AND i.road_type  = et.road_type
+LEFT JOIN event_dim e
+    ON i.event_type = e.event_type
+LEFT JOIN date_dim d
+    ON i.partition_date = d.date_actual
+LEFT JOIN weather w
+    ON DATE_TRUNC('hour', i.window_start) = DATE_TRUNC('hour', w.window_start)
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.mart_incidents_safety"} */;
+[0m10:43:11.034850 [debug] [Thread-2 (]: SQL status: SUCCESS 667 in 3.573 seconds
+[0m10:43:11.037191 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDDD283D0>]}
+[0m10:43:11.038322 [info ] [Thread-2 (]: 14 of 16 OK created sql table model MART.mart_incidents_safety ................. [[32mSUCCESS 667[0m in 3.60s]
+[0m10:43:11.038881 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.mart_incidents_safety
+[0m10:43:11.039450 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.mart_route_analytics
+[0m10:43:11.040677 [info ] [Thread-2 (]: 15 of 16 START sql table model MART.mart_route_analytics ....................... [RUN]
+[0m10:43:11.041999 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.mart_incidents_safety, now model.smart_city_dbt.mart_route_analytics)
+[0m10:43:11.042579 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.mart_route_analytics
+[0m10:43:11.047695 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.mart_route_analytics"
+[0m10:43:11.048656 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.mart_route_analytics
+[0m10:43:11.053666 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.mart_route_analytics"
+[0m10:43:11.060667 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.mart_route_analytics"
+[0m10:43:11.061667 [debug] [Thread-2 (]: On model.smart_city_dbt.mart_route_analytics: create or replace transient table SMART_CITY_DB.MART.mart_route_analytics
+    
+    
+    
+    as (/*
+mart/mart_route_analytics.sql  (v2 — fixed GPS columns)
+
+Purpose : Route-level congestion and throughput analysis.
+          Power BI Dashboard 2: Route Analytics & Congestion
+
+Grain   : One row per route_name + road_type per hour
+
+Changes v2:
+  - Added route_mid_lat / route_mid_lon from dim_route for map visual
+  - avg_congestion_ratio, avg_speed_deficit_kmh now come from
+    route_hourly staging (historical generator writes these columns)
+    and fall back to traffic_30min grid aggregate
+  - Added surrogate key route_analytics_key
+*/
+
+WITH route_fact AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_route_hourly
+),
+
+route_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_route
+),
+
+date_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_date
+),
+
+weather AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_weather_hourly
+),
+
+traffic_grid AS (
+    SELECT
+        DATE_TRUNC('hour', window_start)       AS traffic_hour,
+        AVG(avg_congestion_ratio)              AS grid_avg_congestion_ratio,
+        AVG(avg_speed_deficit_kmh)             AS grid_avg_speed_deficit_kmh,
+        AVG(pct_of_free_flow)                  AS grid_avg_pct_of_free_flow,
+        MAX(road_closure_count)                AS road_closure_count,
+        MODE(congestion_band)                  AS grid_dominant_congestion_band,
+        AVG(gps_lat_bucket)                    AS grid_avg_lat,
+        AVG(gps_lon_bucket)                    AS grid_avg_lon
+    FROM SMART_CITY_DB.STAGING.stg_traffic_30min
+    WHERE gps_lat_bucket BETWEEN 29.9 AND 30.2
+      AND gps_lon_bucket BETWEEN 30.9 AND 31.8
+    GROUP BY 1
+)
+
+SELECT
+    f.window_start,
+    f.window_end,
+    f.partition_date,
+    d.day_name,
+    d.is_weekend_cairo,
+    d.is_workday_cairo,
+    d.egypt_season,
+
+    f.route_name,
+    f.road_type,
+    r.start_location,
+    r.end_location,
+    r.distance_km,
+    r.via_description,
+    r.primary_road_type,
+
+    -- Route GPS midpoint for map visual
+    ROUND((r.start_latitude  + r.end_latitude)  / 2, 4) AS route_mid_lat,
+    ROUND((r.start_longitude + r.end_longitude) / 2, 4) AS route_mid_lon,
+
+    f.avg_speed_kmh,
+    f.max_speed_kmh,
+    f.avg_traffic_density,
+    f.avg_fuel_rate_l100km,
+    f.congestion_level,
+    f.pct_slow_or_stopped,
+
+    f.count_stopped,
+    f.count_slow,
+    f.count_medium,
+    f.count_fast,
+    f.count_overspeed,
+    f.total_events,
+    f.unique_vehicles,
+    f.anomaly_count,
+    f.road_event_count,
+
+    ROUND(f.count_stopped   / NULLIF(f.total_events, 0) * 100, 1) AS pct_stopped,
+    ROUND(f.count_slow      / NULLIF(f.total_events, 0) * 100, 1) AS pct_slow,
+    ROUND(f.count_medium    / NULLIF(f.total_events, 0) * 100, 1) AS pct_medium,
+    ROUND(f.count_fast      / NULLIF(f.total_events, 0) * 100, 1) AS pct_fast,
+    ROUND(f.count_overspeed / NULLIF(f.total_events, 0) * 100, 1) AS pct_overspeed,
+
+    w.condition                             AS weather_condition,
+    w.weather_severity,
+    w.avg_temp_c                            AS weather_temp_c,
+    w.avg_speed_factor                      AS weather_speed_factor,
+    w.speed_reduction_pct                   AS weather_speed_reduction_pct,
+    w.avg_visibility_km,
+    w.visibility_risk,
+
+    -- Congestion from route_hourly (richer for historical data)
+    -- Falls back to GPS grid if column missing
+    COALESCE(
+        TRY_CAST(f.avg_congestion_ratio AS DOUBLE),
+        tg.grid_avg_congestion_ratio
+    )                                       AS avg_congestion_ratio,
+
+    COALESCE(
+        TRY_CAST(f.avg_speed_deficit_kmh AS DOUBLE),
+        tg.grid_avg_speed_deficit_kmh
+    )                                       AS avg_speed_deficit_kmh,
+
+    COALESCE(
+        TRY_CAST(f.avg_pct_of_free_flow AS DOUBLE),
+        tg.grid_avg_pct_of_free_flow
+    )                                       AS avg_pct_of_free_flow,
+
+    COALESCE(
+        f.dominant_congestion_band,
+        tg.grid_dominant_congestion_band
+    )                                       AS dominant_congestion_band,
+
+    COALESCE(f.road_closure_count, tg.road_closure_count, 0)
+                                            AS road_closure_count,
+
+    tg.grid_avg_lat,
+    tg.grid_avg_lon,
+
+    CASE
+        WHEN COALESCE(
+                 TRY_CAST(f.avg_congestion_ratio AS DOUBLE),
+                 tg.grid_avg_congestion_ratio
+             ) > 0.7
+         AND w.avg_speed_factor < 0.9
+        THEN 'weather_and_traffic'
+        WHEN COALESCE(
+                 TRY_CAST(f.avg_congestion_ratio AS DOUBLE),
+                 tg.grid_avg_congestion_ratio
+             ) > 0.7
+        THEN 'traffic_volume'
+        WHEN w.avg_speed_factor < 0.9
+        THEN 'weather_conditions'
+        WHEN f.anomaly_count > 0
+        THEN 'incidents'
+        ELSE 'normal'
+    END                                     AS congestion_cause,
+
+    MD5(
+        COALESCE(f.route_name, '') || '|' ||
+        COALESCE(f.road_type, '')  || '|' ||
+        COALESCE(CAST(f.window_start AS VARCHAR), '')
+    )                                       AS route_analytics_key
+
+FROM route_fact f
+LEFT JOIN route_dim r
+    ON f.route_name = r.route_name
+LEFT JOIN date_dim d
+    ON f.partition_date = d.date_actual
+LEFT JOIN weather w
+    ON DATE_TRUNC('hour', f.window_start) = DATE_TRUNC('hour', w.window_start)
+LEFT JOIN traffic_grid tg
+    ON DATE_TRUNC('hour', f.window_start) = tg.traffic_hour
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.mart_route_analytics"} */;
+[0m10:43:15.082912 [debug] [Thread-2 (]: SQL status: SUCCESS 2898 in 4.020 seconds
+[0m10:43:15.084740 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDEF06DD0>]}
+[0m10:43:15.085353 [info ] [Thread-2 (]: 15 of 16 OK created sql table model MART.mart_route_analytics .................. [[32mSUCCESS 2898[0m in 4.04s]
+[0m10:43:15.086530 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.mart_route_analytics
+[0m10:43:15.087094 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.mart_vehicle_performance
+[0m10:43:15.088211 [info ] [Thread-2 (]: 16 of 16 START sql table model MART.mart_vehicle_performance ................... [RUN]
+[0m10:43:15.089505 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.smart_city_dbt.mart_route_analytics, now model.smart_city_dbt.mart_vehicle_performance)
+[0m10:43:15.090165 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.mart_vehicle_performance
+[0m10:43:15.096280 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.mart_vehicle_performance"
+[0m10:43:15.097951 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.mart_vehicle_performance
+[0m10:43:15.101204 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.mart_vehicle_performance"
+[0m10:43:15.107463 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.mart_vehicle_performance"
+[0m10:43:15.108601 [debug] [Thread-2 (]: On model.smart_city_dbt.mart_vehicle_performance: create or replace transient table SMART_CITY_DB.MART.mart_vehicle_performance
+    
+    
+    
+    as (/*
+mart/mart_vehicle_performance.sql
+
+Purpose : Central fact table for vehicle-level KPIs.
+          Power BI Dashboard 1: Vehicle Performance & Tracking
+
+Grain   : One row per vehicle_id per 5-minute window
+
+Joins:
+  stg_vehicle_5min   (fact source — Gold telemetry aggregations)
+  dim_vehicle        (vehicle attributes: type, tank size, fuel profile)
+  dim_route          (route attributes: distance, start/end location)
+  dim_date           (calendar: is_weekend, is_rush_hour)
+  stg_weather_hourly (weather context at time of window)
+
+Why join weather here:
+  Speed, fuel rate, and engine temp are all affected by weather.
+  A vehicle showing low speed COULD be traffic or COULD be fog.
+  The weather join lets analysts distinguish between these causes.
+
+Materialized as TABLE so Power BI queries are fast.
+Refreshed every time Airflow triggers dbt run (hourly).
+*/
+
+WITH vehicle_fact AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_vehicle_5min
+),
+
+vehicle_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_vehicle
+),
+
+route_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_route
+),
+
+date_dim AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.dim_date
+),
+
+weather AS (
+    SELECT * FROM SMART_CITY_DB.STAGING.stg_weather_hourly
+)
+
+SELECT
+    -- ── Time ──────────────────────────────────────────────────────────────
+    f.window_start,
+    f.window_end,
+    f.partition_date,
+    d.day_name,
+    d.is_weekend_cairo,
+    d.is_workday_cairo,
+    d.egypt_season,
+
+    -- ── Vehicle identity ──────────────────────────────────────────────────
+    f.vehicle_id,
+    f.vehicle_type,
+    v.vehicle_label,
+    v.tank_size_l,
+    v.fuel_base_l100km              AS manufacturer_fuel_rate_l100km,
+    v.mass_kg,
+
+    -- ── Route identity ────────────────────────────────────────────────────
+    f.route_name,
+    r.start_location,
+    r.end_location,
+    r.distance_km                   AS route_total_km,
+    r.via_description,
+
+    -- ── Speed metrics ─────────────────────────────────────────────────────
+    f.avg_speed_kmh,
+    f.max_speed_kmh,
+    f.min_speed_kmh,
+    f.speed_band,
+
+    -- ── Powertrain ────────────────────────────────────────────────────────
+    f.avg_rpm,
+    f.avg_engine_temp_c,
+    f.max_engine_temp_c,
+    f.engine_health,
+
+    -- ── Fuel ──────────────────────────────────────────────────────────────
+    f.avg_fuel_level_pct,
+    f.avg_fuel_rate_l100km,
+    f.total_fuel_consumed_l,
+    f.fuel_band,
+
+    -- Excess fuel rate vs manufacturer baseline
+    ROUND(
+        f.avg_fuel_rate_l100km - v.fuel_base_l100km, 2
+    )                               AS excess_fuel_rate_l100km,
+
+    -- Fuel cost for this 5-min window (Egypt 11 EGP/litre)
+    ROUND(f.total_fuel_consumed_l * 11.0, 3) AS fuel_cost_egp,
+
+    -- ── Traffic ───────────────────────────────────────────────────────────
+    f.avg_traffic_density,
+
+    -- ── GPS ───────────────────────────────────────────────────────────────
+    f.trip_distance_km,
+    f.avg_latitude,
+    f.avg_longitude,
+
+    -- ── Quality flags ─────────────────────────────────────────────────────
+    f.event_count,
+    f.anomaly_count,
+    f.had_anomaly,
+    f.clamped_count,
+
+    -- ── Weather context (joined on matching hour) ─────────────────────────
+    w.condition                     AS weather_condition,
+    w.avg_temp_c                    AS weather_temp_c,
+    w.weather_severity,
+    w.heat_category,
+    w.avg_speed_factor              AS weather_speed_factor,
+    w.speed_reduction_pct           AS weather_speed_reduction_pct,
+    w.ac_load_extra_l100km,
+    w.visibility_risk,
+
+    -- ── Derived cross-dimension metrics ───────────────────────────────────
+    -- Was vehicle significantly below expected speed for road type?
+    CASE
+        WHEN f.avg_speed_kmh < (f.avg_speed_kmh / NULLIF(w.avg_speed_factor, 0)) * 0.7
+        THEN TRUE ELSE FALSE
+    END                             AS was_significantly_slowed,
+
+    -- CO2 estimate for this window (2.31 kg per litre)
+    ROUND(f.total_fuel_consumed_l * 2.31, 5) AS co2_kg
+
+FROM vehicle_fact f
+LEFT JOIN vehicle_dim v
+    ON f.vehicle_id = v.vehicle_id
+LEFT JOIN route_dim r
+    ON f.route_name = r.route_name
+LEFT JOIN date_dim d
+    ON f.partition_date = d.date_actual
+LEFT JOIN weather w
+    ON DATE_TRUNC('hour', f.window_start) = DATE_TRUNC('hour', w.window_start)
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.mart_vehicle_performance"} */;
+[0m10:43:17.876304 [debug] [Thread-2 (]: SQL status: SUCCESS 69280 in 2.768 seconds
+[0m10:43:17.878263 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c17445c0-87fa-4807-b99d-817638459615', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDEEBE6D0>]}
+[0m10:43:17.879263 [info ] [Thread-2 (]: 16 of 16 OK created sql table model MART.mart_vehicle_performance .............. [[32mSUCCESS 69280[0m in 2.79s]
+[0m10:43:17.880264 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.mart_vehicle_performance
+[0m10:43:17.882265 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m10:43:17.882265 [debug] [MainThread]: Connection 'list_SMART_CITY_DB' was left open.
+[0m10:43:17.882265 [debug] [MainThread]: On list_SMART_CITY_DB: Close
+[0m10:43:18.221318 [debug] [MainThread]: Connection 'list_SMART_CITY_DB_MART' was left open.
+[0m10:43:18.222278 [debug] [MainThread]: On list_SMART_CITY_DB_MART: Close
+[0m10:43:18.566203 [debug] [MainThread]: Connection 'model.smart_city_dbt.mart_vehicle_performance' was left open.
+[0m10:43:18.567293 [debug] [MainThread]: On model.smart_city_dbt.mart_vehicle_performance: Close
+[0m10:43:18.921825 [info ] [MainThread]: 
+[0m10:43:18.922838 [info ] [MainThread]: Finished running 9 table models, 7 view models in 0 hours 0 minutes and 31.82 seconds (31.82s).
+[0m10:43:18.928838 [debug] [MainThread]: Command end result
+[0m10:43:19.011301 [debug] [MainThread]: Wrote artifact WritableManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\manifest.json
+[0m10:43:19.015452 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\semantic_manifest.json
+[0m10:43:19.026978 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\run_results.json
+[0m10:43:19.026978 [info ] [MainThread]: 
+[0m10:43:19.027978 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m10:43:19.028979 [info ] [MainThread]: 
+[0m10:43:19.030626 [info ] [MainThread]: Done. PASS=16 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=16
+[0m10:43:19.032980 [debug] [MainThread]: Command `dbt run` succeeded at 10:43:19.032980 after 34.01 seconds
+[0m10:43:19.033983 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CD42FB0D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CDABE2510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021CD42F3450>]}
+[0m10:43:19.034980 [debug] [MainThread]: Flushing usage events
+[0m10:43:20.539031 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:15:02.078894 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB1A073150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB1A0732D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB1A072E90>]}
+
+
+============================== 11:15:02.085583 | f93903e4-29ab-4a71-ad86-b0e9ea63eea2 ==============================
+[0m11:15:02.085583 [info ] [MainThread]: Running with dbt=1.11.11
+[0m11:15:02.086590 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\Admin\\.dbt', 'invocation_command': 'dbt run --select dim_vehicle', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'D:\\ITI campaign\\ITI content\\final_project\\data_sources\\test\\smart_city_dbt\\logs'}
+[0m11:15:03.471082 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m11:15:03.472083 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m11:15:03.472083 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m11:15:03.678250 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f93903e4-29ab-4a71-ad86-b0e9ea63eea2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB1A06AE10>]}
+[0m11:15:03.741248 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f93903e4-29ab-4a71-ad86-b0e9ea63eea2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB19032490>]}
+[0m11:15:03.742247 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m11:15:04.141223 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m11:15:04.331186 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m11:15:04.333187 [debug] [MainThread]: Partial parsing: updated file: smart_city_dbt://models\dimensions\dim_vehicle.sql
+[0m11:15:04.684214 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on 'dim_vehicle' in
+package 'smart_city_dbt' (models\staging\schema.yml). Arguments to generic tests
+should be nested under the `arguments` property.
+[0m11:15:04.685214 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'f93903e4-29ab-4a71-ad86-b0e9ea63eea2', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB1CCC4390>]}
+[0m11:15:04.866785 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f93903e4-29ab-4a71-ad86-b0e9ea63eea2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB1C765190>]}
+[0m11:15:05.010806 [debug] [MainThread]: Wrote artifact WritableManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\manifest.json
+[0m11:15:05.013657 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\semantic_manifest.json
+[0m11:15:05.032740 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f93903e4-29ab-4a71-ad86-b0e9ea63eea2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB1A071850>]}
+[0m11:15:05.033747 [info ] [MainThread]: Found 16 models, 64 data tests, 7 sources, 537 macros
+[0m11:15:05.033747 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f93903e4-29ab-4a71-ad86-b0e9ea63eea2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB1C6CF490>]}
+[0m11:15:05.036786 [info ] [MainThread]: 
+[0m11:15:05.036786 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:15:05.037748 [info ] [MainThread]: 
+[0m11:15:05.038781 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m11:15:05.039747 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SMART_CITY_DB'
+[0m11:15:05.128090 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB"
+[0m11:15:05.128090 [debug] [ThreadPool]: On list_SMART_CITY_DB: show terse schemas in database SMART_CITY_DB
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB"} */
+[0m11:15:05.129085 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:15:07.692128 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 2.563 seconds
+[0m11:15:07.700163 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SMART_CITY_DB_MART'
+[0m11:15:07.714163 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB_MART"
+[0m11:15:07.714163 [debug] [ThreadPool]: On list_SMART_CITY_DB_MART: show objects in SMART_CITY_DB.MART
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB_MART"} */;
+[0m11:15:07.715160 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:15:09.407907 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.693 seconds
+[0m11:15:09.410908 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_SMART_CITY_DB_MART, now list_SMART_CITY_DB_STAGING)
+[0m11:15:09.414947 [debug] [ThreadPool]: Using snowflake connection "list_SMART_CITY_DB_STAGING"
+[0m11:15:09.414947 [debug] [ThreadPool]: On list_SMART_CITY_DB_STAGING: show objects in SMART_CITY_DB.STAGING
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "connection_name": "list_SMART_CITY_DB_STAGING"} */;
+[0m11:15:09.691556 [debug] [ThreadPool]: SQL status: SUCCESS 12 in 0.276 seconds
+[0m11:15:09.698559 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f93903e4-29ab-4a71-ad86-b0e9ea63eea2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB1A06BB10>]}
+[0m11:15:09.705559 [debug] [Thread-2 (]: Began running node model.smart_city_dbt.dim_vehicle
+[0m11:15:09.706554 [info ] [Thread-2 (]: 1 of 1 START sql table model STAGING.dim_vehicle ............................... [RUN]
+[0m11:15:09.707559 [debug] [Thread-2 (]: Acquiring new snowflake connection 'model.smart_city_dbt.dim_vehicle'
+[0m11:15:09.708559 [debug] [Thread-2 (]: Began compiling node model.smart_city_dbt.dim_vehicle
+[0m11:15:09.723569 [debug] [Thread-2 (]: Writing injected SQL for node "model.smart_city_dbt.dim_vehicle"
+[0m11:15:09.725560 [debug] [Thread-2 (]: Began executing node model.smart_city_dbt.dim_vehicle
+[0m11:15:09.778627 [debug] [Thread-2 (]: Writing runtime sql for node "model.smart_city_dbt.dim_vehicle"
+[0m11:15:09.786175 [debug] [Thread-2 (]: Using snowflake connection "model.smart_city_dbt.dim_vehicle"
+[0m11:15:09.787135 [debug] [Thread-2 (]: On model.smart_city_dbt.dim_vehicle: create or replace transient table SMART_CITY_DB.STAGING.dim_vehicle
+    
+    
+    
+    as (/*
+dimensions/dim_vehicle.sql
+
+Type    : SCD Type 1 (overwrite — vehicle attributes don't change)
+Source  : stg_vehicle_5min (DISTINCT vehicles seen in telemetry)
+Purpose : Provides business context for each vehicle ID.
+          Power BI uses this to filter/group dashboards by vehicle type.
+
+Grain   : One row per vehicle_id (5 vehicles in this simulation)
+
+Columns explained:
+  vehicle_type     — sedan/suv/microbus, determines fuel profile
+  route_name       — primary route this vehicle operates on
+  tank_size_l      — from vehicle_simulator.py VEHICLE_PROFILES
+  fuel_base_l100km — baseline fuel consumption (before traffic/weather)
+  max_rpm          — redline RPM for this vehicle class
+*/
+
+WITH vehicles_seen AS (
+
+    SELECT
+        vehicle_id,
+
+        MAX(vehicle_type) AS vehicle_type,
+        MAX(route_name)   AS route_name
+
+    FROM SMART_CITY_DB.STAGING.stg_vehicle_5min
+
+    GROUP BY vehicle_id
+),
+vehicle_specs AS (
+    SELECT
+        vehicle_type,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 55.0
+            WHEN 'suv'      THEN 70.0
+            WHEN 'microbus' THEN 70.0
+            WHEN 'bus'      THEN 200.0
+            ELSE 55.0
+        END AS tank_size_l,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 8.0
+            WHEN 'suv'      THEN 11.0
+            WHEN 'microbus' THEN 12.0
+            WHEN 'bus'      THEN 22.0
+            ELSE 8.0
+        END AS fuel_base_l100km,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 6500
+            WHEN 'suv'      THEN 6000
+            WHEN 'microbus' THEN 5000
+            WHEN 'bus'      THEN 2800
+            ELSE 6500
+        END AS max_rpm,
+        CASE vehicle_type
+            WHEN 'sedan'    THEN 1300
+            WHEN 'suv'      THEN 1900
+            WHEN 'microbus' THEN 2500
+            WHEN 'bus'      THEN 12000
+            ELSE 1300
+        END AS mass_kg
+    FROM (
+        SELECT DISTINCT vehicle_type
+        FROM SMART_CITY_DB.STAGING.stg_vehicle_5min
+    )
+)
+
+SELECT
+    v.vehicle_id,
+    v.vehicle_type,
+    v.route_name,
+    s.tank_size_l,
+    s.fuel_base_l100km,
+    s.max_rpm,
+    s.mass_kg,
+    -- Human-readable label for Power BI reports
+    v.vehicle_id || ' (' || v.vehicle_type || ')' AS vehicle_label,
+    CURRENT_TIMESTAMP()                            AS dbt_updated_at
+
+FROM vehicles_seen v
+LEFT JOIN vehicle_specs s
+    ON v.vehicle_type = s.vehicle_type
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "smart_city_dbt", "target_name": "dev", "node_id": "model.smart_city_dbt.dim_vehicle"} */;
+[0m11:15:09.787135 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m11:15:15.926996 [debug] [Thread-2 (]: SQL status: SUCCESS 5 in 6.140 seconds
+[0m11:15:15.951955 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f93903e4-29ab-4a71-ad86-b0e9ea63eea2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB1E24CB10>]}
+[0m11:15:15.952985 [info ] [Thread-2 (]: 1 of 1 OK created sql table model STAGING.dim_vehicle .......................... [[32mSUCCESS 5[0m in 6.24s]
+[0m11:15:15.953990 [debug] [Thread-2 (]: Finished running node model.smart_city_dbt.dim_vehicle
+[0m11:15:15.964570 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:15:15.965574 [debug] [MainThread]: Connection 'list_SMART_CITY_DB' was left open.
+[0m11:15:15.965574 [debug] [MainThread]: On list_SMART_CITY_DB: Close
+[0m11:15:16.355598 [debug] [MainThread]: Connection 'list_SMART_CITY_DB_STAGING' was left open.
+[0m11:15:16.356598 [debug] [MainThread]: On list_SMART_CITY_DB_STAGING: Close
+[0m11:15:16.739523 [debug] [MainThread]: Connection 'model.smart_city_dbt.dim_vehicle' was left open.
+[0m11:15:16.740488 [debug] [MainThread]: On model.smart_city_dbt.dim_vehicle: Close
+[0m11:15:17.081529 [info ] [MainThread]: 
+[0m11:15:17.082498 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 12.04 seconds (12.04s).
+[0m11:15:17.083529 [debug] [MainThread]: Command end result
+[0m11:15:17.135136 [debug] [MainThread]: Wrote artifact WritableManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\manifest.json
+[0m11:15:17.138101 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\semantic_manifest.json
+[0m11:15:17.143136 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\ITI campaign\ITI content\final_project\data_sources\test\smart_city_dbt\target\run_results.json
+[0m11:15:17.144101 [info ] [MainThread]: 
+[0m11:15:17.145104 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:15:17.145104 [info ] [MainThread]: 
+[0m11:15:17.146102 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m11:15:17.146102 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m11:15:17.148136 [debug] [MainThread]: Command `dbt run` succeeded at 11:15:17.148136 after 15.17 seconds
+[0m11:15:17.148136 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB19D2D150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB132C4D10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CB19DFF210>]}
+[0m11:15:17.149104 [debug] [MainThread]: Flushing usage events
+[0m11:15:18.327425 [debug] [MainThread]: An error was encountered while trying to flush usage events

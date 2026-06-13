@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#6366F1"          # Indigo
+backgroundColor = "#0B0F19"       # Deep dark space blue
+secondaryBackgroundColor = "#1E293B" # Dark slate grey
+textColor = "#F8FAFC"             # Bright white-grey
+font = "sans serif"

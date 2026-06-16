@@ -7,9 +7,7 @@ The platform ingests live vehicle telemetry, weather, traffic, and road-event st
 ---
 
 # Architecture Overview
-<img width="6529" height="4451" alt="smartcity_diagram" src="https://github.com/user-attachments/assets/072ac907-7951-48e5-bd84-cf7212e26492" />
-
-
+<img width="6529" height="4412" alt="smartcity_diagram" src="https://github.com/user-attachments/assets/0085f7f9-2839-4b11-92c9-a4adf10b1f48" />
 ## Batch + Real-Time Hybrid Architecture (Lambda-Style)
 
 ```text
@@ -270,7 +268,7 @@ Smart-City-Data-Platform/
 # Screenshots
 
 ## Architecture Diagram
-  <img width="6529" height="4451" alt="smartcity_diagram" src="https://github.com/user-attachments/assets/1dbaaa3f-0f75-4ac2-a875-d39d7d6f0f79" />
+<img width="6529" height="4412" alt="smartcity_diagram" src="https://github.com/user-attachments/assets/4ba6f00d-6ebd-4ef5-893b-db94f81e67fd" />
 ## Power BI Dashboard
 <img width="1918" height="1037" alt="image" src="https://github.com/user-attachments/assets/da6e8747-a105-428d-861e-4631149491df" />
 ## Grafana Monitoring
